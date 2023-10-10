@@ -33,17 +33,6 @@ PODS:
   - AppAuth/ExternalUserAgent (1.6.1):
     - AppAuth/Core
   - AsyncSwift (2.0.4)
-  - Braintree (5.21.0):
-    - Braintree/Card (= 5.21.0)
-    - Braintree/Core (= 5.21.0)
-    - Braintree/PayPal (= 5.21.0)
-  - Braintree/Card (5.21.0):
-    - Braintree/Core
-  - Braintree/Core (5.21.0)
-  - Braintree/PayPal (5.21.0):
-    - Braintree/Core
-    - Braintree/PayPalDataCollector
-  - Braintree/PayPalDataCollector (5.21.0)
   - CashfreeAnalyticsSDK (2.0.5):
     - CFNetworkSDK (~> 2.0.5)
   - CashfreePG (2.0.7):
@@ -123,31 +112,10 @@ PODS:
   - OneSignal (2.16.7)
   - PromisesObjC (2.2.0)
   - R.swift (7.3.2)
-  - razorpay-pod (1.3.2)
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
   - SDWebImage/Core (4.4.8)
   - SkyFloatingLabelTextField (4.0.0)
-  - Stripe (23.9.2):
-    - StripeApplePay (= 23.9.2)
-    - StripeCore (= 23.9.2)
-    - StripePayments (= 23.9.2)
-    - StripePaymentsUI (= 23.9.2)
-    - StripeUICore (= 23.9.2)
-  - StripeApplePay (23.9.2):
-    - StripeCore (= 23.9.2)
-  - StripeCore (23.9.2)
-  - StripePayments (23.9.2):
-    - StripeCore (= 23.9.2)
-    - StripePayments/Stripe3DS2 (= 23.9.2)
-  - StripePayments/Stripe3DS2 (23.9.2):
-    - StripeCore (= 23.9.2)
-  - StripePaymentsUI (23.9.2):
-    - StripeCore (= 23.9.2)
-    - StripePayments (= 23.9.2)
-    - StripeUICore (= 23.9.2)
-  - StripeUICore (23.9.2):
-    - StripeCore (= 23.9.2)
   - SwiftEventBus (2.2.0)
   - SwiftSoup (2.6.0)
   - SwiftyBeaver (2.0.0)
@@ -160,7 +128,6 @@ DEPENDENCIES:
   - AgoraRtcEngine_iOS
   - Alamofire
   - AsyncSwift
-  - Braintree
   - CashfreePG
   - DropDown
   - FBSDKLoginKit
@@ -172,10 +139,8 @@ DEPENDENCIES:
   - JGProgressHUD
   - OneSignal (< 3.0, >= 2.6.2)
   - R.swift
-  - razorpay-pod
   - SDWebImage (~> 4.0)
   - SkyFloatingLabelTextField
-  - Stripe
   - SwiftEventBus (from `https://github.com/cesarferreira/SwiftEventBus.git`, tag `3.0.0`)
   - SwiftSoup
   - SwiftyBeaver
@@ -190,7 +155,6 @@ SPEC REPOS:
     - Alamofire
     - AppAuth
     - AsyncSwift
-    - Braintree
     - CashfreeAnalyticsSDK
     - CashfreePG
     - CashfreePGCoreSDK
@@ -216,15 +180,8 @@ SPEC REPOS:
     - OneSignal
     - PromisesObjC
     - R.swift
-    - razorpay-pod
     - SDWebImage
     - SkyFloatingLabelTextField
-    - Stripe
-    - StripeApplePay
-    - StripeCore
-    - StripePayments
-    - StripePaymentsUI
-    - StripeUICore
     - SwiftSoup
     - SwiftyBeaver
     - Toast-Swift
@@ -247,7 +204,6 @@ SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   AppAuth: e48b432bb4ba88b10cb2bcc50d7f3af21e78b9c2
   AsyncSwift: 65775a7b32e740609b24969ece3de58723b9dc3e
-  Braintree: 629e2586433edad0b69a7d2eaba0910b7801db49
   CashfreeAnalyticsSDK: 6d3825916b1f37e38e26cc3b825eef31c9a8b4b9
   CashfreePG: 84f0039fac31ad0bd7985a73a54de446f33123b7
   CashfreePGCoreSDK: 0e13e146c32fddc19c316ea54eae78ccefa55bfe
@@ -273,15 +229,8 @@ SPEC CHECKSUMS:
   OneSignal: 67a3cf1d1edf2a9c22ba846e8d2eee2bf8cdb525
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   R.swift: 0af0d882f49f03711415cb4e5215daa977d8a480
-  razorpay-pod: b129f60de5f0d0952bebfb9480a10909d4fd6b6d
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
-  Stripe: 58b4e0833be29ef08c5fd674edb94f2510430f35
-  StripeApplePay: 0c20d16e4b769699a3e6ecfd208d94bbe4730bd1
-  StripeCore: 523f526018df6a9f9c974148c9efc2b59a9a5be3
-  StripePayments: 2c8a4963effc9a1c1f2e272beeec5b6cbd090ab9
-  StripePaymentsUI: 08c3949cd7b1e990b5fac5d0748152a9a96131bb
-  StripeUICore: 6c614a7d5da3a15b0a9bd898f494611677066e79
   SwiftEventBus: 667baca2f107fa0c9c2068950298dbfd6a4111cc
   SwiftSoup: dd9baab0fba4b6ab3ade23a6a47132ebd7d22cb1
   SwiftyBeaver: 014b0c12065026b731bac80305294f27d63e27f6
@@ -289,6 +238,6 @@ SPEC CHECKSUMS:
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: f86240bb37ec81c5baf921c4d741da9914d2bc5a
+PODFILE CHECKSUM: 464d39c5a0d1281987630346f71b8056c3b6ed06
 
 COCOAPODS: 1.12.1

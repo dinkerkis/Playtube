@@ -25,14 +25,11 @@ target 'Playtube' do
   pod 'SwiftEventBus', :tag => '3.0.0', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
   pod 'FittedSheets'
   pod 'ActiveLabel'
-  pod 'Braintree'
   pod 'AgoraRtcEngine_iOS'
   pod 'HCVimeoVideoExtractor'
   pod "youtube-ios-player-helper"
-  pod 'razorpay-pod'
   pod 'CashfreePG'
   pod 'SwiftSoup'
-  pod 'Stripe'
   
 end
 
