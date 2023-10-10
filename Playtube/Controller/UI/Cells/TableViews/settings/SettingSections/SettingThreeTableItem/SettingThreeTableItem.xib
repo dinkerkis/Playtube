@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TTCommons-Medium.ttf">
+            <string>TTCommons-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingThreeTableItem" id="KGk-i7-Jjw" customClass="SettingThreeTableItem" customModule="Playtube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwT-7r-bp9">
+                        <rect key="frame" x="55" y="12" width="44" height="20"/>
+                        <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AuR-2a-qnk">
+                        <rect key="frame" x="257" y="6.5" width="49" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="47" id="Bme-Rp-Sdr"/>
+                            <constraint firstAttribute="height" constant="31" id="dMa-Sa-6NE"/>
+                        </constraints>
+                        <connections>
+                            <action selector="switchPressed:" destination="KGk-i7-Jjw" eventType="valueChanged" id="Scd-Pv-j0Z"/>
+                        </connections>
+                    </switch>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tv" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eUK-9q-ThI">
+                        <rect key="frame" x="15" y="10" width="25" height="24"/>
+                        <color key="tintColor" red="0.63137254899999995" green="0.65098039220000004" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="Cy9-zg-QhW"/>
+                            <constraint firstAttribute="height" constant="25" id="is5-4g-pZP"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" name="bgcolor1"/>
+                <constraints>
+                    <constraint firstItem="AuR-2a-qnk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PwT-7r-bp9" secondAttribute="trailing" constant="16" id="4gn-f3-Ubz"/>
+                    <constraint firstItem="eUK-9q-ThI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="TPs-pt-RXK"/>
+                    <constraint firstItem="AuR-2a-qnk" firstAttribute="centerY" secondItem="PwT-7r-bp9" secondAttribute="centerY" id="gax-wx-aqX"/>
+                    <constraint firstItem="PwT-7r-bp9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iqe-OS-mH1"/>
+                    <constraint firstItem="PwT-7r-bp9" firstAttribute="leading" secondItem="eUK-9q-ThI" secondAttribute="trailing" constant="15" id="nDO-zz-HMk"/>
+                    <constraint firstAttribute="trailing" secondItem="AuR-2a-qnk" secondAttribute="trailing" constant="16" id="p6p-0y-pwl"/>
+                    <constraint firstItem="eUK-9q-ThI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vZH-Oe-W68"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgLeft" destination="eUK-9q-ThI" id="axC-pi-krJ"/>
+                <outlet property="switch" destination="AuR-2a-qnk" id="hAg-1g-km8"/>
+                <outlet property="titleLabel" destination="PwT-7r-bp9" id="5jy-TZ-GKQ"/>
+            </connections>
+            <point key="canvasLocation" x="33" y="72"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="tv" catalog="system" width="128" height="95"/>
+        <namedColor name="bgcolor1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

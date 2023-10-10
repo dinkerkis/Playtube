@@ -1,0 +1,55 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '13.4'
+
+target 'Playtube' do
+  
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+  
+  # Pods for Playtube
+  pod 'IQKeyboardManagerSwift'
+  pod 'Alamofire'
+  pod 'SkyFloatingLabelTextField'
+  pod 'SwiftyBeaver'
+  pod 'JGProgressHUD'
+  pod 'Toast-Swift', '~> 4.0.0'
+  pod "AsyncSwift"
+  pod 'R.swift'
+  pod 'SDWebImage', '~> 4.0'
+  pod 'DropDown'
+  pod 'GoogleSignIn', '5.0.0'
+  pod 'FBSDKLoginKit'
+  pod 'OneSignal', '>= 2.6.2', '< 3.0'
+  pod 'UIView-Shimmer', '~> 1.0'
+  pod 'Google-Mobile-Ads-SDK'
+  pod 'SwiftEventBus', :tag => '3.0.0', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
+  pod 'FittedSheets'
+  pod 'ActiveLabel'
+  pod 'Braintree'
+  pod 'AgoraRtcEngine_iOS'
+  pod 'HCVimeoVideoExtractor'
+  pod "youtube-ios-player-helper"
+  pod 'razorpay-pod'
+  pod 'CashfreePG'
+  pod 'SwiftSoup'
+  pod 'Stripe'
+  
+end
+
+target 'OneSignalNotificationServiceExtension' do
+  use_frameworks!
+  pod 'OneSignal', '>= 2.6.2', '< 3.0'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.4'
+        xcconfig_path = config.base_configuration_reference.real_path
+        xcconfig = File.read(xcconfig_path)
+        xcconfig_mod = xcconfig.gsub(/DT_TOOLCHAIN_DIR/, "TOOLCHAIN_DIR")
+        File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
+    end
+  end
+end

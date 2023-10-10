@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TTCommons-Medium.ttf">
+            <string>TTCommons-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatLeftTableItem" rowHeight="108" id="KGk-i7-Jjw" customClass="ChatLeftTableItem" customModule="Playtube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="108"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="362" height="108"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4x7-UZ-SDd" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                        <rect key="frame" x="15" y="8" width="40" height="40"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="20m-56-KAv"/>
+                            <constraint firstAttribute="height" constant="40" id="lIz-Oc-XXw"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEh-LZ-YdD">
+                        <rect key="frame" x="65" y="8" width="58.5" height="92"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CM-1y-M4o">
+                                <rect key="frame" x="15" y="9" width="28.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Pqn-iH-T5Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="0.17955372429999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6CM-1y-M4o" firstAttribute="leading" secondItem="eEh-LZ-YdD" secondAttribute="leading" constant="15" id="9SZ-Ob-JoI"/>
+                            <constraint firstItem="6CM-1y-M4o" firstAttribute="top" secondItem="eEh-LZ-YdD" secondAttribute="top" constant="9" id="Vr0-kS-R6L"/>
+                            <constraint firstAttribute="trailing" secondItem="6CM-1y-M4o" secondAttribute="trailing" constant="15" id="fd9-TZ-zQi"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6CM-1y-M4o" secondAttribute="bottom" constant="9" id="qgz-7P-qcO"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eEh-LZ-YdD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="0DW-lg-KCh"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eEh-LZ-YdD" secondAttribute="trailing" constant="16" id="EEs-QI-tYl"/>
+                    <constraint firstItem="eEh-LZ-YdD" firstAttribute="leading" secondItem="4x7-UZ-SDd" secondAttribute="trailing" constant="10" id="F12-3w-lYk"/>
+                    <constraint firstItem="4x7-UZ-SDd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="I2y-MY-qif"/>
+                    <constraint firstItem="4x7-UZ-SDd" firstAttribute="top" secondItem="eEh-LZ-YdD" secondAttribute="top" id="LJy-qb-Mxk"/>
+                    <constraint firstAttribute="bottom" secondItem="eEh-LZ-YdD" secondAttribute="bottom" constant="8" id="bfH-aJ-WqU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="messageTextLabel" destination="6CM-1y-M4o" id="VQl-3j-Cfu"/>
+                <outlet property="userImage" destination="4x7-UZ-SDd" id="4v3-N0-xjq"/>
+            </connections>
+            <point key="canvasLocation" x="168.11594202898553" y="149.33035714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

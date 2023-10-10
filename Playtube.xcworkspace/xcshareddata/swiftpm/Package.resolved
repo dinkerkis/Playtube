@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "player-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dailymotion/player-sdk-ios",
+      "state" : {
+        "revision" : "8c3fbaa135d1387db2340b63ab11047d36ac9d3a",
+        "version" : "1.0.3"
+      }
+    }
+  ],
+  "version" : 2
+}

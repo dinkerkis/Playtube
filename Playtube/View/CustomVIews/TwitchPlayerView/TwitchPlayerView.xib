@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TwitchPlayerView" customModule="Playtube" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="i5M-Pr-FkT" id="x34-rh-7JX"/>
+                <outlet property="twitchPlayerView" destination="ZNr-dI-YWP" id="P1R-dD-Fsk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZNr-dI-YWP" customClass="TwitchPlayer" customModule="Playtube" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="scrollingEnabled" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="playerThemeIsDark" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="showingChatPanel" value="NO"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="videoToLoad" value="1844129266"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="chatModeIsMobile" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="allowsFullScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </wkWebView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ZNr-dI-YWP" secondAttribute="trailing" id="0vF-dk-veK"/>
+                <constraint firstItem="ZNr-dI-YWP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ea7-OQ-502"/>
+                <constraint firstAttribute="bottom" secondItem="ZNr-dI-YWP" secondAttribute="bottom" id="JCH-pP-BC1"/>
+                <constraint firstItem="ZNr-dI-YWP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ae7-4Y-bNo"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131" y="-32"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

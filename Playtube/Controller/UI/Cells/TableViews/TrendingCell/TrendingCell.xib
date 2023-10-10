@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TTCommons-Medium.ttf">
+            <string>TTCommons-Medium</string>
+        </array>
+        <array key="TTCommons-Regular.ttf">
+            <string>TTCommons-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrendingCell" id="KGk-i7-Jjw" customClass="TrendingCell" customModule="Playtube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="286"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="286"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzx-qY-qhz">
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="286"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1tb-4k-81Q">
+                                <rect key="frame" x="0.0" y="6" width="360" height="202.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1tb-4k-81Q" secondAttribute="height" multiplier="16:9" id="czK-dn-JHA"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YouTube" translatesAutoresizingMaskIntoConstraints="NO" id="2os-lL-dFg">
+                                <rect key="frame" x="0.0" y="6" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="kc1-5d-gld"/>
+                                    <constraint firstAttribute="width" secondItem="2os-lL-dFg" secondAttribute="height" multiplier="1:1" id="wgW-VB-fEW"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvT-ya-416">
+                                <rect key="frame" x="307.5" y="178.5" width="44.5" height="22"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02:09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXe-Kn-jQc">
+                                        <rect key="frame" x="6" y="1" width="32.5" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="kHJ-Zc-1T1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="xXe-Kn-jQc" firstAttribute="top" secondItem="bvT-ya-416" secondAttribute="top" constant="1" id="1oq-rD-tCq"/>
+                                    <constraint firstItem="xXe-Kn-jQc" firstAttribute="leading" secondItem="bvT-ya-416" secondAttribute="leading" constant="6" id="Miz-WB-uWz"/>
+                                    <constraint firstAttribute="trailing" secondItem="xXe-Kn-jQc" secondAttribute="trailing" constant="6" id="bCp-la-MLH"/>
+                                    <constraint firstAttribute="bottom" secondItem="xXe-Kn-jQc" secondAttribute="bottom" constant="1" id="nNV-aY-EvJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="YBd-fE-8Zn" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                <rect key="frame" x="12" y="216.5" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Im5-X0-g5Z"/>
+                                    <constraint firstAttribute="width" secondItem="YBd-fE-8Zn" secondAttribute="height" id="eax-aj-qja"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Hours of Amazing Nature Scenery &amp; Relaxing Music for Stress Relief" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5L-Jn-xXm">
+                                <rect key="frame" x="56" y="216.5" width="272" height="32"/>
+                                <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PB-Lc-dwJ">
+                                <rect key="frame" x="328" y="216.5" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Zwe-an-o6b"/>
+                                    <constraint firstAttribute="width" secondItem="5PB-Lc-dwJ" secondAttribute="height" multiplier="1:1" id="dV3-g3-woT"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="dots"/>
+                                <connections>
+                                    <action selector="morePressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MSJ-d7-wUx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat Trumpet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmg-EB-D4F">
+                                <rect key="frame" x="56" y="251.5" width="69" height="14"/>
+                                <fontDescription key="fontDescription" name="TTCommons-Regular" family="TT Commons" pointSize="14"/>
+                                <color key="textColor" red="0.45098039220000002" green="0.47058823529999999" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verified_badge" translatesAutoresizingMaskIntoConstraints="NO" id="eY6-cE-vBg">
+                                <rect key="frame" x="129" y="252.5" width="12" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eY6-cE-vBg" secondAttribute="height" id="HCm-O9-del"/>
+                                    <constraint firstAttribute="height" constant="12" id="Hjn-FU-Vpv"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YBd-fE-8Zn" firstAttribute="top" secondItem="1tb-4k-81Q" secondAttribute="bottom" constant="8" id="0Cr-jN-beH"/>
+                            <constraint firstItem="cmg-EB-D4F" firstAttribute="top" secondItem="O5L-Jn-xXm" secondAttribute="bottom" constant="3" id="0ep-Fx-W1G"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cmg-EB-D4F" secondAttribute="bottom" constant="10" id="3qo-0c-hk7"/>
+                            <constraint firstItem="5PB-Lc-dwJ" firstAttribute="leading" secondItem="O5L-Jn-xXm" secondAttribute="trailing" id="46X-bj-rk0"/>
+                            <constraint firstItem="eY6-cE-vBg" firstAttribute="leading" secondItem="cmg-EB-D4F" secondAttribute="trailing" constant="4" id="4mC-Es-AiG"/>
+                            <constraint firstItem="1tb-4k-81Q" firstAttribute="bottom" secondItem="bvT-ya-416" secondAttribute="bottom" constant="8" id="7jT-XG-5qc"/>
+                            <constraint firstAttribute="trailing" secondItem="bvT-ya-416" secondAttribute="trailing" constant="8" id="Jf1-nY-PMW"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eY6-cE-vBg" secondAttribute="trailing" constant="12" id="Kbd-gg-hxP"/>
+                            <constraint firstItem="eY6-cE-vBg" firstAttribute="centerY" secondItem="cmg-EB-D4F" secondAttribute="centerY" id="Qmx-O3-4Gl"/>
+                            <constraint firstAttribute="trailing" secondItem="5PB-Lc-dwJ" secondAttribute="trailing" constant="12" id="S5G-nm-QM0"/>
+                            <constraint firstItem="cmg-EB-D4F" firstAttribute="leading" secondItem="O5L-Jn-xXm" secondAttribute="leading" id="TzO-7I-Xf6"/>
+                            <constraint firstItem="2os-lL-dFg" firstAttribute="top" secondItem="1tb-4k-81Q" secondAttribute="top" id="UKv-Ff-5i8"/>
+                            <constraint firstAttribute="trailing" secondItem="1tb-4k-81Q" secondAttribute="trailing" id="V6E-IS-PDj"/>
+                            <constraint firstItem="O5L-Jn-xXm" firstAttribute="top" secondItem="1tb-4k-81Q" secondAttribute="bottom" constant="8" id="V6u-Rd-hVg"/>
+                            <constraint firstItem="2os-lL-dFg" firstAttribute="leading" secondItem="gzx-qY-qhz" secondAttribute="leading" id="cQi-VY-EnG"/>
+                            <constraint firstItem="5PB-Lc-dwJ" firstAttribute="top" secondItem="1tb-4k-81Q" secondAttribute="bottom" constant="8" id="juo-Rk-MbL"/>
+                            <constraint firstItem="O5L-Jn-xXm" firstAttribute="leading" secondItem="YBd-fE-8Zn" secondAttribute="trailing" constant="12" id="q3g-gJ-nm0"/>
+                            <constraint firstItem="1tb-4k-81Q" firstAttribute="leading" secondItem="gzx-qY-qhz" secondAttribute="leading" id="qKS-oI-dJq"/>
+                            <constraint firstItem="1tb-4k-81Q" firstAttribute="top" secondItem="gzx-qY-qhz" secondAttribute="top" constant="6" id="x8F-X6-BWv"/>
+                            <constraint firstItem="YBd-fE-8Zn" firstAttribute="leading" secondItem="gzx-qY-qhz" secondAttribute="leading" constant="12" id="zea-Bc-GYw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="gzx-qY-qhz" secondAttribute="bottom" id="15y-tG-gYS"/>
+                    <constraint firstAttribute="trailing" secondItem="gzx-qY-qhz" secondAttribute="trailing" id="Ad8-g9-3vH"/>
+                    <constraint firstItem="gzx-qY-qhz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nmO-cA-tJD"/>
+                    <constraint firstItem="gzx-qY-qhz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="quD-Zy-9Mz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="optionButton" destination="5PB-Lc-dwJ" id="vpS-vC-CBv"/>
+                <outlet property="profileImage" destination="YBd-fE-8Zn" id="L0X-Qt-5d7"/>
+                <outlet property="thumbnailImage" destination="1tb-4k-81Q" id="bgU-kO-aiX"/>
+                <outlet property="timeLabel" destination="xXe-Kn-jQc" id="b3k-iQ-3fF"/>
+                <outlet property="timeView" destination="bvT-ya-416" id="jQk-Ul-OMM"/>
+                <outlet property="titleLabel" destination="O5L-Jn-xXm" id="APD-eX-rkG"/>
+                <outlet property="usernameLabel" destination="cmg-EB-D4F" id="RLE-rk-Zud"/>
+                <outlet property="verifiedBadge" destination="eY6-cE-vBg" id="lMY-pe-dMg"/>
+                <outlet property="videoTypeImage" destination="2os-lL-dFg" id="ARB-Y8-zCk"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="112"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="YBd-fE-8Zn">
+            <size key="intrinsicContentSize" width="25" height="25"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="YouTube" width="32" height="32"/>
+        <image name="dots" width="20" height="20"/>
+        <image name="profile" width="25" height="25"/>
+        <image name="verified_badge" width="512" height="512"/>
+    </resources>
+</document>

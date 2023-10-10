@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TTCommons-Medium.ttf">
+            <string>TTCommons-Medium</string>
+        </array>
+        <array key="TTCommons-Regular.ttf">
+            <string>TTCommons-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerNextTableItem" rowHeight="120" id="qh9-Fs-oLT" customClass="PlayerNextTableItem" customModule="Playtube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qh9-Fs-oLT" id="12b-Xg-xDO">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yTY-nR-ds1">
+                        <rect key="frame" x="12" y="12" width="164" height="96"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="96" id="bnO-Z8-xzm"/>
+                            <constraint firstAttribute="width" constant="164" id="uoD-h0-Y4q"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YouTube" translatesAutoresizingMaskIntoConstraints="NO" id="HWM-34-atS">
+                        <rect key="frame" x="12" y="12" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="0SW-RA-LjN"/>
+                            <constraint firstAttribute="width" secondItem="HWM-34-atS" secondAttribute="height" multiplier="1:1" id="mgZ-WQ-OCg"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLg-rn-BGe">
+                        <rect key="frame" x="123.5" y="78" width="44.5" height="22"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02:09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqV-FC-grk">
+                                <rect key="frame" x="6" y="1" width="32.5" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="KCR-ET-cJn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EqV-FC-grk" firstAttribute="leading" secondItem="DLg-rn-BGe" secondAttribute="leading" constant="6" id="7EA-da-3Do"/>
+                            <constraint firstAttribute="bottom" secondItem="EqV-FC-grk" secondAttribute="bottom" constant="1" id="LvF-IA-Q5h"/>
+                            <constraint firstItem="EqV-FC-grk" firstAttribute="top" secondItem="DLg-rn-BGe" secondAttribute="top" constant="1" id="MYj-0x-HhL"/>
+                            <constraint firstAttribute="trailing" secondItem="EqV-FC-grk" secondAttribute="trailing" constant="6" id="tfN-Ij-tuF"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sean Paul - No Lie (Official Music Video) ft. Dua Lipa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="141-EJ-95E">
+                        <rect key="frame" x="184" y="12" width="198" height="36"/>
+                        <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="18"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sean Paul" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7s-uZ-fC1">
+                        <rect key="frame" x="184" y="48" width="54.5" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="070-jP-jmU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="TTCommons-Regular" family="TT Commons" pointSize="14"/>
+                        <color key="textColor" name="Label_Colors_Secondary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verified_badge" translatesAutoresizingMaskIntoConstraints="NO" id="Dgi-5U-i4s">
+                        <rect key="frame" x="242.5" y="51" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="FR4-c8-uMH"/>
+                            <constraint firstAttribute="width" secondItem="Dgi-5U-i4s" secondAttribute="height" multiplier="1:1" id="ejU-tb-g4T"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19.9M views • 3 Years ago" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9m-AG-WR4">
+                        <rect key="frame" x="184" y="66" width="218" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="H2i-BZ-2FH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="TTCommons-Regular" family="TT Commons" pointSize="14"/>
+                        <color key="textColor" name="Label_Colors_Secondary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APr-c9-ZR9">
+                        <rect key="frame" x="382" y="12" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="y8c-Ys-77c"/>
+                        </constraints>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="dots"/>
+                        <connections>
+                            <action selector="optionButtonAction:" destination="qh9-Fs-oLT" eventType="touchUpInside" id="Csj-YY-yHl"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="141-EJ-95E" firstAttribute="leading" secondItem="yTY-nR-ds1" secondAttribute="trailing" constant="8" id="2VX-7h-U0T"/>
+                    <constraint firstItem="APr-c9-ZR9" firstAttribute="width" secondItem="APr-c9-ZR9" secondAttribute="height" multiplier="1:1" id="3f2-cU-gRJ"/>
+                    <constraint firstItem="D9m-AG-WR4" firstAttribute="trailing" secondItem="APr-c9-ZR9" secondAttribute="trailing" id="71R-kg-WHW"/>
+                    <constraint firstItem="D9m-AG-WR4" firstAttribute="top" secondItem="e7s-uZ-fC1" secondAttribute="bottom" id="AXS-SC-nTe"/>
+                    <constraint firstItem="Dgi-5U-i4s" firstAttribute="leading" secondItem="e7s-uZ-fC1" secondAttribute="trailing" constant="4" id="Bur-uP-zXv"/>
+                    <constraint firstItem="e7s-uZ-fC1" firstAttribute="leading" secondItem="141-EJ-95E" secondAttribute="leading" id="EHS-qi-l4U"/>
+                    <constraint firstItem="yTY-nR-ds1" firstAttribute="bottom" secondItem="DLg-rn-BGe" secondAttribute="bottom" constant="8" id="GXj-LT-J6J"/>
+                    <constraint firstItem="APr-c9-ZR9" firstAttribute="leading" secondItem="141-EJ-95E" secondAttribute="trailing" id="HJe-BC-JFk"/>
+                    <constraint firstItem="D9m-AG-WR4" firstAttribute="leading" secondItem="141-EJ-95E" secondAttribute="leading" id="PPm-k6-7MX"/>
+                    <constraint firstItem="141-EJ-95E" firstAttribute="top" secondItem="12b-Xg-xDO" secondAttribute="top" constant="12" id="S8j-P6-99a"/>
+                    <constraint firstItem="yTY-nR-ds1" firstAttribute="leading" secondItem="12b-Xg-xDO" secondAttribute="leading" constant="12" id="Sj4-IQ-4aa"/>
+                    <constraint firstItem="Dgi-5U-i4s" firstAttribute="centerY" secondItem="e7s-uZ-fC1" secondAttribute="centerY" id="fV2-D8-209"/>
+                    <constraint firstItem="yTY-nR-ds1" firstAttribute="trailing" secondItem="DLg-rn-BGe" secondAttribute="trailing" constant="8" id="kZv-3O-D1Y"/>
+                    <constraint firstAttribute="bottom" secondItem="yTY-nR-ds1" secondAttribute="bottom" constant="12" id="khO-yF-wMN"/>
+                    <constraint firstItem="HWM-34-atS" firstAttribute="top" secondItem="yTY-nR-ds1" secondAttribute="top" id="n6B-l1-09I"/>
+                    <constraint firstItem="yTY-nR-ds1" firstAttribute="top" secondItem="12b-Xg-xDO" secondAttribute="top" constant="12" id="o7c-nW-vBp"/>
+                    <constraint firstItem="HWM-34-atS" firstAttribute="leading" secondItem="yTY-nR-ds1" secondAttribute="leading" id="pf8-5D-lKl"/>
+                    <constraint firstItem="APr-c9-ZR9" firstAttribute="top" secondItem="12b-Xg-xDO" secondAttribute="top" constant="12" id="rVs-zL-fix"/>
+                    <constraint firstItem="APr-c9-ZR9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Dgi-5U-i4s" secondAttribute="trailing" id="wWu-vz-cOa"/>
+                    <constraint firstItem="e7s-uZ-fC1" firstAttribute="top" secondItem="141-EJ-95E" secondAttribute="bottom" id="xBe-5b-pUj"/>
+                    <constraint firstAttribute="trailing" secondItem="APr-c9-ZR9" secondAttribute="trailing" constant="12" id="ywX-cb-4r4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="optionButton" destination="APr-c9-ZR9" id="I4L-yF-D31"/>
+                <outlet property="thumbnailImage" destination="yTY-nR-ds1" id="WHG-O0-uOR"/>
+                <outlet property="timeLabel" destination="EqV-FC-grk" id="ZJD-9n-DQH"/>
+                <outlet property="timeView" destination="DLg-rn-BGe" id="hca-Br-uWC"/>
+                <outlet property="titleLabel" destination="141-EJ-95E" id="8X8-P3-2ia"/>
+                <outlet property="usernameLabel" destination="e7s-uZ-fC1" id="cyG-oU-ZMu"/>
+                <outlet property="verifiedBadge" destination="Dgi-5U-i4s" id="TVF-hD-Nu4"/>
+                <outlet property="videoTypeImage" destination="HWM-34-atS" id="uaq-39-P75"/>
+                <outlet property="viewsLabel" destination="D9m-AG-WR4" id="QHm-W2-L1C"/>
+            </connections>
+            <point key="canvasLocation" x="-93" y="-80"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="YouTube" width="32" height="32"/>
+        <image name="dots" width="20" height="20"/>
+        <image name="verified_badge" width="512" height="512"/>
+        <namedColor name="Label_Colors_Secondary">
+            <color red="0.45098039215686275" green="0.47058823529411764" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

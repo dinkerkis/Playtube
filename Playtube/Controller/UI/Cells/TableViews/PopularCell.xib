@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TTCommons-Medium.ttf">
+            <string>TTCommons-Medium</string>
+        </array>
+        <array key="TTCommons-Regular.ttf">
+            <string>TTCommons-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PopularCell" id="KGk-i7-Jjw" customClass="PopularCell" customModule="Playtube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cat_Entertainment" translatesAutoresizingMaskIntoConstraints="NO" id="w30-2Q-9uT" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                        <rect key="frame" x="12" y="18" width="36" height="36"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="8Dn-1v-JJZ"/>
+                            <constraint firstAttribute="height" constant="36" id="JlS-9j-ccy"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="9"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Ellen Show" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9S-g4-WV5">
+                        <rect key="frame" x="60.000000000000007" y="16" width="122.66666666666669" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="H5z-Qk-Jvc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="20"/>
+                        <color key="textColor" name="Label_Colors_Primary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verified_badge" translatesAutoresizingMaskIntoConstraints="NO" id="RYg-IM-Rcw">
+                        <rect key="frame" x="186.66666666666666" y="20" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="Iod-Xi-ips"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38.3M Subscribers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkx-xy-2Pl">
+                        <rect key="frame" x="60" y="39" width="101" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="iCe-Of-iAT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="TTCommons-Regular" family="TT Commons" pointSize="14"/>
+                        <color key="textColor" name="Label_Colors_Secondary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZA-Dk-IV9">
+                        <rect key="frame" x="316" y="22" width="86" height="28"/>
+                        <color key="backgroundColor" red="0.058823529411764705" green="0.39215686274509803" blue="0.96862745098039216" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="86" id="ipJ-n7-fxz"/>
+                            <constraint firstAttribute="height" constant="28" id="xJk-Hm-3CH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="14"/>
+                        <inset key="titleEdgeInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Subscribe">
+                            <color key="titleColor" name="Primary_UI_Primary"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="subscribeButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="58h-8W-xFF"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEc-HD-8xD">
+                        <rect key="frame" x="0.0" y="72" width="414" height="1"/>
+                        <color key="backgroundColor" name="Separator_Colors_Opaque"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="gYK-rW-WcW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="SEc-HD-8xD" secondAttribute="bottom" id="0Yn-bf-v6t"/>
+                    <constraint firstAttribute="trailing" secondItem="SEc-HD-8xD" secondAttribute="trailing" id="1gF-Pj-ldn"/>
+                    <constraint firstItem="mkx-xy-2Pl" firstAttribute="leading" secondItem="m9S-g4-WV5" secondAttribute="leading" id="JuI-wR-xhQ"/>
+                    <constraint firstItem="SEc-HD-8xD" firstAttribute="top" secondItem="w30-2Q-9uT" secondAttribute="bottom" constant="18" id="K9Z-NP-Iqx"/>
+                    <constraint firstItem="w30-2Q-9uT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="KHa-Rb-zQI"/>
+                    <constraint firstItem="RYg-IM-Rcw" firstAttribute="leading" secondItem="m9S-g4-WV5" secondAttribute="trailing" constant="4" id="MKC-UJ-rql"/>
+                    <constraint firstItem="RYg-IM-Rcw" firstAttribute="centerY" secondItem="m9S-g4-WV5" secondAttribute="centerY" id="PU3-Uj-ZdC"/>
+                    <constraint firstItem="mkx-xy-2Pl" firstAttribute="top" secondItem="m9S-g4-WV5" secondAttribute="bottom" constant="3" id="Sx5-he-VMM"/>
+                    <constraint firstAttribute="trailing" secondItem="lZA-Dk-IV9" secondAttribute="trailing" constant="12" id="VDm-Rs-Mdm"/>
+                    <constraint firstItem="SEc-HD-8xD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mkx-xy-2Pl" secondAttribute="bottom" constant="10" id="VO0-d8-BSy"/>
+                    <constraint firstItem="RYg-IM-Rcw" firstAttribute="width" secondItem="RYg-IM-Rcw" secondAttribute="height" id="ahi-nY-YDo"/>
+                    <constraint firstItem="lZA-Dk-IV9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m9S-g4-WV5" secondAttribute="trailing" constant="12" id="d9I-cA-wai"/>
+                    <constraint firstItem="m9S-g4-WV5" firstAttribute="leading" secondItem="w30-2Q-9uT" secondAttribute="trailing" constant="12" id="fTp-El-ohO"/>
+                    <constraint firstItem="m9S-g4-WV5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="n9i-Bi-kjw"/>
+                    <constraint firstItem="lZA-Dk-IV9" firstAttribute="centerY" secondItem="w30-2Q-9uT" secondAttribute="centerY" id="no6-p5-elF"/>
+                    <constraint firstItem="w30-2Q-9uT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="rpF-Uy-loh"/>
+                    <constraint firstItem="lZA-Dk-IV9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mkx-xy-2Pl" secondAttribute="trailing" constant="12" id="sLT-hI-rcn"/>
+                    <constraint firstItem="SEc-HD-8xD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zwT-4Z-r6f"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="profileImage" destination="w30-2Q-9uT" id="CIq-6d-Rvj"/>
+                <outlet property="subscribeButton" destination="lZA-Dk-IV9" id="VjG-bo-Dag"/>
+                <outlet property="subscriberLabel" destination="mkx-xy-2Pl" id="aAG-J8-vIp"/>
+                <outlet property="userName" destination="m9S-g4-WV5" id="K1c-DY-nge"/>
+                <outlet property="verifiedBadge" destination="RYg-IM-Rcw" id="FDc-v0-MU0"/>
+            </connections>
+            <point key="canvasLocation" x="131" y="-32"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="w30-2Q-9uT">
+            <size key="intrinsicContentSize" width="600" height="398"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Cat_Entertainment" width="600" height="398"/>
+        <image name="verified_badge" width="512" height="512"/>
+        <namedColor name="Label_Colors_Primary">
+            <color red="0.0" green="0.0078431372549019607" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label_Colors_Secondary">
+            <color red="0.45098039215686275" green="0.47058823529411764" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary_UI_Primary">
+            <color red="0.058823529411764705" green="0.39215686274509803" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Separator_Colors_Opaque">
+            <color red="0.89803921568627454" green="0.90588235294117647" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

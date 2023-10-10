@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TTCommons-Medium.ttf">
+            <string>TTCommons-Medium</string>
+        </array>
+        <array key="TTCommons-Regular.ttf">
+            <string>TTCommons-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReplyCommentCell" id="KGk-i7-Jjw" customClass="ReplyCommentCell" customModule="Playtube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="109"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="109"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjZ-FB-4cj">
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="1"/>
+                        <color key="backgroundColor" name="Separator_Colors_Opaque"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="XND-Ui-Nl9"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_def" translatesAutoresizingMaskIntoConstraints="NO" id="le4-Mq-g8w">
+                        <rect key="frame" x="12" y="17" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="FvT-H3-nnW"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cartersminoff · 22min ago" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEQ-14-lZB">
+                        <rect key="frame" x="44" y="9" width="304" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="l5L-I2-zHM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="TTCommons-Regular" family="TT Commons" pointSize="15"/>
+                        <color key="textColor" name="Label_Colors_Secondary"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lementum leo blanditamet, hendrerit et id ipsum laoreet nisl." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGt-EV-Mr3">
+                        <rect key="frame" x="44" y="29" width="304" height="44"/>
+                        <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="16"/>
+                        <color key="textColor" name="Label_Colors_Primary"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niQ-pY-iCR">
+                        <rect key="frame" x="44" y="83" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="hE1-1e-rWG"/>
+                        </constraints>
+                        <state key="normal" image="like_gray"/>
+                        <connections>
+                            <action selector="likeButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5Lb-eW-7Ii"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4K" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PM2-gb-lWi">
+                        <rect key="frame" x="68" y="81" width="16.333333333333329" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Sal-AY-U7d"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="16"/>
+                        <color key="textColor" name="Label_Colors_Secondary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbI-WR-ajA">
+                        <rect key="frame" x="100.33333333333333" y="83" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="i2B-IA-1G5"/>
+                        </constraints>
+                        <state key="normal" image="dislike_gray"/>
+                        <connections>
+                            <action selector="disLikeButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="h5d-fN-YEe"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="niQ-pY-iCR" firstAttribute="centerY" secondItem="PM2-gb-lWi" secondAttribute="centerY" id="0hE-pj-egQ"/>
+                    <constraint firstItem="le4-Mq-g8w" firstAttribute="top" secondItem="wjZ-FB-4cj" secondAttribute="bottom" constant="16" id="0nj-uF-kTQ"/>
+                    <constraint firstAttribute="trailing" secondItem="rEQ-14-lZB" secondAttribute="trailing" constant="12" id="3RL-Qv-H9P"/>
+                    <constraint firstItem="niQ-pY-iCR" firstAttribute="leading" secondItem="cGt-EV-Mr3" secondAttribute="leading" id="6jl-W7-grI"/>
+                    <constraint firstItem="cGt-EV-Mr3" firstAttribute="leading" secondItem="rEQ-14-lZB" secondAttribute="leading" id="7aR-8p-Ge2"/>
+                    <constraint firstItem="cGt-EV-Mr3" firstAttribute="trailing" secondItem="rEQ-14-lZB" secondAttribute="trailing" id="9IR-11-kTX"/>
+                    <constraint firstItem="le4-Mq-g8w" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="AwO-KX-Wwm"/>
+                    <constraint firstItem="cGt-EV-Mr3" firstAttribute="top" secondItem="rEQ-14-lZB" secondAttribute="bottom" id="BdP-8w-4hD"/>
+                    <constraint firstItem="le4-Mq-g8w" firstAttribute="width" secondItem="le4-Mq-g8w" secondAttribute="height" multiplier="1:1" id="DLJ-7g-Gda"/>
+                    <constraint firstItem="wjZ-FB-4cj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HLe-wf-yyA"/>
+                    <constraint firstItem="ZbI-WR-ajA" firstAttribute="width" secondItem="ZbI-WR-ajA" secondAttribute="height" multiplier="1:1" id="Ipo-VL-zG3"/>
+                    <constraint firstItem="wjZ-FB-4cj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NHN-CA-uj3"/>
+                    <constraint firstItem="ZbI-WR-ajA" firstAttribute="centerY" secondItem="PM2-gb-lWi" secondAttribute="centerY" id="T2e-9p-mgx"/>
+                    <constraint firstItem="ZbI-WR-ajA" firstAttribute="leading" secondItem="PM2-gb-lWi" secondAttribute="trailing" constant="16" id="XDW-3C-bcK"/>
+                    <constraint firstItem="PM2-gb-lWi" firstAttribute="leading" secondItem="niQ-pY-iCR" secondAttribute="trailing" constant="8" id="ZxH-gh-i9P"/>
+                    <constraint firstAttribute="trailing" secondItem="wjZ-FB-4cj" secondAttribute="trailing" id="edb-hn-RCp"/>
+                    <constraint firstItem="niQ-pY-iCR" firstAttribute="width" secondItem="niQ-pY-iCR" secondAttribute="height" multiplier="1:1" id="iVj-ci-c8d"/>
+                    <constraint firstItem="rEQ-14-lZB" firstAttribute="top" secondItem="wjZ-FB-4cj" secondAttribute="bottom" constant="8" id="ki0-Ow-5xP"/>
+                    <constraint firstItem="rEQ-14-lZB" firstAttribute="leading" secondItem="le4-Mq-g8w" secondAttribute="trailing" constant="8" id="l9b-ar-Mzn"/>
+                    <constraint firstItem="PM2-gb-lWi" firstAttribute="top" secondItem="cGt-EV-Mr3" secondAttribute="bottom" constant="8" id="pgh-mR-HQE"/>
+                    <constraint firstAttribute="bottom" secondItem="PM2-gb-lWi" secondAttribute="bottom" constant="8" id="sFh-yS-uYB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="commentTextLabel" destination="cGt-EV-Mr3" id="nDs-3T-sfb"/>
+                <outlet property="dislikeButton" destination="ZbI-WR-ajA" id="sgf-P3-HcC"/>
+                <outlet property="lblUsername" destination="rEQ-14-lZB" id="R1Q-Ik-VHe"/>
+                <outlet property="likeButton" destination="niQ-pY-iCR" id="Hx5-Cu-qPP"/>
+                <outlet property="likeCountLabel" destination="PM2-gb-lWi" id="cQX-xc-6fW"/>
+                <outlet property="profileImage" destination="le4-Mq-g8w" id="OtH-rI-toi"/>
+            </connections>
+            <point key="canvasLocation" x="131" y="-32"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dislike_gray" width="97" height="96"/>
+        <image name="like_gray" width="97" height="96"/>
+        <image name="profile_def" width="400" height="400"/>
+        <namedColor name="Label_Colors_Primary">
+            <color red="0.0" green="0.0078431372549019607" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label_Colors_Secondary">
+            <color red="0.45098039215686275" green="0.47058823529411764" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Separator_Colors_Opaque">
+            <color red="0.89803921568627454" green="0.90588235294117647" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TTCommons-DemiBold.ttf">
+            <string>TTCommons-DemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleHeaderView" customModule="Playtube" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="i5M-Pr-FkT" id="8pX-gI-JjL"/>
+                <outlet property="titleLabel" destination="j7e-3B-KcZ" id="EMu-SU-4UF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="document" translatesAutoresizingMaskIntoConstraints="NO" id="d9b-1G-u4O">
+                    <rect key="frame" x="12" y="12" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="d9b-1G-u4O" secondAttribute="height" id="2VW-GQ-pyU"/>
+                        <constraint firstAttribute="height" constant="24" id="MVa-Qy-SUl"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Popular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7e-3B-KcZ">
+                    <rect key="frame" x="48" y="16.333333333333332" width="333" height="19.999999999999996"/>
+                    <fontDescription key="fontDescription" name="TTCommons-DemiBold" family="TT Commons" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="d9b-1G-u4O" secondAttribute="bottom" constant="12" id="43D-31-HIq"/>
+                <constraint firstItem="d9b-1G-u4O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="12" id="M6D-aW-Uiu"/>
+                <constraint firstItem="j7e-3B-KcZ" firstAttribute="leading" secondItem="d9b-1G-u4O" secondAttribute="trailing" constant="12" id="aey-kL-KLU"/>
+                <constraint firstItem="d9b-1G-u4O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="dKI-Ah-Xbf"/>
+                <constraint firstItem="j7e-3B-KcZ" firstAttribute="centerY" secondItem="d9b-1G-u4O" secondAttribute="centerY" constant="2.3999999999999999" id="oY0-sc-4yd"/>
+                <constraint firstAttribute="trailing" secondItem="j7e-3B-KcZ" secondAttribute="trailing" constant="12" id="qD6-Tc-Tq9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="100" y="-32"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="document" width="64" height="64"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

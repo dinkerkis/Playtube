@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TTCommons-DemiBold.ttf">
+            <string>TTCommons-DemiBold</string>
+        </array>
+        <array key="TTCommons-Medium.ttf">
+            <string>TTCommons-Medium</string>
+        </array>
+        <array key="TTCommons-Regular.ttf">
+            <string>TTCommons-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ArticlesSectionFiveTableItem" rowHeight="149" id="KGk-i7-Jjw" customClass="ArticlesSectionFiveTableItem" customModule="Playtube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_def" translatesAutoresizingMaskIntoConstraints="NO" id="a5B-Zx-p5A">
+                        <rect key="frame" x="15" y="15" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="Oct-9h-U4D"/>
+                            <constraint firstAttribute="height" constant="30" id="wsm-iD-gME"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Gd-L3-JEe">
+                        <rect key="frame" x="55" y="15" width="250" height="106"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sdasdasdsasadasd" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y28-jI-5aB">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="EaG-Xp-CmO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TTCommons-Regular" family="TT Commons" pointSize="15"/>
+                                <color key="textColor" red="0.45098039215686275" green="0.47058823529411764" blue="0.51764705882352935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dasdasdasd" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mq4-4L-WnY">
+                                <rect key="frame" x="0.0" y="30" width="250" height="16"/>
+                                <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="yAi-JE-a65">
+                                <rect key="frame" x="0.0" y="56" width="68" height="20"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhn-Yu-fRo">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="4dO-6Y-5eh"/>
+                                            <constraint firstAttribute="height" constant="20" id="p1x-Id-2k0"/>
+                                        </constraints>
+                                        <state key="normal" image="like_gray"/>
+                                        <connections>
+                                            <action selector="likePressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6cY-wa-abV"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 5K" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbR-bH-PAa">
+                                        <rect key="frame" x="23" y="4" width="22" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="4qe-et-zhr"/>
+                                            <constraint firstAttribute="height" constant="16" id="u8j-wS-Gnm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="16"/>
+                                        <color key="textColor" red="0.45098039220000002" green="0.47058823529999999" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdX-nv-2V3">
+                                        <rect key="frame" x="48" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="RRI-Tl-Rro"/>
+                                            <constraint firstAttribute="width" constant="20" id="rop-5d-HqM"/>
+                                        </constraints>
+                                        <state key="normal" image="dislike_gray"/>
+                                        <connections>
+                                            <action selector="dislikePressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="KIy-Gi-hdG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Gz-Rq-opx">
+                                <rect key="frame" x="0.0" y="86" width="30" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="llY-s7-Nnj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TTCommons-DemiBold" family="TT Commons" pointSize="18"/>
+                                <state key="normal" title=" ">
+                                    <color key="titleColor" name="mainColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="sharePressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7Ka-sQ-Fb3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Mq4-4L-WnY" secondAttribute="trailing" id="1yk-Bh-WtF"/>
+                            <constraint firstItem="Mq4-4L-WnY" firstAttribute="leading" secondItem="8Gd-L3-JEe" secondAttribute="leading" id="Od3-Gj-X5v"/>
+                            <constraint firstItem="y28-jI-5aB" firstAttribute="leading" secondItem="8Gd-L3-JEe" secondAttribute="leading" id="d4l-G4-dqM"/>
+                            <constraint firstAttribute="trailing" secondItem="y28-jI-5aB" secondAttribute="trailing" id="v4Q-D9-4e1"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8Gd-L3-JEe" firstAttribute="leading" secondItem="a5B-Zx-p5A" secondAttribute="trailing" constant="10" id="Vza-NC-zdh"/>
+                    <constraint firstItem="a5B-Zx-p5A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Wu2-8G-Pjm"/>
+                    <constraint firstAttribute="trailing" secondItem="8Gd-L3-JEe" secondAttribute="trailing" constant="15" id="lvn-WF-iFL"/>
+                    <constraint firstItem="a5B-Zx-p5A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="tqN-K0-MG0"/>
+                    <constraint firstItem="8Gd-L3-JEe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="wpJ-T4-EKO"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Gd-L3-JEe" secondAttribute="bottom" constant="15" id="yFE-0h-GPf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnReplies" destination="2Gz-Rq-opx" id="WWm-uU-Ukp"/>
+                <outlet property="commentTextLabel" destination="Mq4-4L-WnY" id="10w-Xl-2ia"/>
+                <outlet property="dislikeBtn" destination="BdX-nv-2V3" id="wlP-wm-9q1"/>
+                <outlet property="lblUsername" destination="y28-jI-5aB" id="mDq-ZZ-PFK"/>
+                <outlet property="likeBtn" destination="Yhn-Yu-fRo" id="5lf-8R-T0v"/>
+                <outlet property="likeCountLabel" destination="hbR-bH-PAa" id="G4T-Aj-Cvr"/>
+                <outlet property="profileImage" destination="a5B-Zx-p5A" id="5i2-m3-vKi"/>
+                <outlet property="profileLeadingConst" destination="Wu2-8G-Pjm" id="Cth-76-AOW"/>
+            </connections>
+            <point key="canvasLocation" x="60.869565217391312" y="126.22767857142857"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dislike_gray" width="97" height="96"/>
+        <image name="like_gray" width="97" height="96"/>
+        <image name="profile_def" width="400" height="400"/>
+        <namedColor name="mainColor">
+            <color red="0.0078431372549019607" green="0.4823529411764706" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TTCommons-DemiBold.ttf">
+            <string>TTCommons-DemiBold</string>
+        </array>
+        <array key="TTCommons-Medium.ttf">
+            <string>TTCommons-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaidVideoView" customModule="Playtube" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="i5M-Pr-FkT" id="DFd-7P-Ptc"/>
+                <outlet property="paidButton" destination="A9Y-5u-fKc" id="gmd-8J-qbP"/>
+                <outlet property="titleLabel" destination="5RN-bC-f9T" id="8Zv-lM-zOa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xr3-g5-LYo">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCl-u6-4Lr">
+                            <rect key="frame" x="12" y="65.666666666666671" width="390" height="102.00000000000001"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIE-ON-0Gq">
+                                    <rect key="frame" x="185" y="0.0" width="20" height="40"/>
+                                    <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="40"/>
+                                    <color key="textColor" name="Primary_UI_Tertiary"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribe for $1 and unlock all videos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RN-bC-f9T">
+                                    <rect key="frame" x="0.0" y="48" width="390" height="14"/>
+                                    <fontDescription key="fontDescription" name="TTCommons-DemiBold" family="TT Commons" pointSize="14"/>
+                                    <color key="textColor" name="Primary_UI_Tertiary"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9Y-5u-fKc">
+                                    <rect key="frame" x="50" y="69.999999999999986" width="290" height="32"/>
+                                    <color key="backgroundColor" name="Primary_UI_Primary"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="32" id="dxc-EK-a2B"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="14"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Subscribe $1">
+                                        <color key="titleColor" name="Primary_UI_Tertiary"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="paidVideoButtonAction:" destination="-1" eventType="touchUpInside" id="jPp-jb-lu5"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="5RN-bC-f9T" firstAttribute="top" secondItem="SIE-ON-0Gq" secondAttribute="bottom" constant="8" id="72r-lR-2mh"/>
+                                <constraint firstAttribute="bottom" secondItem="A9Y-5u-fKc" secondAttribute="bottom" id="Nww-Kb-SMl"/>
+                                <constraint firstItem="5RN-bC-f9T" firstAttribute="leading" secondItem="cCl-u6-4Lr" secondAttribute="leading" id="Rvd-RW-IHr"/>
+                                <constraint firstItem="A9Y-5u-fKc" firstAttribute="top" secondItem="5RN-bC-f9T" secondAttribute="bottom" constant="8" id="T2i-OD-gs4"/>
+                                <constraint firstAttribute="trailing" secondItem="5RN-bC-f9T" secondAttribute="trailing" id="ccy-j2-L7A"/>
+                                <constraint firstItem="SIE-ON-0Gq" firstAttribute="centerX" secondItem="cCl-u6-4Lr" secondAttribute="centerX" id="fqP-8o-HWX"/>
+                                <constraint firstItem="SIE-ON-0Gq" firstAttribute="top" secondItem="cCl-u6-4Lr" secondAttribute="top" id="rkj-EA-KGD"/>
+                                <constraint firstItem="A9Y-5u-fKc" firstAttribute="centerX" secondItem="5RN-bC-f9T" secondAttribute="centerX" id="ytI-gQ-xAg"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="cCl-u6-4Lr" secondAttribute="trailing" constant="12" id="MjB-6C-HL6"/>
+                        <constraint firstItem="A9Y-5u-fKc" firstAttribute="width" secondItem="xr3-g5-LYo" secondAttribute="width" multiplier="0.7" id="U0d-pt-Tj5"/>
+                        <constraint firstItem="cCl-u6-4Lr" firstAttribute="leading" secondItem="xr3-g5-LYo" secondAttribute="leading" constant="12" id="XEJ-Z4-zzf"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cCl-u6-4Lr" secondAttribute="bottom" constant="12" id="ZEI-NS-Xhg"/>
+                        <constraint firstItem="cCl-u6-4Lr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xr3-g5-LYo" secondAttribute="top" constant="12" id="qGZ-QN-3Hr"/>
+                        <constraint firstItem="cCl-u6-4Lr" firstAttribute="centerY" secondItem="xr3-g5-LYo" secondAttribute="centerY" id="y5G-VK-oAz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="xr3-g5-LYo" secondAttribute="trailing" id="BNY-U7-NAC"/>
+                <constraint firstItem="xr3-g5-LYo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EH3-E3-nir"/>
+                <constraint firstAttribute="bottom" secondItem="xr3-g5-LYo" secondAttribute="bottom" id="PGu-Q5-1mR"/>
+                <constraint firstItem="xr3-g5-LYo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aWs-NV-DWd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="132" y="-32"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Primary_UI_Primary">
+            <color red="0.058823529411764705" green="0.39215686274509803" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary_UI_Tertiary">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

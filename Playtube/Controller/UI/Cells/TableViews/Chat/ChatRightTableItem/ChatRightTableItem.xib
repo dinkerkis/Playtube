@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TTCommons-Medium.ttf">
+            <string>TTCommons-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatRightTableItem" rowHeight="108" id="h7g-QM-clj" customClass="ChatRightTableItem" customModule="Playtube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="108"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h7g-QM-clj" id="vdQ-Hd-nJv">
+                <rect key="frame" x="0.0" y="0.0" width="362" height="108"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlQ-v8-jNf">
+                        <rect key="frame" x="248.5" y="8" width="93.5" height="92"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbT-aS-c66">
+                                <rect key="frame" x="15" y="9" width="63.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="QbV-Kj-o2H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.058823529409999999" green="0.3921568627" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sbT-aS-c66" firstAttribute="leading" secondItem="tlQ-v8-jNf" secondAttribute="leading" constant="15" id="CeR-YR-knC"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sbT-aS-c66" secondAttribute="bottom" constant="9" id="Gp9-6W-xSm"/>
+                            <constraint firstItem="sbT-aS-c66" firstAttribute="top" secondItem="tlQ-v8-jNf" secondAttribute="top" constant="9" id="c02-Co-y63"/>
+                            <constraint firstAttribute="trailing" secondItem="sbT-aS-c66" secondAttribute="trailing" constant="15" id="duH-Bz-pZN"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="bgcolor1"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="tlQ-v8-jNf" secondAttribute="bottom" constant="8" id="2WO-X3-kEt"/>
+                    <constraint firstItem="tlQ-v8-jNf" firstAttribute="top" secondItem="vdQ-Hd-nJv" secondAttribute="top" constant="8" id="2rL-qm-qx4"/>
+                    <constraint firstAttribute="trailing" secondItem="tlQ-v8-jNf" secondAttribute="trailing" constant="20" id="QPA-tc-zTA"/>
+                    <constraint firstItem="tlQ-v8-jNf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vdQ-Hd-nJv" secondAttribute="leading" constant="16" id="fSC-f5-j5O"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="cJR-jo-gDn"/>
+            <connections>
+                <outlet property="messageTextLabel" destination="sbT-aS-c66" id="EHy-sO-qJ1"/>
+                <outlet property="msgView" destination="tlQ-v8-jNf" id="qqC-Jd-Rsz"/>
+            </connections>
+            <point key="canvasLocation" x="168.11594202898553" y="149.33035714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="bgcolor1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

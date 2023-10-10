@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticlesSectionSevenTableItem" rowHeight="55" id="KGk-i7-Jjw" customClass="ArticlesSectionSevenTableItem" customModule="Playtube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiI-Wq-Mjc">
+                        <rect key="frame" x="0.0" y="1" width="320" height="0.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="crV-ts-ZgO"/>
+                        </constraints>
+                    </view>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your comment here...." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V2x-uF-1F5">
+                        <rect key="frame" x="16" y="7.5" width="240" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cR3-ay-t2C">
+                        <rect key="frame" x="264" y="7.5" width="40" height="40"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="4Sz-GL-o6x"/>
+                            <constraint firstAttribute="height" constant="40" id="NIT-om-qED"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                        <state key="normal" image="ic_comemntSend"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="sendPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BQk-09-HKF"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="LiI-Wq-Mjc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="E7S-fE-VhA"/>
+                    <constraint firstAttribute="trailing" secondItem="LiI-Wq-Mjc" secondAttribute="trailing" id="UVt-PU-jWY"/>
+                    <constraint firstItem="V2x-uF-1F5" firstAttribute="centerY" secondItem="cR3-ay-t2C" secondAttribute="centerY" id="V7D-ge-82c"/>
+                    <constraint firstItem="LiI-Wq-Mjc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="W2S-uW-IFW"/>
+                    <constraint firstAttribute="trailing" secondItem="cR3-ay-t2C" secondAttribute="trailing" constant="16" id="Yb9-Se-7UI"/>
+                    <constraint firstItem="V2x-uF-1F5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ZTF-c1-0ik"/>
+                    <constraint firstItem="cR3-ay-t2C" firstAttribute="leading" secondItem="V2x-uF-1F5" secondAttribute="trailing" constant="8" id="nBR-U8-Yd6"/>
+                    <constraint firstItem="cR3-ay-t2C" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wAx-12-YtZ"/>
+                    <constraint firstItem="V2x-uF-1F5" firstAttribute="height" secondItem="cR3-ay-t2C" secondAttribute="height" id="xEn-NA-6i3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="commentTextfiled" destination="V2x-uF-1F5" id="46A-d7-kLn"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="116.18303571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_comemntSend" width="160" height="160"/>
+    </resources>
+</document>

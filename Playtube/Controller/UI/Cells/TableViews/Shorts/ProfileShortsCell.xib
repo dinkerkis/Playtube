@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TTCommons-Medium.ttf">
+            <string>TTCommons-Medium</string>
+        </array>
+        <array key="TTCommons-Regular.ttf">
+            <string>TTCommons-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileShortsCell" id="KGk-i7-Jjw" customClass="ProfileShortsCell" customModule="Playtube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xeR-pB-BTm">
+                        <rect key="frame" x="12" y="12" width="80" height="104"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="Dy7-t9-Nq9"/>
+                            <constraint firstAttribute="height" constant="104" id="mco-tg-ljZ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shorts" translatesAutoresizingMaskIntoConstraints="NO" id="OKh-ba-SGg">
+                        <rect key="frame" x="64" y="86" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="sUw-f5-RyB"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ut dignissim adipiscing risus purus molestie convallis molestie iaculis. Tincidunt et quis in massa turpis tortor iaculis." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTM-LZ-X8k">
+                        <rect key="frame" x="100" y="12" width="282" height="54"/>
+                        <fontDescription key="fontDescription" name="TTCommons-Medium" family="TT Commons" pointSize="18"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yW-aY-tPw">
+                        <rect key="frame" x="382" y="12" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="GCN-8C-XEv"/>
+                        </constraints>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="dots"/>
+                        <connections>
+                            <action selector="optionButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Bt4-E4-PtC"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sean Paul" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8U-JS-dFl">
+                        <rect key="frame" x="100" y="66" width="54.333333333333343" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="zbk-6u-2Et"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="TTCommons-Regular" family="TT Commons" pointSize="14"/>
+                        <color key="textColor" name="Label_Colors_Secondary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verified_badge" translatesAutoresizingMaskIntoConstraints="NO" id="MXv-oc-i5h">
+                        <rect key="frame" x="158.33333333333334" y="69" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="1ly-ko-Ial"/>
+                            <constraint firstAttribute="width" secondItem="MXv-oc-i5h" secondAttribute="height" multiplier="1:1" id="UBu-dz-z1i"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19.9M views • 3 Years ago" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8s-qV-0al">
+                        <rect key="frame" x="100" y="84" width="302" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="Ivv-X2-mx3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="TTCommons-Regular" family="TT Commons" pointSize="14"/>
+                        <color key="textColor" name="Label_Colors_Secondary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kTM-LZ-X8k" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="076-eu-9Vn"/>
+                    <constraint firstItem="MXv-oc-i5h" firstAttribute="width" secondItem="MXv-oc-i5h" secondAttribute="height" multiplier="1:1" id="45S-Qt-t1q"/>
+                    <constraint firstAttribute="bottom" secondItem="xeR-pB-BTm" secondAttribute="bottom" constant="12" id="Baa-jZ-jxY"/>
+                    <constraint firstItem="3yW-aY-tPw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="HW0-El-jGS"/>
+                    <constraint firstItem="V8s-qV-0al" firstAttribute="top" secondItem="Y8U-JS-dFl" secondAttribute="bottom" id="Ihm-nN-agM"/>
+                    <constraint firstItem="Y8U-JS-dFl" firstAttribute="leading" secondItem="kTM-LZ-X8k" secondAttribute="leading" id="Kmc-Tf-vry"/>
+                    <constraint firstItem="xeR-pB-BTm" firstAttribute="bottom" secondItem="OKh-ba-SGg" secondAttribute="bottom" constant="6" id="Npy-RB-UtR"/>
+                    <constraint firstItem="xeR-pB-BTm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="QUj-43-DdD"/>
+                    <constraint firstItem="V8s-qV-0al" firstAttribute="leading" secondItem="kTM-LZ-X8k" secondAttribute="leading" id="R7q-7A-099"/>
+                    <constraint firstItem="3yW-aY-tPw" firstAttribute="width" secondItem="3yW-aY-tPw" secondAttribute="height" multiplier="1:1" id="T99-HU-df9"/>
+                    <constraint firstItem="MXv-oc-i5h" firstAttribute="leading" secondItem="Y8U-JS-dFl" secondAttribute="trailing" constant="4" id="XXd-EY-v5B"/>
+                    <constraint firstItem="xeR-pB-BTm" firstAttribute="trailing" secondItem="OKh-ba-SGg" secondAttribute="trailing" constant="4" id="cDL-sG-Q00"/>
+                    <constraint firstItem="MXv-oc-i5h" firstAttribute="centerY" secondItem="Y8U-JS-dFl" secondAttribute="centerY" id="i44-FI-Uj9"/>
+                    <constraint firstItem="kTM-LZ-X8k" firstAttribute="leading" secondItem="xeR-pB-BTm" secondAttribute="trailing" constant="8" id="j94-zE-54d"/>
+                    <constraint firstItem="3yW-aY-tPw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MXv-oc-i5h" secondAttribute="trailing" id="k1d-UD-bhn"/>
+                    <constraint firstItem="Y8U-JS-dFl" firstAttribute="top" secondItem="kTM-LZ-X8k" secondAttribute="bottom" id="mTF-wk-39z"/>
+                    <constraint firstItem="OKh-ba-SGg" firstAttribute="width" secondItem="OKh-ba-SGg" secondAttribute="height" multiplier="1:1" id="oor-Hs-QBp"/>
+                    <constraint firstItem="3yW-aY-tPw" firstAttribute="leading" secondItem="kTM-LZ-X8k" secondAttribute="trailing" id="t7i-C1-cOw"/>
+                    <constraint firstAttribute="trailing" secondItem="3yW-aY-tPw" secondAttribute="trailing" constant="12" id="vh8-aN-l8n"/>
+                    <constraint firstItem="xeR-pB-BTm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="zFL-Fv-7Tg"/>
+                    <constraint firstItem="V8s-qV-0al" firstAttribute="trailing" secondItem="3yW-aY-tPw" secondAttribute="trailing" id="zch-Kb-h6Y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="optionButton" destination="3yW-aY-tPw" id="5VZ-h1-Du0"/>
+                <outlet property="shortsImage" destination="OKh-ba-SGg" id="piC-Dl-9SI"/>
+                <outlet property="thumbnailImage" destination="xeR-pB-BTm" id="xlL-7h-oc1"/>
+                <outlet property="titleLabel" destination="kTM-LZ-X8k" id="Lx3-UW-5UG"/>
+                <outlet property="usernameLabel" destination="Y8U-JS-dFl" id="KOs-m2-myg"/>
+                <outlet property="verifiedBadge" destination="MXv-oc-i5h" id="00k-aZ-UsO"/>
+                <outlet property="viewsLabel" destination="V8s-qV-0al" id="GUA-RC-AVd"/>
+            </connections>
+            <point key="canvasLocation" x="122" y="-32"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dots" width="20" height="20"/>
+        <image name="shorts" width="96" height="96"/>
+        <image name="verified_badge" width="512" height="512"/>
+        <namedColor name="Label_Colors_Secondary">
+            <color red="0.45098039215686275" green="0.47058823529411764" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

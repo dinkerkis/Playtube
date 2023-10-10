@@ -1,0 +1,26 @@
+{
+  "images" : [
+    {
+      "filename" : "bell.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ionicons_2-0-1_ios-bell_32_0_ecf0f1_none.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ionicons_2-0-1_ios-bell_64_0_ecf0f1_none.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
+  }
+}
