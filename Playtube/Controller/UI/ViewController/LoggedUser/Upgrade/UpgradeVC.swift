@@ -3,7 +3,6 @@
 import UIKit
 import PlaytubeSDK
 import Async
-import Braintree
 
 class UpgradeVC: BaseVC {
     
@@ -21,8 +20,8 @@ class UpgradeVC: BaseVC {
     //            }
     //        }
     //    }
-    var braintree: BTAPIClient?
-    var braintreeClient: BTAPIClient?
+//    var braintree: BTAPIClient?
+//    var braintreeClient: BTAPIClient?
     
     private var upgardeArray = [[String:Any]]()
     var selectedindex: Int? = nil
@@ -130,7 +129,7 @@ class UpgradeVC: BaseVC {
             log.verbose("Credit Card")
         }
         let paypal =  UIAlertAction(title: "Paypal", style: .default) { (action) in
-            self.paypal()
+            //self.paypal()
         }
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         alert.addAction(banktransfer)
@@ -140,37 +139,37 @@ class UpgradeVC: BaseVC {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func paypal(){
-        braintreeClient = BTAPIClient(authorization: AppSettings.paypalAuthorizationToken)!
-        let payPalDriver = BTPayPalDriver(apiClient: braintreeClient!)
-        //        payPalDriver.viewControllerPresentingDelegate = self
-        //        payPalDriver.appSwitchDelegate = self // Optional
-        
-        // Specify the transaction amount here. "2.32" is used in this example.
-        let request = BTPayPalCheckoutRequest(amount: "10.00")
-        //        let request = BTPayPalRequest(amount: "10.00")
-        request.currencyCode = "USD" // Optional; see BTPayPalRequest.h for more options
-        
-        payPalDriver.requestOneTimePayment(request) { (tokenizedPayPalAccount, error) in
-            if let tokenizedPayPalAccount = tokenizedPayPalAccount {
-                print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
-                
-                let email = tokenizedPayPalAccount.email
-                let firstName = tokenizedPayPalAccount.firstName
-                let lastName = tokenizedPayPalAccount.lastName
-                let phone = tokenizedPayPalAccount.phone
-                let billingAddress = tokenizedPayPalAccount.billingAddress
-                let shippingAddress = tokenizedPayPalAccount.shippingAddress
-                
-                self.upgradeMemberShip()
-            } else if let error = error {
-                log.verbose("error = \(error.localizedDescription ?? "")")
-            } else {
-                log.verbose("error = \(error?.localizedDescription ?? "")")
-                
-            }
-        }
-    }
+//    private func paypal(){
+//        braintreeClient = BTAPIClient(authorization: AppSettings.paypalAuthorizationToken)!
+//        let payPalDriver = BTPayPalDriver(apiClient: braintreeClient!)
+//        //        payPalDriver.viewControllerPresentingDelegate = self
+//        //        payPalDriver.appSwitchDelegate = self // Optional
+//        
+//        // Specify the transaction amount here. "2.32" is used in this example.
+//        let request = BTPayPalCheckoutRequest(amount: "10.00")
+//        //        let request = BTPayPalRequest(amount: "10.00")
+//        request.currencyCode = "USD" // Optional; see BTPayPalRequest.h for more options
+//        
+//        payPalDriver.requestOneTimePayment(request) { (tokenizedPayPalAccount, error) in
+//            if let tokenizedPayPalAccount = tokenizedPayPalAccount {
+//                print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
+//                
+//                let email = tokenizedPayPalAccount.email
+//                let firstName = tokenizedPayPalAccount.firstName
+//                let lastName = tokenizedPayPalAccount.lastName
+//                let phone = tokenizedPayPalAccount.phone
+//                let billingAddress = tokenizedPayPalAccount.billingAddress
+//                let shippingAddress = tokenizedPayPalAccount.shippingAddress
+//                
+//                self.upgradeMemberShip()
+//            } else if let error = error {
+//                log.verbose("error = \(error.localizedDescription ?? "")")
+//            } else {
+//                log.verbose("error = \(error?.localizedDescription ?? "")")
+//                
+//            }
+//        }
+//    }
 }
 
 //extension UpgradeVC:BTAppSwitchDelegate, BTViewControllerPresentingDelegate{

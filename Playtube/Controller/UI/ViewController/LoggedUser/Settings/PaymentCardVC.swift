@@ -9,7 +9,6 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import Stripe
 
 protocol PaymentCardViewDelegate {
     func cardView(_ isSuccess: Bool)
@@ -70,7 +69,7 @@ class PaymentCardVC: BaseVC {
             self.addAuthorizeNetPaymentGatewayAPI()
         }
         if paymentType == "creditcard" {
-            self.getStripeToken()
+            //self.getStripeToken()
         }
     }
     
@@ -103,35 +102,35 @@ class PaymentCardVC: BaseVC {
 // MARK: - Extensions
 
 // MARK: Stripe Setup
-extension PaymentCardVC {
-    
-    private func getStripeToken() {
-        self.showProgressDialog(text: "Loading...")
-        let stripeCardParams = STPCardParams()
-        stripeCardParams.number = self.cardNumberTextField.text
-        let expiryParameters = yearTextField.text?.components(separatedBy: "/")
-        stripeCardParams.expMonth = UInt(expiryParameters?.first ?? "0") ?? 0
-        stripeCardParams.expYear = UInt(expiryParameters?.last ?? "0") ?? 0
-        stripeCardParams.cvc = cvvTextField.text
-        let config = STPPaymentConfiguration.shared
-        let stpApiClient = STPAPIClient(publishableKey: (self.site_settings?["stripe_id"] as? String ?? ""))
-        stpApiClient.createToken(withCard: stripeCardParams) { (token, error) in
-            if error == nil {
-                Async.main({
-                    log.verbose("Token = \(token?.tokenId ?? "")")
-                    self.navigationController?.popViewController(animated: true)
-                    self.delegate?.cardView(true)
-                })
-            } else {
-                self.dismissProgressDialog {
-                    self.view.makeToast(error?.localizedDescription ?? "")
-                    log.verbose("Error = \(error?.localizedDescription ?? "")")
-                }
-            }
-        }
-    }
-    
-}
+//extension PaymentCardVC {
+//    
+//    private func getStripeToken() {
+//        self.showProgressDialog(text: "Loading...")
+//        let stripeCardParams = STPCardParams()
+//        stripeCardParams.number = self.cardNumberTextField.text
+//        let expiryParameters = yearTextField.text?.components(separatedBy: "/")
+//        stripeCardParams.expMonth = UInt(expiryParameters?.first ?? "0") ?? 0
+//        stripeCardParams.expYear = UInt(expiryParameters?.last ?? "0") ?? 0
+//        stripeCardParams.cvc = cvvTextField.text
+//        let config = STPPaymentConfiguration.shared
+//        let stpApiClient = STPAPIClient(publishableKey: (self.site_settings?["stripe_id"] as? String ?? ""))
+//        stpApiClient.createToken(withCard: stripeCardParams) { (token, error) in
+//            if error == nil {
+//                Async.main({
+//                    log.verbose("Token = \(token?.tokenId ?? "")")
+//                    self.navigationController?.popViewController(animated: true)
+//                    self.delegate?.cardView(true)
+//                })
+//            } else {
+//                self.dismissProgressDialog {
+//                    self.view.makeToast(error?.localizedDescription ?? "")
+//                    log.verbose("Error = \(error?.localizedDescription ?? "")")
+//                }
+//            }
+//        }
+//    }
+//    
+//}
 
 // MARK: Authorize Net Api Call
 extension PaymentCardVC {
