@@ -789,23 +789,14 @@ extension TabbarController: CreatePopupDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let newVC = R.storyboard.loggedUser.webViewVC()
-            newVC?.article = "Import"
+            newVC?.article = "Upload"
             self.navigationController?.pushViewController(newVC!, animated: true)
         } else if indexPath.row == 1 {
             let newVC = R.storyboard.loggedUser.webViewVC()
-            newVC?.article = "Upload"
-            self.navigationController?.pushViewController(newVC!, animated: true)
-        } else if indexPath.row == 2 {
-            let newVC = R.storyboard.loggedUser.webViewVC()
             newVC?.article = "Create a short"
             self.navigationController?.pushViewController(newVC!, animated: true)
-        } else if indexPath.row == 3 {
-            let vc = R.storyboard.live.liveStreamController()
-            vc?.modalPresentationStyle = .overFullScreen
-            self.present(vc!, animated: true, completion: nil)
         }
     }
-    
 }
 
 extension TabbarController: WalletVCDelegate {
