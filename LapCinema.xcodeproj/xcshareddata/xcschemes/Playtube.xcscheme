@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B8EC06321CB982D0095A529"
-               BuildableName = "Playtube.app"
-               BlueprintName = "Playtube"
-               ReferencedContainer = "container:Playtube.xcodeproj">
+               BuildableName = "LapCinema.app"
+               BlueprintName = "LapCinema"
+               ReferencedContainer = "container:LapCinema.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,9 +31,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B8EC06321CB982D0095A529"
-            BuildableName = "Playtube.app"
-            BlueprintName = "Playtube"
-            ReferencedContainer = "container:Playtube.xcodeproj">
+            BuildableName = "LapCinema.app"
+            BlueprintName = "LapCinema"
+            ReferencedContainer = "container:LapCinema.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -44,7 +44,7 @@
                BlueprintIdentifier = "7EFEC28728ED79A000DFE4BB"
                BuildableName = "RefreshableTests.xctest"
                BlueprintName = "RefreshableTests"
-               ReferencedContainer = "container:Playtube.xcodeproj">
+               ReferencedContainer = "container:LapCinema.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B8EC06321CB982D0095A529"
-            BuildableName = "Playtube.app"
-            BlueprintName = "Playtube"
-            ReferencedContainer = "container:Playtube.xcodeproj">
+            BuildableName = "LapCinema.app"
+            BlueprintName = "LapCinema"
+            ReferencedContainer = "container:LapCinema.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -88,9 +88,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B8EC06321CB982D0095A529"
-            BuildableName = "Playtube.app"
-            BlueprintName = "Playtube"
-            ReferencedContainer = "container:Playtube.xcodeproj">
+            BuildableName = "LapCinema.app"
+            BlueprintName = "LapCinema"
+            ReferencedContainer = "container:LapCinema.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

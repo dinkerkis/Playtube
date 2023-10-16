@@ -684,7 +684,7 @@
 		52AC254321EB4757008DC449 /* LibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryVC.swift; path = "../Tabbar - LoggedIn/LibraryVC.swift"; sourceTree = "<group>"; };
 		52EE0DF322383C2400008171 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
 		5B441222A026BC9FBEEA28FA /* Pods-Playtube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Playtube.release.xcconfig"; path = "Target Support Files/Pods-Playtube/Pods-Playtube.release.xcconfig"; sourceTree = "<group>"; };
-		5B8EC06421CB982D0095A529 /* Playtube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playtube.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B8EC06421CB982D0095A529 /* LapCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LapCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8EC06721CB982D0095A529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B8EC06921CB982D0095A529 /* IntroDuctionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroDuctionVC.swift; sourceTree = "<group>"; };
 		5B8EC06C21CB982D0095A529 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
@@ -1978,7 +1978,7 @@
 		5B8EC06521CB982D0095A529 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B8EC06421CB982D0095A529 /* Playtube.app */,
+				5B8EC06421CB982D0095A529 /* LapCinema.app */,
 				523946142212052C006248AF /* OneSignalNotificationServiceExtension.appex */,
 				7EFEC27F28ED79A000DFE4BB /* Refreshable.framework */,
 			);
@@ -2942,9 +2942,9 @@
 			productReference = 523946142212052C006248AF /* OneSignalNotificationServiceExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		5B8EC06321CB982D0095A529 /* Playtube */ = {
+		5B8EC06321CB982D0095A529 /* LapCinema */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B8EC07621CB982F0095A529 /* Build configuration list for PBXNativeTarget "Playtube" */;
+			buildConfigurationList = 5B8EC07621CB982F0095A529 /* Build configuration list for PBXNativeTarget "LapCinema" */;
 			buildPhases = (
 				0B16783F278B9243F27FA005 /* [CP] Check Pods Manifest.lock */,
 				522AA9DF21E24A1100E1FBF3 /* ShellScript */,
@@ -2963,12 +2963,12 @@
 				5239461A2212052C006248AF /* PBXTargetDependency */,
 				7EFEC29328ED79A000DFE4BB /* PBXTargetDependency */,
 			);
-			name = Playtube;
+			name = LapCinema;
 			packageProductDependencies = (
 				8877BF142A31D8B500969C4E /* DailymotionPlayerSDK */,
 			);
 			productName = Playtube;
-			productReference = 5B8EC06421CB982D0095A529 /* Playtube.app */;
+			productReference = 5B8EC06421CB982D0095A529 /* LapCinema.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7EFEC27E28ED79A000DFE4BB /* Refreshable */ = {
@@ -3019,7 +3019,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5B8EC05F21CB982D0095A529 /* Build configuration list for PBXProject "Playtube" */;
+			buildConfigurationList = 5B8EC05F21CB982D0095A529 /* Build configuration list for PBXProject "LapCinema" */;
 			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -3042,7 +3042,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				5B8EC06321CB982D0095A529 /* Playtube */,
+				5B8EC06321CB982D0095A529 /* LapCinema */,
 				523946132212052C006248AF /* OneSignalNotificationServiceExtension */,
 				7EFEC27E28ED79A000DFE4BB /* Refreshable */,
 			);
@@ -4018,7 +4018,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B8EC05F21CB982D0095A529 /* Build configuration list for PBXProject "Playtube" */ = {
+		5B8EC05F21CB982D0095A529 /* Build configuration list for PBXProject "LapCinema" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B8EC07421CB982F0095A529 /* Debug */,
@@ -4027,7 +4027,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B8EC07621CB982F0095A529 /* Build configuration list for PBXNativeTarget "Playtube" */ = {
+		5B8EC07621CB982F0095A529 /* Build configuration list for PBXNativeTarget "LapCinema" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B8EC07721CB982F0095A529 /* Debug */,
