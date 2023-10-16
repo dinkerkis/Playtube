@@ -66,19 +66,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,OSSubscriptionObserver {
             UIView.appearance().semanticContentAttribute = .forceLeftToRight
         }
 
-        let status = UserDefaults.standard.getDarkMode(Key: "darkMode")
-        let isSystemTheme = UserDefaults.standard.getSystemTheme(Key: "SystemTheme")
-        if #available(iOS 13.0, *) {
-            if isSystemTheme {
-                window?.overrideUserInterfaceStyle = UIScreen.main.traitCollection.userInterfaceStyle
-            }else {
-                if status {
-                    window?.overrideUserInterfaceStyle = .dark
-                } else {
-                    window?.overrideUserInterfaceStyle = .light
-                }
-            }
-        }
+        window?.overrideUserInterfaceStyle = .dark
+//        let status = UserDefaults.standard.getDarkMode(Key: "darkMode")
+//        let isSystemTheme = UserDefaults.standard.getSystemTheme(Key: "SystemTheme")
+//        if #available(iOS 13.0, *) {
+//            if isSystemTheme {
+//                window?.overrideUserInterfaceStyle = UIScreen.main.traitCollection.userInterfaceStyle
+//            }else {
+//                if status {
+//                    window?.overrideUserInterfaceStyle = .dark
+//                } else {
+//                    window?.overrideUserInterfaceStyle = .light
+//                }
+//            }
+//        }
         // BTAppSwitch.setReturnURLScheme(AppSettings.BrainTreeURLScheme)
         //BTAppContextSwitcher.setReturnURLScheme(AppSettings.BrainTreeURLScheme)
         GADMobileAds.sharedInstance().start(completionHandler: nil)
