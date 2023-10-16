@@ -70,13 +70,11 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>This application need to access to your camera n order to pick up a photo</string>
+	<string>This application need to access to your camera in order to pick up a photo</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Acces must be granted to fetch contacts</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Play Tube would like to record audio for streaming live videos</string>
+	<string>Acces must be granted to fetch contacts to send message or mail</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This application need to access to your camera n order to pick up a photo</string>
+	<string>This application need to access to your camera in order to pick up a photo</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ionicons.ttf</string>

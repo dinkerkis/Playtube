@@ -26,17 +26,14 @@ class CreatePopupVC: BaseVC {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties -
-    var sheetHeight: CGFloat = 350
+    var sheetHeight: CGFloat = 250
     var sheetBackgroundColor: UIColor = .white
     var sheetCornerRadius: CGFloat = 22
     private var hasSetOriginPoint = false
     private var originPoint: CGPoint?
     let optionArray = [
-        "Import a video",
         "Upload a video",
-        "Create a short",
-        "Go Live"
-    ]
+        "Create a short"]
     var object: VideoDetail?
     var delegate: CreatePopupDelegate?
     
@@ -122,13 +119,10 @@ extension CreatePopupVC: UITableViewDelegate, UITableViewDataSource {
     
     func iconImage(index: Int) -> UIImage? {
         if index == 0 {
-            return UIImage(named: "import_video")
-        }else if index == 1 {
             return UIImage(named: "cloud")
-        }else if index == 2 {
+        }
+        else {
             return UIImage(named: "create_short")?.withTintColor(UIColor(named: "Primary_UI_Primary")!, renderingMode: .alwaysTemplate)
-        }else {
-            return UIImage(named: "stream")
         }
     }
     
