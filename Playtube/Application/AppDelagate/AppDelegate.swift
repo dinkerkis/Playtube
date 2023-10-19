@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,OSSubscriptionObserver {
             UIView.appearance().semanticContentAttribute = .forceLeftToRight
         }
 
-        window?.overrideUserInterfaceStyle = .light
+        window?.overrideUserInterfaceStyle = .dark
 //        let status = UserDefaults.standard.getDarkMode(Key: "darkMode")
 //        let isSystemTheme = UserDefaults.standard.getSystemTheme(Key: "SystemTheme")
 //        if #available(iOS 13.0, *) {

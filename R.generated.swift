@@ -7275,7 +7275,6 @@ struct _R {
       var twoFactorVC: RswiftResources.StoryboardViewControllerIdentifier<TwoFactorVC> { .init(identifier: "TwoFactorVC", storyboard: name, bundle: bundle) }
 
       func validate() throws {
-        if UIKit.UIImage(named: "BG", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'BG' is used in storyboard 'Auth', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Email", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Email' is used in storyboard 'Auth', but couldn't be loaded.") }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "applelogo") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'applelogo' is used in storyboard 'Auth', but couldn't be loaded.") } }
         if UIKit.UIImage(named: "back_new", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'back_new' is used in storyboard 'Auth', but couldn't be loaded.") }

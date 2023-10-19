@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,19 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="VQf-48-VwK">
-                                <rect key="frame" x="111.5" y="418" width="191" height="60"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="INQ-UP-r1a">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="VQf-48-VwK" secondAttribute="height" multiplier="137:43" id="Na9-lM-QYh"/>
-                                    <constraint firstAttribute="height" constant="60" id="jeH-dX-iFz"/>
+                                    <constraint firstAttribute="width" constant="200" id="D5L-VX-Vrd"/>
+                                    <constraint firstAttribute="height" constant="200" id="U8v-vG-GfE"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VQf-48-VwK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Nfj-FL-d3u"/>
-                            <constraint firstItem="VQf-48-VwK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ums-jG-M5W"/>
+                            <constraint firstItem="INQ-UP-r1a" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bSg-qP-RE9"/>
+                            <constraint firstItem="INQ-UP-r1a" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xva-pP-HLa"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mainLogo" width="274" height="86"/>
+        <image name="mainLogo" width="384" height="384"/>
     </resources>
 </document>
