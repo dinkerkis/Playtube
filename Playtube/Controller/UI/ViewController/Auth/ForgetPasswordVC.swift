@@ -25,14 +25,14 @@ class ForgetPasswordVC: BaseVC {
         self.forhetLabel.text = NSLocalizedString("Forgot your password", comment: "Forgot your password")
         self.textLAbel.text = NSLocalizedString("Dont worry type your email here and we will recover it for you.", comment: "Dont worry type your email here and we will recover it for you.")
         self.sendBtn.setTitle(NSLocalizedString("Send", comment: "Send"), for: .normal)
-        self.view.backgroundColor = .buttonColor
-        self.emailTextFieldTF.textColor = .fontcolor
-        self.emailTextFieldTF.lineColor = .fontcolor
-        self.textLAbel.textColor = .fontcolor
-        self.forhetLabel.textColor = .fontcolor
-        self.sendBtn.backgroundColor = .fontcolor
-        self.sendBtn.setTitleColor(.buttonColor, for: .normal)
-        self.emailImageView.tintColor = .fontcolor
+//        self.view.backgroundColor = .buttonColor
+//        self.emailTextFieldTF.textColor = .fontcolor
+//        self.emailTextFieldTF.lineColor = .fontcolor
+//        self.textLAbel.textColor = .fontcolor
+//        self.forhetLabel.textColor = .fontcolor
+//        self.sendBtn.backgroundColor = .fontcolor
+//        self.sendBtn.setTitleColor(.buttonColor, for: .normal)
+//        self.emailImageView.tintColor = .fontcolor
     }
     
     // MARK: - Selectors

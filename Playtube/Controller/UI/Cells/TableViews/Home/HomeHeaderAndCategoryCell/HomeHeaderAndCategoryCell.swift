@@ -115,8 +115,8 @@ extension HomeHeaderAndCategoryCell: UICollectionViewDelegate, UICollectionViewD
         } else {
             cell.backView.layer.borderWidth = 1
             cell.backView.layer.borderColor = UIColor(red: 229/255, green: 231/255, blue: 235/255, alpha: 0.7).cgColor
-            cell.backView.backgroundColor = UIColor(named: "Fill_Colors_Tertiary")
-            cell.categoryLabel.textColor = UIColor(named: "Label_Colors_Secondary")
+            cell.backView.backgroundColor = .white//UIColor(named: "Fill_Colors_Tertiary")
+            cell.categoryLabel.textColor = .black//UIColor(named: "Label_Colors_Secondary")
         }
         return cell
     }
