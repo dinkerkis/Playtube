@@ -1,6 +1,5 @@
 import UIKit
 import PlaytubeSDK
-import GoogleMobileAds
 import Async
 import UIView_Shimmer
 import Toast_Swift
@@ -14,8 +13,6 @@ class LilbraryLikedVC: BaseVC {
     @IBOutlet weak var noVideoLbl: UILabel!
     
     // MARK: - Properties
-    
-    var interstitial: GADInterstitialAd!
     var likedVideosArray: [VideoDetail] = []
     private var isLoading = true {
         didSet {
@@ -52,7 +49,6 @@ class LilbraryLikedVC: BaseVC {
     // Initial Config
     func initialConfig() {
         self.noVideoLbl.text = NSLocalizedString("No videos found for now!", comment: "No videos found for now!")
-        self.setupUI()
         self.registerCell()
         self.isLoading = true
         self.getLikedVideos()
@@ -68,31 +64,6 @@ class LilbraryLikedVC: BaseVC {
             self?.getLikedVideos()
         }
     }
-    
-    private func setupUI() {
-        if AppSettings.shouldShowAddMobBanner {
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: request, completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            })
-        }
-    }
-    
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: GADRequest(), completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        })
-        return  self.interstitial
-    }
-    
 }
 
 // MARK: - Extensions
@@ -173,12 +144,10 @@ extension LilbraryLikedVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !self.isLoading {
-            if AppInstance.instance.addCount == AppSettings.interestialCount {
-                interstitial.present(fromRootViewController: self)
-                interstitial = CreateAd()
-                AppInstance.instance.addCount = 0
-            }
-            AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
+//            if AppInstance.instance.addCount == AppSettings.interestialCount {
+//                AppInstance.instance.addCount = 0
+//            }
+//            AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
             let videoObject = self.likedVideosArray[indexPath.row]
             let newVC = self.tabBarController as! TabbarController
             newVC.statusBarHiddenDelegate = self

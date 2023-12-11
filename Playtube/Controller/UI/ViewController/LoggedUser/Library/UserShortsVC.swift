@@ -9,7 +9,6 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
 import Refreshable
 import Toast_Swift
 

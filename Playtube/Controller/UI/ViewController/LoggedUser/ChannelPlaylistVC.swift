@@ -1,7 +1,7 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
+
 import UIView_Shimmer
 import DropDown
 
@@ -138,7 +138,6 @@ class ChannelPlaylistVC: BaseVC {
     @IBOutlet weak var showStack: UIStackView!
     
     @IBOutlet weak var noPlayListLbl: UILabel!
-    var interstitial: GADInterstitialAd!
     var playlistsArray = [PlaylistModel.MyAllPlaylist]()
     var parentVC: NewProfileVC?
     var heightTableView:((_ count: Int, _ identifire: Int) -> ())?
@@ -187,38 +186,6 @@ class ChannelPlaylistVC: BaseVC {
     static func channelPlaylistVC() -> ChannelPlaylistVC {
         let newVC = R.storyboard.loggedUser.channelPlaylistVC()
         return newVC!
-    }
-    
-    private func setupUI(){
-        if AppSettings.shouldShowAddMobBanner{
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId,
-                                   request: request,
-                                   completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            }
-            )
-        }
-        //        self.tableView.separatorStyle = .none
-        //        tableView.register(R.nib.playlistTableItem(), forCellReuseIdentifier: R.reuseIdentifier.playlistTableItem.identifier)
-    }
-    
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId,
-                               request: GADRequest(),
-                               completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        }
-        )
-        return  self.interstitial
     }
     
     private func myChannelPlayListfetchData(){
@@ -304,13 +271,11 @@ extension ChannelPlaylistVC: UITableViewDelegate, UITableViewDataSource{
 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if AppInstance.instance.addCount == AppSettings.interestialCount {
-            interstitial?.present(fromRootViewController: self)
-            interstitial = CreateAd()
-            AppInstance.instance.addCount = 0
-        }
-        
-        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
+//        if AppInstance.instance.addCount == AppSettings.interestialCount {
+//            AppInstance.instance.addCount = 0
+//        }
+//        
+//        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
         let vc = R.storyboard.playlist.getPlaylistVideosVC()
         vc?.listID = self.playlistsArray[indexPath.row].listID ?? ""
         vc?.playlistName = self.playlistsArray[indexPath.row].name ?? ""

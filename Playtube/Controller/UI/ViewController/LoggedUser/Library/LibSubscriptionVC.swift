@@ -1,7 +1,6 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
 import Toast_Swift
 
 class LibSubscriptionVC: BaseVC {
@@ -21,8 +20,8 @@ class LibSubscriptionVC: BaseVC {
     }
     private var subscribedChannelArray: [Owner] = []
     var subscribedChannelVideosArray: [VideoDetail] = []
-    var bannerView: GADBannerView!
-    var interstitial: GADInterstitialAd!
+    
+    
     var isStatusBarHidden: Bool = false {
         didSet {
             if oldValue != self.isStatusBarHidden {
@@ -57,7 +56,6 @@ class LibSubscriptionVC: BaseVC {
     // Initial Config
     func initialConfig() {
         self.noVideo.text = NSLocalizedString("No videos found for now!", comment: "No videos found for now!")
-        self.setupUI()
         self.registerCell()
         self.isLoading = true
         self.fetchSubscribedChannels()
@@ -74,45 +72,6 @@ class LibSubscriptionVC: BaseVC {
             self?.fetchSubscribedChannels()
         }
     }
-    
-    private func setupUI() {
-        if AppSettings.shouldShowAddMobBanner {
-            /*bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-            addBannerViewToView(bannerView)
-            bannerView.adUnitID = AppSettings.addUnitId
-            bannerView.rootViewController = self
-            bannerView.load(GADRequest())*/
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: request, completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            })
-        }
-    }
-    
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: GADRequest(), completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        })
-        return  self.interstitial
-    }
-    
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints([
-            NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: bannerView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
-        ])
-    }
-    
 }
 
 // MARK: - Extensions

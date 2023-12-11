@@ -1,7 +1,7 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
+
 import Refreshable
 
 protocol UserChannelVideosVCDelegate: AnyObject {
@@ -31,7 +31,7 @@ class UserChannelVideosVC: BaseVC {
         }
     }
     var channelVideos = [VideoDetail]()
-    var interstitial: GADInterstitialAd!
+    
     var channelId: Int? = 0
     var parentContorller: NewUserChannelVC!
     
@@ -49,7 +49,6 @@ class UserChannelVideosVC: BaseVC {
     // Initial Config
     func initialConfig() {
         self.registerCell()
-        self.setupUI()
         self.isLoading = true
         self.fetchChannelVideos()
     }
@@ -76,30 +75,6 @@ class UserChannelVideosVC: BaseVC {
     static func userChannelVideosVC() -> UserChannelVideosVC {
         let newVC = R.storyboard.library.userChannelVideosVC()
         return newVC!
-    }
-    
-    private func setupUI() {
-        if AppSettings.shouldShowAddMobBanner {
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: request, completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            })
-        }
-    }
-    
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: GADRequest(), completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        })
-        return  self.interstitial
     }
     
     private func fetchChannelVideosLoadmore(indx : Int) {
@@ -231,12 +206,10 @@ extension UserChannelVideosVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if AppInstance.instance.addCount == AppSettings.interestialCount {
-            interstitial.present(fromRootViewController: self)
-            interstitial = CreateAd()
-            AppInstance.instance.addCount = 0
-        }
-        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
+//        if AppInstance.instance.addCount == AppSettings.interestialCount {
+//            AppInstance.instance.addCount = 0
+//        }
+//        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
         let videoObject = self.channelVideos[indexPath.row]
         (self.parentContorller.tabBarController as! TabbarController).handleOpenVideoPlayer(for: videoObject)
     }

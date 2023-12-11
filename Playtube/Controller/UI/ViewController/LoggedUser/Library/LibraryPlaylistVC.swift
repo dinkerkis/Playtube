@@ -2,14 +2,13 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
 
 class LibraryPlaylistVC: BaseVC {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var showStack: UIStackView!
     @IBOutlet weak var noVideoLbl: UILabel!
-    var interstitial: GADInterstitialAd!
+    
     var playlistsArray = [PlaylistModel.MyAllPlaylist]()
     
     override func viewDidLoad() {
@@ -21,35 +20,9 @@ class LibraryPlaylistVC: BaseVC {
     
     private func setupUI(){
         self.title = NSLocalizedString("Playlist", comment: "Playlist")
-        if AppSettings.shouldShowAddMobBanner{
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId,
-                                   request: request,
-                                   completionHandler: { (ad, error) in
-                                    if let error = error {
-                                        print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                                        return
-                                    }
-                                    self.interstitial = ad
-                                   }
-            )
-        }
         
         self.tableView.separatorStyle = .none
         tableView.register(UINib(resource: R.nib.playlistTableItem), forCellReuseIdentifier: R.reuseIdentifier.playlistTableItem.identifier)
-    }
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId,
-                               request: GADRequest(),
-                               completionHandler: { (ad, error) in
-                                if let error = error {
-                                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                                    return
-                                }
-                                self.interstitial = ad
-                               }
-        )
-        return  self.interstitial
     }
     
     private func myChannelPlayListfetchData(){

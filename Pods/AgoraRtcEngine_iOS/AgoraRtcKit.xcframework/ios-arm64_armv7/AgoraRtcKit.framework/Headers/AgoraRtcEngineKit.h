@@ -11,12 +11,14 @@
 #import "AgoraRtcEngineDelegate2.h"
 #import "AgoraBaseDelegate.h"
 #import "AgoraRtcMediaPlayerProtocol.h"
+#import "AgoraH265TranscoderProtocol.h"
 
 /** Agora provides ensured quality of experience (QoE) for worldwide Internet-based voice and video communications through a virtual global network that is especially optimized for real-time web and mobile-to-mobile applications.
 
  The AgoraRtcEngineKit class is the entry point of the Agora SDK that provides simple APIs for applications to easily start voice and video communication.
  */
 @class AgoraRtcEngineKit;
+@class AgoraMediaRecorder;
 
 /**
  * The AgoraAudioFrameDelegate protocol enables audio frame callback event notifications to your application.
@@ -258,8 +260,7 @@
  * - true: Do not ignore.
  * - false: Ignore, in which case this method does not sent the current video frame to the SDK.
  */
-- (BOOL)onCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onCapture(_:));
-- (BOOL)onSecondaryCameraCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onSecondaryCameraCapture(_:));
+- (BOOL)onCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame sourceType:(AgoraVideoSourceType)sourceType;
 
 /**
  * Occurs each time the SDK receives a video frame before encoding.
@@ -278,43 +279,9 @@
  * - true: Do not ignore.
  * - false: Ignore, in which case this method does not sent the current video frame to the SDK.
  */
-- (BOOL)onPreEncodeVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onPreEncode(_:));
+- (BOOL)onPreEncodeVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame sourceType:(AgoraVideoSourceType)sourceType;
 
-/**
- * Occurs each time the SDK receives a video frame captured by the screen.
- * Notes: If getVideoFrameProcessMode is read-only, use MUST implement this method
- * After you successfully register the video frame observer, the SDK triggers this callback each time
- * a video frame is received. In this callback, you can get the video data captured by the screen.
- * You can then pre-process the data according to your scenarios.
- *
- * After pre-processing, you can send the processed video data back to the SDK by setting the
- * `videoFrame` parameter in this callback.
- *
- * @param videoFrame A pointer to the video frame: AgoraOutputVideoFrame
- * @return Determines whether to ignore the current video frame if the pre-processing fails:
- * - true: Do not ignore.
- * - false: Ignore, in which case this method does not sent the current video frame to the SDK.
- */
-- (BOOL)onScreenCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onScreenCapture(_:));
-/**
- * Occurs each time the SDK receives a video frame captured by the screen before encoding.
- *
- * After you successfully register the video frame observer, the SDK triggers this callback each time
- * when it receives a video frame. In this callback, you can get the video data before encoding. You can then
- * process the data according to your particular scenarios.
- *
- * After processing, you can send the processed video data back to the SDK by setting the
- * `videoFrame` parameter in this callback.
- *
- * The video data that this callback gets has been pre-processed, with its content cropped, rotated, and the image enhanced.
- *
- * @param videoFrame A pointer to the video frame: VideoFrame
- * @return Determines whether to ignore the current video frame if the pre-processing fails:
- * - true: Do not ignore.
- * - false: Ignore, in which case this method does not sent the current video frame to the SDK.
- */
-- (BOOL)onPreEncodeScreenVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onPreEncodeScreenVideoFrame(_:));
-- (BOOL)onSecondaryScreenCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onSecondaryScreenCapture(_:));
+
 - (BOOL)onTranscodedVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onTranscodedVideoFrame(_:));
 
 /**
@@ -345,6 +312,9 @@
  *
  * After pre-processing, you can send the processed video data back to the SDK by setting the
  * `videoFrame` parameter in this callback.
+ * 
+ * @note
+ * - This callback will not be affected by the return values of \ref getVideoFrameProcessMode "getVideoFrameProcessMode", \ref getRotationApplied "getRotationApplied", \ref getMirrorApplied "getMirrorApplied", \ref getObservedFramePosition "getObservedFramePosition".
  *
  * @param videoFrame A pointer to the video frame: AgoraOutputVideoFrame
  * @param mediaPlayerId of the mediaPlayer.
@@ -398,6 +368,26 @@
  * @return A bit mask that controls the frame position of the video observer: AgoraVideoFramePosition.
  */
 - (AgoraVideoFramePosition)getObservedFramePosition NS_SWIFT_NAME(getObservedFramePosition());
+
+
+/* Unavailable Delegate Methods */
+#if TARGET_OS_IPHONE
+- (BOOL)onCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onCapture(_:)) __attribute__((availability(ios,deprecated=7_0,message="Use onCaptureVideoFrame:sourceType: instead.")));
+- (BOOL)onSecondaryCameraCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onSecondaryCameraCapture(_:)) __attribute__((availability(ios,deprecated=7_0,message="Use onCaptureVideoFrame:sourceType: instead.")));
+- (BOOL)onScreenCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onScreenCapture(_:)) __attribute__((availability(ios,deprecated=7_0,message="Use onCaptureVideoFrame:sourceType: instead.")));
+- (BOOL)onSecondaryScreenCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onSecondaryScreenCapture(_:)) __attribute__((availability(ios,deprecated=7_0,message="Use onCaptureVideoFrame:sourceType: instead.")));
+- (BOOL)onPreEncodeVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onPreEncode(_:)) __attribute__((availability(ios,deprecated=7_0,message="Use onPreEncodeVideoFrame:sourceType: instead.")));
+- (BOOL)onPreEncodeScreenVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onPreEncodeScreenVideoFrame(_:)) __attribute__((availability(ios,deprecated=7_0,message="Use onPreEncodeVideoFrame:sourceType: instead.")));
+#endif
+
+#if (!(TARGET_OS_IPHONE) && (TARGET_OS_MAC))
+- (BOOL)onCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onCapture(_:)) __attribute__((availability(macos,deprecated=10_9,message="Use onCaptureVideoFrame:sourceType: instead.")));
+- (BOOL)onSecondaryCameraCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onSecondaryCameraCapture(_:)) __attribute__((availability(macos,deprecated=10_9,message="Use onCaptureVideoFrame:sourceType: instead.")));
+- (BOOL)onScreenCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onScreenCapture(_:)) __attribute__((availability(macos,deprecated=10_9,message="Use onCaptureVideoFrame:sourceType: instead.")));
+- (BOOL)onSecondaryScreenCaptureVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onSecondaryScreenCapture(_:)) __attribute__((availability(macos,deprecated=10_9,message="Use onCaptureVideoFrame:sourceType: instead.")));
+- (BOOL)onPreEncodeVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onPreEncode(_:)) __attribute__((availability(macos,deprecated=10_9,message="Use onPreEncodeVideoFrame:sourceType: instead.")));
+- (BOOL)onPreEncodeScreenVideoFrame:(AgoraOutputVideoFrame * _Nonnull)videoFrame NS_SWIFT_NAME(onPreEncodeScreenVideoFrame(_:)) __attribute__((availability(macos,deprecated=10_9,message="Use onPreEncodeVideoFrame:sourceType: instead.")));
+#endif
 
 @end
 
@@ -658,16 +648,6 @@ You need to specify the metadata in the return value of this method.
  * @name Core Delegate Methods
  * -----------------------------------------------------------------------------
  */
-/** A warning occurred during SDK runtime.
-
- In most cases, the application can ignore the warnings reported by the SDK because the SDK can usually fix the issue and resume running.
- For instance, the SDK may report an AgoraRtc_Error_OpenChannelTimeout(106) warning upon disconnection from the server and attempts to reconnect.
-
- @param engine      AgoraRtcEngineKit object
- @param warningCode AgoraWarningCode
- */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurWarning:(AgoraWarningCode)warningCode NS_SWIFT_NAME(rtcEngine(_:didOccurWarning:));
-
 /** An error occurred during SDK runtime.
 
  In most cases, reporting an error means that the SDK cannot fix the issue and resume running, and therefore requires actions from the application or simply informs the user on the issue.
@@ -830,17 +810,6 @@ You need to specify the metadata in the return value of this method.
  * @param result The uplink and downlink last-mile network probe test result, see \ref AgoraLastmileProbeResult.
  */
 - (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine lastmileProbeTestResult:(AgoraLastmileProbeResult * _Nonnull)result NS_SWIFT_NAME(rtcEngine(_:lastmileProbeTest:));
-
-/**
- * The API call was executed successfully.
- * @deprecated This callback is deprecated. Use other specific event callbacks instead.
- *
- * @param engine The AgoraRtcEngineKit object.
- * @param error  \ref AgoraErrorCode
- * @param api    The method executed by the SDK.
- * @param result The result of the method call.
- */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didApiCallExecute:(NSInteger)error api:(NSString * _Nonnull)api result:(NSString * _Nonnull)result NS_SWIFT_NAME(rtcEngine(_:didApiCallExecute:api:result:)) __deprecated;
 
 
 #if (!(TARGET_OS_IPHONE) && (TARGET_OS_MAC))
@@ -1404,6 +1373,16 @@ elapseSinceLastState:(int)elapseSinceLastState NS_SWIFT_NAME(rtcEngine(_:didAudi
 - (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didRhythmPlayerStateChanged:(AgoraRhythmPlayerState)state
         errorCode:(AgoraRhythmPlayerError)errorCode NS_SWIFT_NAME(rtcEngine(_:didRhythmPlayerStateChanged:errorCode:));
 
+#pragma mark  Local Video Transcoder Delegates Methods
+/**
+ * Occurs when local video transcoder stream has error.
+ *
+ * @param stream Stream type of AgoraTranscodingVideoStream.
+ * @param errorCode Error code of AgoraVideoTranscoderError.
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didLocalVideoTranscoderErrorWithStream:(AgoraTranscodingVideoStream * _Nonnull )stream
+        errorCode:(AgoraVideoTranscoderError)errorCode NS_SWIFT_NAME(rtcEngine(_:didLocalVideoTranscoderErrorWithStream:errorCode:));
+
 #pragma mark Remote User Video Delegates Methods
 
 /**-----------------------------------------------------------------------------
@@ -1426,7 +1405,7 @@ elapseSinceLastState:(int)elapseSinceLastState NS_SWIFT_NAME(rtcEngine(_:didAudi
  @param size    Size of the video (width and height) in pixels.
  @param elapsed Time elapsed (ms) from calling `joinChannelByToken` until this callback is triggered.
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine firstRemoteVideoDecodedOfUid:(NSUInteger)uid size:(CGSize)size elapsed:(NSInteger)elapsed NS_SWIFT_NAME(rtcEngine(_:firstRemoteVideoDecodedOfUid:size:elapsed:)) __deprecated;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine firstRemoteVideoDecodedOfUid:(NSUInteger)uid size:(CGSize)size elapsed:(NSInteger)elapsed NS_SWIFT_NAME(rtcEngine(_:firstRemoteVideoDecodedOfUid:size:elapsed:)) __deprecated_msg("use rtcEngine:remoteVideoStateChangedOfUid:state:reason: instead.");
 
 /** The first frame of the remote user was displayed successfully. Same as [firstRemoteVideoFrameBlock]([AgoraRtcEngineKit firstRemoteVideoFrameBlock:]).
 
@@ -1500,11 +1479,12 @@ channelMediaRelayStateDidChange:(AgoraChannelMediaRelayState)state
 
 /** Reports events during the media stream relay.
 
+ @deprecated v4.2.0. This callback is not recommended and will be removed in future releases.
  @param engine AgoraRtcEngineKit object.
  @param event The event code in [AgoraChannelMediaRelayEvent](AgoraChannelMediaRelayEvent).
  */
 - (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine
-didReceiveChannelMediaRelayEvent:(AgoraChannelMediaRelayEvent)event NS_SWIFT_NAME(rtcEngine(_:didReceive:));
+didReceiveChannelMediaRelayEvent:(AgoraChannelMediaRelayEvent)event NS_SWIFT_NAME(rtcEngine(_:didReceive:)) __deprecated;
 
 /** A remote user's video paused or resumed. Same as [userMuteVideoBlock]([AgoraRtcEngineKit userMuteVideoBlock:]).
  @deprecated
@@ -1521,7 +1501,7 @@ didReceiveChannelMediaRelayEvent:(AgoraChannelMediaRelayEvent)event NS_SWIFT_NAM
 - (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didVideoMuted:(BOOL)muted byUid:(NSUInteger)uid NS_SWIFT_NAME(rtcEngine(_:didVideoMuted:byUid:)) __deprecated_msg("use rtcEngine:remoteVideoStateChangedOfUid:state:reason: instead.");
 
 /** A remote user's video was enabled or disabled.
- @deprecated
+ 
  Once the video function is disabled, users can only perform an audio call and cannot see any video.
 
  @note  Invalid when the number of users in a channel exceeds 20.
@@ -1534,7 +1514,7 @@ didReceiveChannelMediaRelayEvent:(AgoraChannelMediaRelayEvent)event NS_SWIFT_NAM
 
  @param uid     Remote user ID.
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didVideoEnabled:(BOOL)enabled byUid:(NSUInteger)uid NS_SWIFT_NAME(rtcEngine(_:didVideoEnabled:byUid:)) __deprecated_msg("use rtcEngine:remoteVideoStateChangedOfUid:state:reason: instead.");
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didVideoEnabled:(BOOL)enabled byUid:(NSUInteger)uid NS_SWIFT_NAME(rtcEngine(_:didVideoEnabled:byUid:));
 
 /** A remote user's local video was enabled or disabled.
  @deprecated
@@ -1815,6 +1795,113 @@ __attribute__((visibility("default"))) @interface AgoraRtcEngineKit : NSObject
  * delegate are optional implementation methods.
  */
 @property(nonatomic, weak) id<AgoraRtcEngineDelegate> _Nullable delegate;
+
+/**
+ * Preload a channel.
+ *
+ * This method enables users to preload a channel.
+ *
+ * A successful call of this method will reduce the time of joining the same channel.
+ *
+ * @since v4.2.2
+ * @note
+ *  1. The SDK supports preloading up to 20 channels. Once the preloaded channels exceed the limit, the SDK will keep the latest 20 available.
+ *  2. Renew the token of the preloaded channel by calling this method with the same 'channelId' and 'uid'.
+ *
+ * @param token The token generated on your server for authentication.
+ * @param channelId The channel name. This parameter signifies the channel in which users engage in
+ * real-time audio and video interaction. Under the premise of the same App ID, users who fill in
+ * the same channel ID enter the same channel for audio and video interaction. The string length
+ * must be less than 64 bytes. Supported character scopes are:
+ * - All lowercase English letters: a to z.
+ * - All uppercase English letters: A to Z.
+ * - All numeric characters: 0 to 9.
+ * - The space character.
+ * - Punctuation characters and other symbols, including: "!", "#", "$", "%", "&", "(", ")", "+", "-",
+ * ":", ";", "<", "=", ".", ">", "?", "@", "[", "]", "^", "_", " {", "}", "|", "~", ",".
+ * @param uid The user ID. This parameter is used to identify the user in the channel for real-time
+ * audio and video interaction. You need to set and manage user IDs yourself, and ensure that each
+ * user ID in the same channel is unique. This parameter is a 32-bit unsigned integer. The value
+ * range is 1 to 2<h>32</h>-1. If the user ID is not assigned (or set to 0), the SDK assigns a random user
+ * ID and returns it in the onJoinChannelSuccess callback. Your application must record and maintain
+ * the returned user ID, because the SDK does not do so.
+ *
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ *   - -7: The IRtcEngine object has not been initialized. You need to initialize the IRtcEngine
+ * object before calling this method.
+ *   - -102: The channel name is invalid. You need to pass in a valid channel name in channelId to
+ * preload the channel again.
+ */
+- (int)preloadChannelByToken:(NSString * _Nullable)token
+                   channelId:(NSString * _Nonnull)channelId
+                         uid:(NSUInteger)uid NS_SWIFT_NAME(preloadChannel(byToken:channelId:uid:));
+
+/**
+ * Preload a channel.
+ *
+ * This method enables users to preload a channel.
+ *
+ * A successful call of this method will reduce the time of joining the same channel.
+ *
+ * @since v4.2.2
+ * @note
+ *  1. The SDK supports preloading up to 20 channels. Once the preloaded channels exceed the limit, the SDK will keep the latest 20 available.
+ *  2. Renew the token of the preloaded channel by calling this method with the same 'channelId' and 'userAccount'.
+ *
+ * @param token The token generated on your server for authentication.
+ * @param channelId The channel name. This parameter signifies the channel in which users engage in
+ * real-time audio and video interaction. Under the premise of the same App ID, users who fill in
+ * the same channel ID enter the same channel for audio and video interaction. The string length
+ * must be less than 64 bytes. Supported character scopes are:
+ * - All lowercase English letters: a to z.
+ * - All uppercase English letters: A to Z.
+ * - All numeric characters: 0 to 9.
+ * - The space character.
+ * - Punctuation characters and other symbols, including: "!", "#", "$", "%", "&", "(", ")", "+", "-",
+ * ":", ";", "<", "=", ".", ">", "?", "@", "[", "]", "^", "_", " {", "}", "|", "~", ",".
+ * @param userAccount The user account. The maximum length of this parameter is 255 bytes. Ensure that you set this parameter and do not set it as null. Supported character scopes are:
+ * - All lowercase English letters: a to z.
+ * - All uppercase English letters: A to Z.
+ * - All numeric characters: 0 to 9.
+ * - The space character.
+ * - Punctuation characters and other symbols, including: "!", "#", "$", "%", "&", "(", ")", "+", "-", ":", ";", "<", "=", ".", ">", "?", "@", "[", "]", "^", "_", " {", "}", "|", "~", ",".
+ *
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ *   - -2: The parameter is invalid. For example, the userAccount parameter is empty.
+ * You need to pass in a valid parameter and preload the channel again.
+ *   - -7: The IRtcEngine object has not been initialized. You need to initialize the IRtcEngine
+ * object before calling this method.
+ *   - -102: The channel name is invalid. You need to pass in a valid channel name in channelId to
+ * preload the channel again.
+ */
+- (int)preloadChannelByToken:(NSString * _Nullable)token
+                   channelId:(NSString * _Nonnull)channelId
+                 userAccount:(NSString * _Nonnull)userAccount NS_SWIFT_NAME(preloadChannel(byToken:channelId:userAccount:));
+
+/**
+ * Update token of the preloaded channels.
+ *
+ * An easy way to update all preloaded channels' tokens, if all preloaded channels use the same token.
+ *
+ * @since v4.2.2
+ * @note
+ * If preloaded channels use different tokens, we need to call the 'preloadChannel' method with the same 'channelId'
+ * and 'uid' or 'userAccount' to update the corresponding token.
+ *
+ * @param token The token generated on your server for authentication.
+ *
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ *   - -2: The token is invalid. You need to pass in a valid token and update the token again.
+ *   - -7: The IRtcEngine object has not been initialized. You need to initialize the IRtcEngine
+ * object before calling this method.
+ */
+- (int)updatePreloadChannelToken:(NSString * _Nonnull)token NS_SWIFT_NAME(updatePreloadChannelToken(_:));
 
 /**
  * Joins a channel.
@@ -2109,6 +2196,32 @@ When a user switches user roles after joining a channel, a successful method cal
  */
 - (AgoraConnectionState)getConnectionState NS_SWIFT_NAME(getConnectionState());
 
+/** Starts or update to relay media streams across channels.
+
+ After a successful method call, the SDK triggers the [channelMediaRelayStateDidChange]([AgoraRtcEngineDelegate rtcEngine:channelMediaRelayStateDidChange:error:]) and [didReceiveChannelMediaRelayEvent]([AgoraRtcEngineDelegate rtcEngine:didReceiveChannelMediaRelayEvent:]) callbacks, and these callbacks return the state and events of the media stream relay.
+
+ - If the `channelMediaRelayStateDidChange` callback returns AgoraChannelMediaRelayStateRunning(2) and AgoraChannelMediaRelayStateIdle(0), and the `didReceiveChannelMediaRelayEvent` callback returns  AgoraChannelMediaRelayEventSentToDestinationChannel(4), the SDK starts relaying media streams between the original and the destination channel.
+ - If the `channelMediaRelayStateDidChange` callback returns AgoraChannelMediaRelayStateFailure(3), an exception occurs during the media stream relay.
+
+ **Note**
+
+ - Call this method after the [joinChannel]([AgoraRtcEngineKit joinChannelByToken:channelId:info:uid:joinSuccess:]) method.
+ - This method takes effect only when you are a broadcaster in a Live-broadcast channel.
+ - Contact sales-us@agora.io before implementing this function.
+ - We do not support string user accounts in this API.
+
+ @since v4.2.0
+ @param config The configuration of the media stream relay: [AgoraChannelMediaRelayConfiguration](AgoraChannelMediaRelayConfiguration).
+
+ @return - 0: Success.
+ - < 0: Failure.
+   - -1(ERR_FAILED): A general error occurs (no specified reason).
+   - -2(ERR_INVALID_ARGUMENT): The argument is invalid.
+   - -5(ERR_REFUSED): The request is rejected.
+   - -8(ERR_INVALID_STATE): The current status is invalid, only allowed to be called when the role is the broadcaster.
+ */
+- (int)startOrUpdateChannelMediaRelay:(AgoraChannelMediaRelayConfiguration * _Nonnull)config NS_SWIFT_NAME(startOrUpdateChannelMediaRelay(_:));
+
 /** Starts to relay media streams across channels.
 
  After a successful method call, the SDK triggers the [channelMediaRelayStateDidChange]([AgoraRtcEngineDelegate rtcEngine:channelMediaRelayStateDidChange:error:]) and [didReceiveChannelMediaRelayEvent]([AgoraRtcEngineDelegate rtcEngine:didReceiveChannelMediaRelayEvent:]) callbacks, and these callbacks return the state and events of the media stream relay.
@@ -2124,12 +2237,17 @@ When a user switches user roles after joining a channel, a successful method cal
  - Contact sales-us@agora.io before implementing this function.
  - We do not support string user accounts in this API.
 
+ @deprecated v4.2.0 Use `startOrUpdateChannelMediaRelay` instead.
  @param config The configuration of the media stream relay: [AgoraChannelMediaRelayConfiguration](AgoraChannelMediaRelayConfiguration).
 
  @return - 0: Success.
  - < 0: Failure.
+   - -1(ERR_FAILED): A general error occurs (no specified reason).
+   - -2(ERR_INVALID_ARGUMENT): The argument is invalid.
+   - -5(ERR_REFUSED): The request is rejected.
+   - -8(ERR_INVALID_STATE): The current status is invalid, only allowed to be called when the role is the broadcaster.
  */
-- (int)startChannelMediaRelay:(AgoraChannelMediaRelayConfiguration * _Nonnull)config NS_SWIFT_NAME(startChannelMediaRelay(_:));
+- (int)startChannelMediaRelay:(AgoraChannelMediaRelayConfiguration * _Nonnull)config NS_SWIFT_NAME(startChannelMediaRelay(_:)) __deprecated_msg("use startOrUpdateChannelMediaRelay instead.");
 
 /** Updates the channels for media stream relay.
 
@@ -2142,12 +2260,17 @@ When a user switches user roles after joining a channel, a successful method cal
  - Call this method after the [startChannelMediaRelay]([AgoraRtcEngineKit startChannelMediaRelay:]) method to update the destination channel.
  - This method supports adding at most four destination channels in the relay. If there are already four destination channels in the relay, remove the unnecessary ones with the `removeDestinationInfoForChannelName` method in channelMediaRelayConfiguration before calling this method.
 
+ @deprecated v4.2.0 Use `startOrUpdateChannelMediaRelay` instead.
  @param config The media stream relay configuration: [AgoraChannelMediaRelayConfiguration](AgoraChannelMediaRelayConfiguration).
 
  @return - 0: Success.
  - < 0: Failure.
+   - -1(ERR_FAILED): A general error occurs (no specified reason).
+   - -2(ERR_INVALID_ARGUMENT): The argument is invalid.
+   - -5(ERR_REFUSED): The request is rejected.
+   - -7(ERR_NOT_INITIALIZED): cross channel media streams are not relayed.
  */
-- (int)updateChannelMediaRelay:(AgoraChannelMediaRelayConfiguration * _Nonnull)config NS_SWIFT_NAME(updateChannelMediaRelay(_:));
+- (int)updateChannelMediaRelay:(AgoraChannelMediaRelayConfiguration * _Nonnull)config NS_SWIFT_NAME(updateChannelMediaRelay(_:)) __deprecated_msg("use startOrUpdateChannelMediaRelay instead.");
 
 /** Stops the media stream relay.
 
@@ -2159,6 +2282,10 @@ When a user switches user roles after joining a channel, a successful method cal
 
  @return - 0: Success.
  - < 0: Failure.
+   - -1(ERR_FAILED): A general error occurs (no specified reason).
+   - -2(ERR_INVALID_ARGUMENT): The argument is invalid.
+   - -5(ERR_REFUSED): The request is rejected.
+   - -7(ERR_NOT_INITIALIZED): cross channel media streams are not relayed.
  */
 - (int)stopChannelMediaRelay NS_SWIFT_NAME(stopChannelMediaRelay());
 
@@ -2166,6 +2293,10 @@ When a user switches user roles after joining a channel, a successful method cal
  * @return
  * - 0: Success.
  * - < 0: Failure.
+   - -1(ERR_FAILED): A general error occurs (no specified reason).
+   - -2(ERR_INVALID_ARGUMENT): The argument is invalid.
+   - -5(ERR_REFUSED): The request is rejected.
+   - -7(ERR_NOT_INITIALIZED): cross channel media streams are not relayed.
  */
 - (int)pauseAllChannelMediaRelay NS_SWIFT_NAME(pauseAllChannelMediaRelay());
 
@@ -2173,6 +2304,10 @@ When a user switches user roles after joining a channel, a successful method cal
  * @return
  * - 0: Success.
  * - < 0: Failure.
+   - -1(ERR_FAILED): A general error occurs (no specified reason).
+   - -2(ERR_INVALID_ARGUMENT): The argument is invalid.
+   - -5(ERR_REFUSED): The request is rejected.
+   - -7(ERR_NOT_INITIALIZED): cross channel media streams are not relayed.
  */
 - (int)resumeAllChannelMediaRelay NS_SWIFT_NAME(resumeAllChannelMediaRelay());
 
@@ -2192,15 +2327,12 @@ When a user switches user roles after joining a channel, a successful method cal
  */
 - (int)enableWirelessAccelerate:(BOOL)enabled NS_SWIFT_NAME(enableWirelessAccelerate(_:));
 
-#if (!(TARGET_OS_IPHONE) && (TARGET_OS_MAC))
-
 - (int)startLocalVideoTranscoder:(AgoraLocalTranscoderConfiguration* _Nonnull)config NS_SWIFT_NAME(startLocalVideoTranscoder(_:));
 
 - (int)updateLocalTranscoderConfiguration:(AgoraLocalTranscoderConfiguration* _Nonnull)config NS_SWIFT_NAME(updateLocalTranscoderConfiguration(_:));
 
 - (int)stopLocalVideoTranscoder NS_SWIFT_NAME(stopLocalVideoTranscoder());
 
-#endif
 
 /**
  @brief Start tracing media rendering events.
@@ -2595,17 +2727,58 @@ When a user switches user roles after joining a channel, a successful method cal
  */
 - (int)setDefaultMuteAllRemoteAudioStreams:(BOOL)mute NS_SWIFT_NAME(setDefaultMuteAllRemoteAudioStreams(_:)) __deprecated;
 
+/**
+ * Registers an extension. Normally, you should call this function immediately after initializing the engine.
+ * Once an extension is registered, the SDK will automatically create and add it to the pipeline.
+ *
+ * @param provider The name of the extension provider, e.g. agora.io.
+ * @param extension The name of the extension, e.g. agora.beauty.
+ * @param sourceType The source type of the extension, e.g. AgoraMediaSourceTypePrimaryCamera. See AgoraMediaSourceType.
+ *
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)registerExtensionWithVendor:(NSString * __nonnull)provider
+                         extension:(NSString * __nonnull)extension
+                        sourceType:(AgoraMediaSourceType)sourceType NS_SWIFT_NAME(registerExtension(withVendor:extension:sourceType:));
+
+/**
+ * Enable/Disable an extension.
+ * By calling this function, you can dynamically enable/disable the extension without changing the pipeline.
+ * For example, enabling/disabling Extension_A means the data will be adapted/bypassed by Extension_A.
+ *
+ * NOTE: For compatibility reasons, if you haven't call registerExtensionWithVendor,
+ * enableExtension will automatically register the specified extension.
+ * We suggest you call registerExtensionWithVendor explicitly.
+ *
+ * @param provider The name of the extension provider, e.g. agora.io.
+ * @param extension The name of the extension, e.g. agora.beauty.
+ * @param enabled Whether to enable the extension:
+ * - true: (Default) Enable the extension.
+ * - false: Disable the extension.
+ *
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
 - (int)enableExtensionWithVendor:(NSString * __nonnull)provider extension:(NSString * __nonnull)extension enabled:(BOOL)enabled NS_SWIFT_NAME(enableExtension(withVendor:extension:enabled:));
 
 /**
- * Enable/Disable extension.
+ * Enable/Disable an extension.
+ * By calling this function, you can dynamically enable/disable the extension without changing the pipeline.
+ * For example, enabling/disabling Extension_A means the data will be adapted/bypassed by Extension_A.
  *
- * @param provider name for provider, e.g. agora.builtin.
- * @param extension name for extension, e.g. agora.beauty.
- * @param enabled enable or disable.
- * - true: enable.
- * - false: disable.
- * @param sourceType Media source types definition see AgoraMediaSourceType, default is AgoraMediaSourceTypeUnknown.
+ * NOTE: For compatibility reasons, if you haven't call registerExtensionWithVendor,
+ * enableExtension will automatically register the specified extension.
+ * We suggest you call registerExtensionWithVendor explicitly.
+ *
+ * @param provider The name of the extension provider, e.g. agora.io.
+ * @param extension The name of the extension, e.g. agora.beauty.
+ * @param enabled Whether to enable the extension:
+ * - true: (Default) Enable the extension.
+ * - false: Disable the extension.
+ * @param sourceType The source type of the extension, e.g. AgoraMediaSourceTypePrimaryCamera. See AgoraMediaSourceType
  *
  * @return
  * - 0: Success.
@@ -2617,14 +2790,20 @@ When a user switches user roles after joining a channel, a successful method cal
                       sourceType:(AgoraMediaSourceType)sourceType NS_SWIFT_NAME(enableExtension(withVendor:extension:enabled:sourceType:));
 
 /**
- * Enable/Disable extension.
+ * Enable/Disable an extension.
+ * By calling this function, you can dynamically enable/disable the extension without changing the pipeline.
+ * For example, enabling/disabling Extension_A means the data will be adapted/bypassed by Extension_A.
  *
- * @param provider name for provider, e.g. agora.io.
- * @param extension name for extension, e.g. agora.beauty.
- * @param extensionInfo the information for extension.
- * @param enabled enable or disable.
- * - true: enable.
- * - false: disable.
+ * NOTE: For compatibility reasons, if you haven't call registerExtensionWithVendor,
+ * enableExtension will automatically register the specified extension.
+ * We suggest you call registerExtensionWithVendor explicitly.
+ *
+ * @param provider The name of the extension provider, e.g. agora.io.
+ * @param extension The name of the extension, e.g. agora.beauty.
+ * @param extensionInfo The information for extension definition see AgoraExtensionInfo
+ * @param enabled Whether to enable the extension:
+ * - true: (Default) Enable the extension.
+ * - false: Disable the extension.
  *
  * @return
  * - 0: Success.
@@ -2636,11 +2815,11 @@ When a user switches user roles after joining a channel, a successful method cal
                          enabled:(BOOL)enabled NS_SWIFT_NAME(enableExtension(withVendor:extension:extensionInfo:enabled:));
 
 /**
- * Set extension provider specific property.
+ * Sets the provider property of an extension.
  *
- * @param provider name for provider, e.g. agora.io.
- * @param key key for the property.
- * @param value property value.
+ * @param provider The name of the extension provider, e.g. agora.io.
+ * @param key The key of the extension.
+ * @param value The JSON formatted value of the extension key.
  *
  * @return
  * - 0: Success.
@@ -2650,19 +2829,29 @@ When a user switches user roles after joining a channel, a successful method cal
                                           key:(NSString * __nonnull)key
                                         value:(NSString * __nonnull)value NS_SWIFT_NAME(setExtensionProviderPropertyWithVendor(_:key:value:));
 
+/**
+ * Sets the properties of an extension.
+ *
+ * @param provider The name of the extension provider, e.g. agora.io.
+ * @param extension The name of the extension, e.g. agora.beauty.
+ * @param key The key of the extension.
+ * @param value The JSON formatted value of the extension key.
+ *
+ * @return true, if get property success, otherwise false
+ */
 - (int)setExtensionPropertyWithVendor:(NSString * __nonnull)provider
                             extension:(NSString * __nonnull)extension
                                   key:(NSString * __nonnull)key
                                 value:(NSString * __nonnull)value NS_SWIFT_NAME(setExtensionPropertyWithVendor(_:extension:key:value:));
 
 /**
- * Set extension specific property.
+ * Sets the properties of an extension.
  *
- * @param provider name for provider, e.g. agora.builtin.
- * @param extension name for extension, e.g. agora.beauty.
- * @param key key for the property.
- * @param value property value.
- * @param sourceType Media source types definition see AgoraMediaSourceType, default is AgoraMediaSourceTypeUnknown.
+ * @param provider The name of the extension provider, e.g. agora.io.
+ * @param extension The name of the extension, e.g. agora.beauty.
+ * @param key The key of the extension.
+ * @param value The JSON formatted value of the extension key.
+ * @param sourceType The source type of the extension, e.g. AgoraMediaSourceTypePrimaryCamera. See AgoraMediaSourceType.
  *
  * @return
  * - 0: Success.
@@ -2674,13 +2863,13 @@ When a user switches user roles after joining a channel, a successful method cal
                                 value:(NSString * __nonnull)value
                            sourceType:(AgoraMediaSourceType)sourceType NS_SWIFT_NAME(setExtensionPropertyWithVendor(_:extension:key:value:sourceType:));
 /**
- * Set extension specific property.
+ * Sets the properties of an extension.
  *
- * @param provider name for provider, e.g. agora.io.
- * @param extension name for extension, e.g. agora.beauty.
- * @param extensionInfo the information for extension.
- * @param key key for the property.
- * @param value property value of json format.
+ * @param provider The name of the extension provider, e.g. agora.io.
+ * @param extension The name of the extension, e.g. agora.beauty.
+ * @param extensionInfo The information for extension. See AgoraExtensionInfo.
+ * @param key The key of the extension.
+ * @param value The JSON formatted value of the extension key.
  *
  * @return
  * - 0: Success.
@@ -2693,29 +2882,29 @@ When a user switches user roles after joining a channel, a successful method cal
                                 value:(NSString * __nonnull)value NS_SWIFT_NAME(setExtensionPropertyWithVendor(_:extension:extensionInfo:key:value:));
 
 /**
- * Get extension specific property.
+ * Gets the properties of an extension.
  *
- * @param provider name for provider, e.g. agora.builtin.
- * @param extension name for extension, e.g. agora.beauty.
- * @param key key for the property.
+ * @param provider The name of the extension provider, e.g. agora.io.
+ * @param extension The name of the extension, e.g. agora.beauty.
+ * @param key The key of the extension.
  *
  * @return
- * - property value.
+ * - JSON formatted string of property's value; return null if failed
  */
 - (NSString * _Nullable)getExtensionPropertyWithVendor:(NSString * __nonnull)provider
                                              extension:(NSString * __nonnull)extension
                                                    key:(NSString * __nonnull)key NS_SWIFT_NAME(getExtensionProperty(withVendor:extension:key:));
 
 /**
- * Get extension specific property.
+ * Gets the properties of an extension.
  *
- * @param provider name for provider, e.g. agora.builtin.
- * @param extension name for extension, e.g. agora.beauty.
- * @param key key for the property.
- * @param sourceType Media source types definition see AgoraMediaSourceType, default is AgoraMediaSourceTypeUnknown.
+ * @param provider The name of the extension provider, e.g. agora.io.
+ * @param extension The name of the extension, e.g. agora.beauty.
+ * @param key The key of the extension.
+ * @param sourceType The source type of the extension, e.g. AgoraMediaSourceTypePrimaryCamera. See AgoraMediaSourceType.
  *
  * @return
- * - property value.
+ * - JSON formatted string of property's value; return null if failed
  */
 - (NSString * _Nullable)getExtensionPropertyWithVendor:(NSString * __nonnull)provider
                                              extension:(NSString * __nonnull)extension
@@ -2723,15 +2912,15 @@ When a user switches user roles after joining a channel, a successful method cal
                                             sourceType:(AgoraMediaSourceType)sourceType NS_SWIFT_NAME(getExtensionProperty(withVendor:extension:key:sourceType:));
 
 /**
- * Get extension specific property.
+ * Gets the properties of an extension.
  *
- * @param provider name for provider, e.g. agora.io.
- * @param extension name for extension, e.g. agora.beauty.
- * @param extensionInfo the information for extension.
- * @param key key for the property.
+ * @param provider The name of the extension provider, e.g. agora.io.
+ * @param extension The name of the extension, e.g. agora.beauty.
+ * @param extensionInfo The information for extension. See AgoraExtensionInfo.
+ * @param key The key of the extension.
  *
  * @return
- * - property value.
+ * - JSON formatted string of property's value; return null if failed
  */
 - (NSString * _Nullable)getExtensionPropertyWithVendor:(NSString * __nonnull)provider
                                              extension:(NSString * __nonnull)extension
@@ -2848,6 +3037,12 @@ When a user switches user roles after joining a channel, a successful method cal
  */
 - (int)enableLocalVideo:(BOOL)enabled NS_SWIFT_NAME(enableLocalVideo(_:));
 
+/**
+ * Querys current device codec capacity.
+ *
+ * @return The codec actual capability with array of AgoraVideoCodecCapInfo.
+ */
+- (NSArray <AgoraVideoCodecCapInfo *> *__nullable)queryCodecCapability;
 
 /**
  * Sets the video encoder configuration.
@@ -2936,6 +3131,21 @@ When a user switches user roles after joining a channel, a successful method cal
 - (int)startPreview NS_SWIFT_NAME(startPreview());
 
 /**
+ * Starts the local video preview before joining a channel.
+ *
+ * Once you call this method to start the local video preview, if you leave
+ * the channel by calling \ref leaveChannel: leaveChannel, the local video
+ * preview remains until you call \ref stopPreview to disable it.
+ * @param sourceType source type of video. See #AgoraVideoSourceType.
+ *
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+
+- (int)startPreview: (AgoraVideoSourceType)sourceType NS_SWIFT_NAME(startPreview(_:));
+
+/**
  * Stops the local video preview and the video.
  *
  * @return
@@ -2944,6 +3154,14 @@ When a user switches user roles after joining a channel, a successful method cal
  */
 - (int)stopPreview NS_SWIFT_NAME(stopPreview());
 
+/**
+ * Stops the local video preview and the video.
+ * @param sourceType source type of video. See #AgoraVideoSourceType.
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)stopPreview: (AgoraVideoSourceType)sourceType NS_SWIFT_NAME(stopPreview(_:));
 
 /** Binds the remote user to the video display window, that is, sets the view for the user of the specified uid.
 
@@ -3060,6 +3278,23 @@ When a user switches user roles after joining a channel, a successful method cal
 * < 0: Failure.
 */
 - (int)setBeautyEffectOptions:(BOOL)enable options:(AgoraBeautyOptions* _Nullable)options NS_SWIFT_NAME(setBeautyEffectOptions(_:options:));
+
+/** Enables/Disables image enhancement and sets the options.
+
+@note Call this method after calling the [enableVideo]([AgoraRtcEngineKit enableVideo]) method.
+
+@param enable Sets whether or not to enable image enhancement:
+
+- `YES`: Enable image enhancement.
+- `NO`: Disable image enhancement.
+@param options The image enhancement options, see AgoraBeautyOptions.
+@param sourceType The source type of the extension, e.g. AgoraMediaSourceTypePrimaryCamera. See AgoraMediaSourceType.
+
+@return * 0: Success.
+* < 0: Failure.
+*/
+- (int)setBeautyEffectOptions:(BOOL)enable options:(AgoraBeautyOptions* _Nullable)options sourceType:(AgoraMediaSourceType)sourceType NS_SWIFT_NAME(setBeautyEffectOptions(_:options:sourceType:));
+
 /** Sets video noise reduction.
 
 @since v4.0.0
@@ -3085,6 +3320,34 @@ You can call this method to enable the video noise reduction feature and set the
 * < 0: Failure.
 */
 - (int)setVideoDenoiserOptions:(BOOL)enable options:(AgoraVideoDenoiserOptions* _Nullable)options  NS_SWIFT_NAME(setVideoDenoiserOptions(_:options:));
+
+/** Sets video noise reduction.
+
+@since v4.0.0
+
+Underlit environments and low-end video capture devices can cause video images to contain significant noise, which affects video quality. In real-time interactive scenarios, video noise also consumes bitstream resources and reduces encoding efficiency during encoding.
+
+You can call this method to enable the video noise reduction feature and set the options of the video noise reduction effect.
+
+**Note:**
+
+- Before calling this method, ensure that you have integrated the `AgoraClearVisionExtension.xcframework` dynamic library.
+- Call this method after [enableVideo]([AgoraRtcEngineKit enableVideo]).
+- The video noise reduction feature has certain performance requirements on devices. If your device overheats after you enable video noise reduction, Agora recommends modifying the video noise reduction options to a less performance-consuming level or disabling video noise reduction entirely.
+
+@param enable Sets whether to enable video noise reduction:
+
+- YES: Enable.
+- NO: (Default) Disable.
+
+@param options The video noise reduction options. See AgoraVideoDenoiserOptions.
+@param sourceType The source type of the extension, e.g. AgoraMediaSourceTypePrimaryCamera. See AgoraMediaSourceType.
+
+@return * 0: Success.
+* < 0: Failure.
+*/
+- (int)setVideoDenoiserOptions:(BOOL)enable options:(AgoraVideoDenoiserOptions* _Nullable)options sourceType:(AgoraMediaSourceType)sourceType NS_SWIFT_NAME(setVideoDenoiserOptions(_:options:sourceType:));
+
 /** Sets low-light enhancement.
 
 @since v4.0.0
@@ -3110,6 +3373,34 @@ You can call this method to enable the low-light enhancement feature and set the
 * < 0: Failure.
 */
 - (int)setLowlightEnhanceOptions:(BOOL)enable options:(AgoraLowlightEnhanceOptions* _Nullable)options  NS_SWIFT_NAME(setLowlightEnhanceOptions(_:options:));
+
+/** Sets low-light enhancement.
+
+@since v4.0.0
+
+The low-light enhancement feature can adaptively adjust the brightness value of the video captured in situations with low or uneven lighting, such as backlit, cloudy, or dark scenes. It restores or highlights the image details and improves the overall visual effect of the video.
+
+You can call this method to enable the low-light enhancement feature and set the options of the low-light enhancement effect.
+
+**Note:**
+
+- Before calling this method, ensure that you have integrated the `AgoraClearVisionExtension.xcframework` dynamic library.
+- Call this method after [enableVideo]([AgoraRtcEngineKit enableVideo]).
+- The low-light enhancement feature has certain performance requirements on devices. If your device overheats after you enable low-light enhancement, Agora recommends modifying the low-light enhancement options to a less performance-consuming level or disabling low-light enhancement entirely.
+
+@param enable Sets whether to enable low-light enhancement:
+
+- YES: Enable.
+- NO: (Default) Disable.
+
+@param options The low-light enhancement options. See AgoraLowlightEnhanceOptions.
+@param sourceType The source type of the extension, e.g. AgoraMediaSourceTypePrimaryCamera. See AgoraMediaSourceType.
+
+@return * 0: Success.
+* < 0: Failure.
+*/
+- (int)setLowlightEnhanceOptions:(BOOL)enable options:(AgoraLowlightEnhanceOptions* _Nullable)options sourceType:(AgoraMediaSourceType)sourceType NS_SWIFT_NAME(setLowlightEnhanceOptions(_:options:sourceType:));
+
 /** Sets color enhancement.
 
 @since v4.0.0
@@ -3135,6 +3426,33 @@ You can call this method to enable the color enhancement feature and set the opt
 * < 0: Failure.
 */
 - (int)setColorEnhanceOptions:(BOOL)enable options:(AgoraColorEnhanceOptions* _Nullable)options  NS_SWIFT_NAME(setColorEnhanceOptions(_:options:));
+
+/** Sets color enhancement.
+
+@since v4.0.0
+
+The video images captured by the camera can have color distortion. The color enhancement feature intelligently adjusts video characteristics such as saturation and contrast to enhance the video color richness and color reproduction, making the video more vivid.
+
+You can call this method to enable the color enhancement feature and set the options of the color enhancement effect.
+
+**Note:**
+
+- Before calling this method, ensure that you have integrated the `AgoraClearVisionExtension.xcframework` dynamic library.
+- Call this method after [enableVideo]([AgoraRtcEngineKit enableVideo]).
+- The color enhancement feature has certain performance requirements on devices. If your device overheats after you enable color enhancement, Agora recommends modifying the color enhancement options to a less performance-consuming level or disabling color enhancement entirely.
+
+@param enable Sets whether to enable color enhancement:
+
+- YES: Enable.
+- NO: (Default) Disable.
+
+@param options The color enhancement options. See AgoraColorEnhanceOptions.
+@param sourceType The source type of the extension, e.g. AgoraMediaSourceTypePrimaryCamera. See AgoraMediaSourceType.
+
+@return * 0: Success.
+* < 0: Failure.
+*/
+- (int)setColorEnhanceOptions:(BOOL)enable options:(AgoraColorEnhanceOptions* _Nullable)options sourceType:(AgoraMediaSourceType)sourceType NS_SWIFT_NAME(setColorEnhanceOptions(_:options:sourceType:));
 
 /** Enables/Disables the virtual background. (beta function)
 
@@ -3174,7 +3492,7 @@ You can call this method to enable the color enhancement feature and set the opt
  resolution of the SDK capturing video, the SDK scales and crops the custom
  background image while ensuring that the content of the custom background
  image is not distorted.</p>
- @param segData
+ @param segData See AgoraSegmentationProperty.
  @return
   * 0: Success.
   * < 0: Failure.
@@ -3184,6 +3502,79 @@ You can call this method to enable the color enhancement feature and set the opt
   *  VIRTUAL_BACKGROUND_SOURCE_STATE_REASON_DEVICE_NOT_SUPPORTED = -3,
   */
 - (int)enableVirtualBackground:(BOOL)enable backData:(AgoraVirtualBackgroundSource* _Nullable)backData segData:(AgoraSegmentationProperty* _Nullable)segData NS_SWIFT_NAME(enableVirtualBackground(_:backData:segData:));
+
+/** Enables/Disables the virtual background. (beta function)
+
+ @since v3.7.200
+
+ After enabling the virtual background function, you can replace the original
+ background image of the local user with a custom background image. After the
+ replacement, all users in the channel can see the custom background image. You
+ can find out from the [virtualBackgroundSourceEnabled]([AgoraRtcEngineDelegate rtcEngine:virtualBackgroundSourceEnabled:reason:])
+ callback whether the virtual background is successfully enabled or the cause
+ of any errors.
+
+ **Note**:
+
+ - This method applies to macOS and iOS.
+ - Before calling this method, ensure that you have integrated the
+ `AgoraVideoSegmentationExtension.framework` dynamic library into the project
+ folder.
+ - Call this method after [enableVideo]([AgoraRtcEngineKit enableVideo]).
+ - This function requires a high-performance device. Agora recommends that you
+ use this function on devices with an i5 CPU and better.
+ - Agora recommends that you use this function in scenarios that meet the
+ following conditions:
+
+   - A high-definition camera device is used, and the environment is uniformly
+   lit.
+   - The captured video image is uncluttered, the user's portrait is
+   half-length and largely unobstructed, and the background is a single color
+   that differs from the color of the user's clothing.
+
+ @param enable Sets whether to enable the virtual background:
+
+ - `YES`: Enable.
+ - `NO`: Disable.
+ @param backData The custom background image. See AgoraVirtualBackgroundSource.
+ <p><b>Note</b>: To adapt the resolution of the custom background image to the
+ resolution of the SDK capturing video, the SDK scales and crops the custom
+ background image while ensuring that the content of the custom background
+ image is not distorted.</p>
+ @param segData See AgoraSegmentationProperty.
+ @param sourceType The source type of the extension, e.g. AgoraMediaSourceTypePrimaryCamera. See AgoraMediaSourceType.
+ @return
+  * 0: Success.
+  * < 0: Failure.
+  *  VIRTUAL_BACKGROUND_SOURCE_STATE_REASON_SUCCESS = 0,
+  *  VIRTUAL_BACKGROUND_SOURCE_STATE_REASON_IMAGE_NOT_EXIST = -1,
+  *  VIRTUAL_BACKGROUND_SOURCE_STATE_REASON_COLOR_FORMAT_NOT_SUPPORTED = -2,
+  *  VIRTUAL_BACKGROUND_SOURCE_STATE_REASON_DEVICE_NOT_SUPPORTED = -3,
+  */
+- (int)enableVirtualBackground:(BOOL)enable backData:(AgoraVirtualBackgroundSource* _Nullable)backData segData:(AgoraSegmentationProperty* _Nullable)segData sourceType:(AgoraMediaSourceType)sourceType NS_SWIFT_NAME(enableVirtualBackground(_:backData:segData:sourceType:));
+
+/** You can call this method to set the expected video scenario. The SDK witll optimize the video experience for each scenario you set.
+
+ @since v4.2.0
+
+ @param scenarioType The video application scenario(AgoraApplicationScenarioType).
+ @return * 0: Success.
+  * < 0: Failure.
+    - -1(ERR_FAILED): A general error occurs (no specified reason).
+    - -4(ERR_NOT_SUPPORTED): Unable to set video application scenario.
+    - -7(ERR_NOT_INITIALIZED): The SDK is not initialized.
+ */
+- (int)setVideoScenario:(AgoraApplicationScenarioType)scenarioType  NS_SWIFT_NAME(setVideoScenario(_:));
+
+/** Whether the target feature is available for the device.
+ @since v4.2.0
+ @param type The feature type. See AgoraFeatureType.
+
+ @return
+  - true: available.
+  - false: not available.
+  */
+- (BOOL)isFeatureAvailableOnDevice:(AgoraFeatureType)type;
 
 #pragma mark Audio Effect
 
@@ -3202,6 +3593,17 @@ You can call this method to enable the color enhancement feature and set the opt
 * <0: Failure.
  */
 - (int)setLocalVoicePitch:(double)pitch NS_SWIFT_NAME(setLocalVoicePitch(_:));
+
+/** Sets the voice formant ratio for local speaker.
+
+ @param formantRatio Voice frequency, in the range of -1.0 to 1.0. The lower the value, the deeper
+ the sound, and the higher the value, the more it sounds like a child. The default value is 0.0 
+ (the local user's voice will not be changed).
+ @return
+  * - 0: Success.
+  * - < 0: Failure.
+  */
+- (int)setLocalVoiceFormant:(double)formantRatio;
 
 /** Sets the local voice equalization.
 
@@ -3724,6 +4126,7 @@ You can call this method to enable the color enhancement feature and set the opt
  * can override `setAudioEffectPreset`:
  *  - \ref IRtcEngine::setVoiceBeautifierPreset "setVoiceBeautifierPreset"
  *  - \ref IRtcEngine::setLocalVoicePitch "setLocalVoicePitch"
+ *  - \ref IRtcEngine::setLocalVoiceFormant "setLocalVoiceFormant"
  *  - \ref IRtcEngine::setLocalVoiceEqualization "setLocalVoiceEqualization"
  *  - \ref IRtcEngine::setLocalVoiceReverb "setLocalVoiceReverb"
  *  - \ref IRtcEngine::setVoiceBeautifierParameters "setVoiceBeautifierParameters"
@@ -3969,6 +4372,19 @@ This method requires hardware support.
  */
 - (int)setRemoteUserSpatialAudioParams:(NSUInteger)uid
                                   params:(AgoraSpatialAudioParams* _Nonnull)params NS_SWIFT_NAME(setRemoteUserSpatialAudioParams(_:params:));
+
+#pragma mark Audio Noise Suppression
+
+/**
+ @param enabled Determines whether to enable AINS.
+ * - `YES`: Enables AINS.
+ * - `NO`: Disables AINS.
+ * @param mode The type of the ains
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)setAINSMode:(BOOL)enabled mode:(AUDIO_AINS_MODE)mode NS_SWIFT_NAME(setAINSMode(_:mode:));
 
 #pragma mark Audio Mixing
 
@@ -4398,6 +4814,8 @@ This method requires hardware support.
 /**
  * Enables or disables the dual video stream mode.
  *
+ * @deprecated v4.2.0. This method is deprecated. Use setDualStreamMode instead.
+ *
  * @param enabled
  * - `YES`: Enable the dual-stream mode.
  * - `NO`: (default) Disable the dual-stream mode.
@@ -4405,10 +4823,12 @@ This method requires hardware support.
  * - 0: Success.
  * - <0: Failure.
  */
-- (int)enableDualStreamMode:(BOOL)enabled NS_SWIFT_NAME(enableDualStreamMode(_:));
+- (int)enableDualStreamMode:(BOOL)enabled NS_SWIFT_NAME(enableDualStreamMode(_:)) __deprecated_msg("use setDualStreamMode: instead.");
 
 /**
  * Enables or disables the dual video stream mode.
+ *
+ * @deprecated v4.2.0. This method is deprecated. Use setDualStreamMode instead.
  *
  * If dual-stream mode is enabled, the subscriber can choose to receive the high-stream
  * (high-resolution high-bitrate video stream) or low-stream (low-resolution low-bitrate video stream)
@@ -4424,7 +4844,7 @@ This method requires hardware support.
  * - < 0: Failure.
  */
 - (int)enableDualStreamMode:(BOOL)enabled
-               streamConfig:(AgoraSimulcastStreamConfig* _Nonnull)streamConfig NS_SWIFT_NAME(enableDualStreamMode(_:streamConfig:));
+               streamConfig:(AgoraSimulcastStreamConfig* _Nonnull)streamConfig NS_SWIFT_NAME(enableDualStreamMode(_:streamConfig:)) __deprecated_msg("use setDualStreamMode: instead.");
 
 /**
  * Enables, disables or auto enable the dual video stream mode.
@@ -4606,6 +5026,20 @@ This method requires hardware support.
  */
 - (int)setRemoteSubscribeFallbackOption:(AgoraStreamFallbackOptions)option NS_SWIFT_NAME(setRemoteSubscribeFallbackOption(_:));
 
+/** Sets high priority user list and related remote subscribe stream fallback option.
+
+  This method sets the high priority user list and disables/enables the vips' remote subscribe stream fallback option according to the network conditions in NASA2.
+
+ If you use the option as AgoraStreamFallbackOptionAudioOnly = 2, the AutVos will automatically switch the video from a high-stream to a low-stream, or disable the video when the downlink network conditions cannot support both audio and video to guarantee the quality of the audio. The AutVos monitors the network quality and re-enables the video stream when the network conditions improve.
+ Once the subscribed stream falls back to audio only, or the audio stream switches back to the video stream, the [didRemoteSubscribeFallbackToAudioOnly]([AgoraRtcEngineDelegate  rtcEngine:didRemoteSubscribeFallbackToAudioOnly:byUid:]) callback will be triggered.
+
+ @param option AgoraStreamFallbackOptions
+ @return * 0: Success.
+* <0: Failure.
+ */
+- (int)setHighPriorityUserList:(NSArray <NSNumber *> *_Nullable)uidList
+                        option:(AgoraStreamFallbackOptions)option;
+
 #pragma mark Video Quality Control
 
 /**-----------------------------------------------------------------------------
@@ -4682,8 +5116,8 @@ This method requires hardware support.
  * @note
  * Ensure that you have configured encoded video source before calling this method.
  *
- * @param data The encoded external video data, which must be the direct buffer.
- * @param frameInfo The encoded external video frame info: AgoraEncodedVideoFrameInfo.
+ * @param frame The encoded external video data, which must be the direct buffer.
+ * @param info The encoded external video frame info: AgoraEncodedVideoFrameInfo.
  *
  * @return
  * - 0: Success, which means that the encoded external video frame is pushed successfully.
@@ -4809,54 +5243,33 @@ This method requires hardware support.
 
 
 /**
- * Sets the external audio source.
+ * Create a custom audio track and get the audio track id.
  *
- * @note
- * Ensure that you call this method before joining the channel.
- *
- * @param enabled Determines whether to enable the external audio source:
- * - true: Enable the external audio source.
- * - false: (default) Disable the external audio source.
- * @param sampleRate The Sample rate (Hz) of the external audio source, which can set be as
- * 8000, 16000, 32000, 44100, or 48000.
- * @param channels The number of channels of the external audio source, which can be set as 1 or 2:
- * - 1: Mono.
- * - 2: Stereo.
- * @return
- * - 0: Success.
- * - < 0: Failure.
- */
-- (int)setExternalAudioSource:(BOOL)enabled
-                   sampleRate:(NSInteger)sampleRate
-                     channels:(NSInteger)channels NS_SWIFT_NAME(setExternalAudioSource(_:sampleRate:channels:));
+ * @note Ensure that you call this method before calling `joinChannel`.
 
-- (int)enableEchoCancellationExternal:(BOOL)enabled
-                     audioSourceDelay:(NSInteger)audioSourceDelay NS_SWIFT_NAME(enableEchoCancellationExternal(_:audioSourceDelay:));
+ * @param trackType The type of custom audio track
+ * See AgoraAudioTrackType.
+ *
+ * @param config The config of custom audio track
+ * See AgoraAudioTrackConfig.
+ *
+ * @return
+ * - If the call is successful, SDK returns audio track id.
+ * - If the call fails, SDK returns 0xffffffff.
+ */
+- (int)createCustomAudioTrack:(AgoraAudioTrackType)trackType
+                       config:(AgoraAudioTrackConfig* _Nonnull)config;
+
 /**
- * Sets the external audio source.
+ * Destroy custom audio track by trackId
  *
- * @note
- * Ensure that you call this method before joining the channel.
+ * @param trackId The custom audio track id
  *
- * @param enabled Determines whether to enable the external audio source:
- * - true: Enable the external audio source.
- * - false: (default) Disable the external audio source.
- * @param sampleRate The Sample rate (Hz) of the external audio source, which can set be as
- * 8000, 16000, 32000, 44100, or 48000.
- * @param channels The number of channels of the external audio source, which can be set as 1 or 2:
- * - 1: Mono.
- * - 2: Stereo.
- * @param sourceNumber The number of the external audio sources, should be greater than 0.
  * @return
  * - 0: Success.
  * - < 0: Failure.
  */
-- (int)setExternalAudioSource:(BOOL)enabled
-                   sampleRate:(NSInteger)sampleRate
-                     channels:(NSInteger)channels
-                 sourceNumber:(NSInteger)sourceNumber
-                localPlayback:(BOOL)localPlayback
-                      publish:(BOOL)publish NS_SWIFT_NAME(setExternalAudioSource(_:sampleRate:channels:sourceNumber:localPlayback:publish:));
+- (int)destroyCustomAudioTrack:(NSInteger)trackId; 
 
 /**
  * Sets the external audio source.
@@ -4864,29 +5277,29 @@ This method requires hardware support.
  * @note
  * Ensure that you call this method before joining the channel.
  *
- * @param sourceId custom audio source id.
- * @param enabled Determines whether to local playback the external audio source:
- * - true: Local playback the external audio source.
- * - false: Local don`t playback the external audio source.
+ * @param trackId custom audio track id.
+ * @param enabled Enable/Disables the local playback of external audio track:
+ * - true: Enable local playback
+ * - false: Do not enable local playback
  * @return
  * - 0: Success.
  * - < 0: Failure.
  */
-- (int)enableCustomAudioLocalPlayback:(NSInteger)sourceId enabled:(BOOL)enabled NS_SWIFT_NAME(enableCustomAudioLocalPlayback(_:enabled:));
+- (int)enableCustomAudioLocalPlayback:(NSInteger)trackId enabled:(BOOL)enabled NS_SWIFT_NAME(enableCustomAudioLocalPlayback(_:enabled:));
 
 /** Pushes the external audio frame to the Agora SDK for encoding.
  *
  * @param data      External audio data.
  * @param samples   Number of samples for the push.
- * @param sourceId  The audio track ID.
+ * @param trackId  The audio track ID.
  * @param timestamp Time stamp of the external audio frame to be synchronized with the external video source.
  * @return * 0: Success.
  * <0: Failure.
  */
 - (int)pushExternalAudioFrameRawData:(void * _Nonnull)data
                              samples:(NSInteger)samples
-                            sourceId:(NSInteger)sourceId
-                           timestamp:(NSTimeInterval)timestamp NS_SWIFT_NAME(pushExternalAudioFrameRawData(_:samples:sourceId:timestamp:));
+                            trackId:(NSInteger)trackId
+                           timestamp:(NSTimeInterval)timestamp NS_SWIFT_NAME(pushExternalAudioFrameRawData(_:samples:trackId:timestamp:));
 
 /** Pushes the external audio frame to the Agora SDK for encoding.
  *
@@ -4896,7 +5309,7 @@ This method requires hardware support.
  * @param channels The number of channels, which can be set as 1 or 2:
  * - 1: Mono.
  * - 2: Stereo.
- * @param sourceId  The audio track ID.
+ * @param trackId  The audio track ID.
  * @param timestamp Time stamp of the external audio frame to be synchronized with the external video source.
  * @return * 0: Success.
  * <0: Failure.
@@ -4905,8 +5318,8 @@ This method requires hardware support.
                              samples:(NSInteger)samples
                           sampleRate:(NSInteger)sampleRate
                             channels:(NSInteger)channels
-                            sourceId:(NSInteger)sourceId
-                           timestamp:(NSTimeInterval)timestamp NS_SWIFT_NAME(pushExternalAudioFrameRawData(_:samples:sampleRate:channels:sourceId:timestamp:));
+                            trackId:(NSInteger)trackId
+                           timestamp:(NSTimeInterval)timestamp NS_SWIFT_NAME(pushExternalAudioFrameRawData(_:samples:sampleRate:channels:trackId:timestamp:));
 /**
  * Pushes the external audio frame to the sample buffer for encoding.
  *
@@ -4916,54 +5329,6 @@ This method requires hardware support.
  * - <0: Failure.
  */
 - (int)pushExternalAudioFrameSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer NS_SWIFT_NAME(pushExternalAudioFrameSampleBuffer(_:));
-
-- (int)pushCaptureAudioFrame:(AgoraAudioFrame* _Nonnull)audioFrame NS_SWIFT_NAME(pushCaptureAudioFrame(_:));
-
-- (int)pushReverseAudioFrame:(AgoraAudioFrame* _Nonnull)audioFrame NS_SWIFT_NAME(pushReverseAudioFrame(_:));
-/**
-  * Sets the direct external audio source.
-  *
-  * @param enabled Determines whether to enable the direct external audio source:
-  * - true: Enable the direct external audio source.
-  * - false: (default) Disable the direct external audio source.
-  */
-- (int)setDirectExternalAudioSource:(BOOL)enabled NS_SWIFT_NAME(setDirectExternalAudioSource(_:));
-
-/**
-  * Sets the direct external audio source.
-  *
-  * @param enabled Determines whether to enable the direct external audio source:
-  * - true: Enable the direct external audio source.
-  * - false: (default) Disable the direct external audio source.
-  * @param localPlayback Determines whether to enable the local playback of the direct external audio source
-  */
-- (int)setDirectExternalAudioSource:(BOOL)enabled localPlayback:(BOOL)localPlayback NS_SWIFT_NAME(setDirectExternalAudioSource(_:localPlayback:));
-
-/** Pushes the direct send audio data to the Agora SDK  with not buffer.
- *
- * @param data   External audio data. (sampleRate / channels by `setExternalAudioSource:`)
- * @return
- * -  0: Success.
- * - <0: Failure.
- */
-- (int)pushDirectAudioFrameNSData:(NSData* _Nonnull)data NS_SWIFT_NAME(pushDirectAudioFrameNSData(_:));
-
-/** Pushes the direct send audio data to the Agora SDK  with not buffer.
- *
- * @param data      External audio data.
- * @param samples   Number of samples for the push, which can be set as "samples = data.length / sizeof(int16_t)"
- * @param sampleRate The Sample rate (Hz) , which can set be as 8000, 16000, 32000, 44100, or 48000.
- * @param channels The number of channels, which can be set as 1 or 2:
- * - 1: Mono.
- * - 2: Stereo.
- * @return
- * -  0: Success.
- * - <0: Failure.
- */
-- (int)pushDirectAudioFrameRawData:(void* _Nonnull)data
-                           samples:(NSInteger)samples
-                        sampleRate:(NSInteger)sampleRate
-                          channels:(NSInteger)channels NS_SWIFT_NAME(pushDirectAudioFrameRawData(_:samples:sampleRate:channels:));
 
 /**
  * Enable or disable the external audio source local playback.
@@ -5100,26 +5465,26 @@ This method requires hardware support.
 - (int)setPlaybackAudioFrameBeforeMixingParametersWithSampleRate:(NSInteger)sampleRate
                                                          channel:(NSInteger)channel NS_SWIFT_NAME(setPlaybackAudioFrameBeforeMixingParametersWithSampleRate(_:channel:));
 /*
- * Adjust the custom audio publish volume by source id.
- * @param sourceId custom audio source id.
+ * Adjust the custom audio publish volume by track id.
+ * @param trackId custom audio track id.
  * @param volume The volume, range is [0,100]:
  * 0: mute, 100: The original volume
  * @return
  * - 0: Success.
  * - < 0: Failure.
  */
-- (int)adjustCustomAudioPublishVolume:(NSInteger)sourceId volume:(NSInteger)volume NS_SWIFT_NAME(adjustCustomAudioPublishVolume(_:volume:));
+- (int)adjustCustomAudioPublishVolume:(NSInteger)trackId volume:(NSInteger)volume NS_SWIFT_NAME(adjustCustomAudioPublishVolume(_:volume:));
 
 /*
- * Adjust the custom audio playout volume by source id.
- * @param sourceId custom audio source id.
+ * Adjust the custom audio playout volume by track id.
+ * @param trackId custom audio track id.
  * @param volume The volume, range is [0,100]:
  * 0: mute, 100: The original volume
  * @return
  * - 0: Success.
  * - < 0: Failure.
  */
-- (int)adjustCustomAudioPlayoutVolume:(NSInteger)sourceId volume:(NSInteger)volume NS_SWIFT_NAME(adjustCustomAudioPlayoutVolume(_:volume:));
+- (int)adjustCustomAudioPlayoutVolume:(NSInteger)trackId volume:(NSInteger)volume NS_SWIFT_NAME(adjustCustomAudioPlayoutVolume(_:volume:));
 
 /*
  * Get monotonic time in ms which can be used by capture time,
@@ -5371,6 +5736,28 @@ This method call triggers the [rtmpStreamingChangedToState]([AgoraRtcEngineDeleg
  * @name Screen Capture
  * -----------------------------------------------------------------------------
  */
+
+/** Starts screen sharing.
+ * 
+ * @param sourceType source type of screen. See #AgoraVideoSourceType.
+ * @param parameters The configuration of the screen sharing.
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)startScreenCapture:(AgoraVideoSourceType)sourceType config:(AgoraScreenCaptureConfiguration * _Nullable)config NS_SWIFT_NAME(startScreenCapture(_:config:));
+
+/** Stops a screen capture.
+
+ @note This method applies to macOS only.
+
+ @param The capture type of the custom video source. See #AgoraVideoSourceType.
+ @return * 0: Success.
+* <0: Failure.
+    - `ERR_INVALID_ARGUMENT`: the argument is invalid.
+ */
+- (int)stopScreenCapture:(AgoraVideoSourceType)sourceType NS_SWIFT_NAME(stopScreenCapture(_:));
+
 /** Shares the whole or part of a screen by specifying the display ID. (macOS only.)
 
 @param displayId The ID ( type of CGDirectDisplayId) of the display screen to be shared. This parameter specifies which display screen you want to share. For information on how to get the displayId, see [Share the Screen](../../../screensharing_mac).
@@ -5439,17 +5826,6 @@ If the specified region overruns the window, the SDK shares only the region with
  */
 - (int)updateScreenCaptureParameters:(AgoraScreenCaptureParameters * _Nonnull)captureParams  NS_SWIFT_NAME(updateScreenCaptureParameters(_:));
 
-/** Setting the screen sharing capture scenario. (macOS only.)
-
-@param scenarioType The screen sharing scenario parameters, see [AgoraScreenScenarioType](AgoraScreenScenarioType).
-
-@return * 0: Success.
-* < 0: Failure.
-
-    - `ERR_NOT_READY`: no screen or windows is being shared.
- */
-- (int)setScreenCaptureScenario:(AgoraScreenScenarioType)scenarioType  NS_SWIFT_NAME(setScreenCaptureScenario(_:));
-
 /**
  Gets a list of shareable screens and windows.
 
@@ -5483,6 +5859,17 @@ If the specified region overruns the window, the SDK shares only the region with
 - (NSArray<AgoraScreenCaptureSourceInfo*>* _Nullable)getScreenCaptureSourcesWithThumbSize:(NSSize)thumbSize iconSize:(NSSize)iconSize includeScreen:(BOOL)includeScreen NS_SWIFT_NAME(getScreenCaptureSources(withThumbSize:iconSize:includeScreen:));
 
 #endif
+
+/** Setting the screen sharing capture scenario.
+
+@param scenarioType The screen sharing scenario parameters, see [AgoraScreenScenarioType](AgoraScreenScenarioType).
+
+@return * 0: Success.
+* < 0: Failure.
+
+    - `ERR_NOT_READY`: no screen or windows is being shared.
+ */
+- (int)setScreenCaptureScenario:(AgoraScreenScenarioType)scenarioType  NS_SWIFT_NAME(setScreenCaptureScenario(_:));
 
 /** Stops a screen capture.
 
@@ -5525,6 +5912,19 @@ If the specified region overruns the window, the SDK shares only the region with
  * - < 0: Failure.
  */
 - (int)updateScreenCapture:(AgoraScreenCaptureParameters2* _Nullable)parameters  NS_SWIFT_NAME(updateScreenCapture(_:));
+
+/**
+   * Queries the ability of screen sharing to support the maximum frame rate.
+   *
+   * @since v4.2.0
+   * 
+   * @return
+   * - 0: support 15 fps, Low devices.
+   * - 1: support 30 fps, Usually low - to mid-range devices.
+   * - 2: support 60 fps, Advanced devices.
+   * - < 0: Failure.
+   */
+- (AgoraScreenCaptureFrameRateCapability)queryScreenCaptureCapability NS_SWIFT_NAME(queryScreenCaptureCapability());
 
 #pragma mark Camera Control
 
@@ -5593,6 +5993,25 @@ If the specified region overruns the window, the SDK shares only the region with
  * positionY: Vertical coordinate of the touch point in the view
  */
 - (BOOL)setCameraExposurePosition:(CGPoint)positionInView NS_SWIFT_NAME(setCameraExposurePosition(_:));
+
+/** Checks whether camera supports to set exposure value.
+@since v4.2.2
+
+@note This method applies to iOS only, not to macOS.
+
+@return * YES: The device supports the camera exposure function
+* NO: The device does not support the camera exposure function
+*/
+- (BOOL)isCameraExposureSupported NS_SWIFT_NAME(isCameraExposureSupported());
+
+/** Sets the camera exposure value bias.
+@since v4.2.2
+
+@note This method applies to iOS only, not to macOS.
+
+@param exposureFactor the recommended camera exposure factor ranging from -8.0 to 8.0. Absolute EV bias will set to camera.
+*/
+- (CGFloat)setCameraExposureFactor:(CGFloat)exposureFactor NS_SWIFT_NAME(setCameraExposureFactor(_:));
 
 /** Checks whether the device supports enabling the flash. (iOS only.)
 
@@ -5698,24 +6117,8 @@ If the specified region overruns the window, the SDK shares only the region with
  * - < 0: Failure.
  */
 - (int)enableMultiCamera:(BOOL)enabled config:(AgoraCameraCapturerConfiguration* _Nullable)config NS_SWIFT_NAME(enableMultiCamera(_:config:));
-
-/**
- * Start the secondary camera capture. Applies to iOS 13.0+ only.
- * @note Before calling this method, ensure you have called enableMultiCamera:true.
- * @return
- * - 0: Success.
- * - < 0: Failure.
- */
-- (int)startSecondaryCameraCapture NS_SWIFT_NAME(startSecondaryCameraCapture());
-
-/**
- * Stop the secondary camera capture. Applies to iOS 13.0+ only.
- * @return
- * - 0: Success.
- * - < 0: Failure.
- */
-- (int)stopSecondaryCameraCapture NS_SWIFT_NAME(stopSecondaryCameraCapture());
 #endif
+
 
 /** Sets the camera capture configuration.
  * @note Call this method before enabling the local camera.
@@ -5730,6 +6133,26 @@ If the specified region overruns the window, the SDK shares only the region with
  */
 - (int)setCameraCapturerConfiguration:(AgoraCameraCapturerConfiguration * _Nullable)config NS_SWIFT_NAME(setCameraCapturerConfiguration(_:));
 
+
+/**
+ * Start the camera capture
+ * 
+ * @param sourceType source type of camera. See #AgoraVideoSourceType.
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)startCameraCapture:(AgoraVideoSourceType)sourceType config:(AgoraCameraCapturerConfiguration * _Nullable)config NS_SWIFT_NAME(startCameraCapture(_:config:));
+
+/**
+ * Stop the camera capture
+ * 
+ * @param sourceType source type of camera. See #AgoraVideoSourceType.
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)stopCameraCapture:(AgoraVideoSourceType)sourceType NS_SWIFT_NAME(stopCameraCapture(_:));
 
 #if (!(TARGET_OS_IPHONE) && (TARGET_OS_MAC))
 #pragma mark macOS Device
@@ -6036,7 +6459,7 @@ Ensure that you call this method to stop the loopback test after calling the [st
  * - All numeric characters: 0 to 9.
  * - The space character.
  * - Punctuation characters and other symbols, including: "!", "#", "$", "%", "&", "(", ")", "+", "-", ":", ";", "<", "=", ".", ">", "?", "@", "[", "]", "^", "_", " {", "}", "|", "~", ",".
- * @param appID The App ID of your project.
+ * @param appId The App ID of your project.
 
  * @return
  * - 0: Success.
@@ -6445,9 +6868,9 @@ description:(NSString * _Nullable)description NS_SWIFT_NAME(rate(_:rating:descri
 
 
 /**
- * Return current NTP(Network Time Protocol) time in milliseconds.
+ * Return current NTP(unix timestamp) time in milliseconds.
  */
-- (NSInteger)getNtpTimeInMs;
+- (uint64_t)getNtpWallTimeInMs;
 
 #pragma mark MediaPlayer
 /**-----------------------------------------------------------------------------
@@ -6479,6 +6902,16 @@ description:(NSString * _Nullable)description NS_SWIFT_NAME(rate(_:rating:descri
  */
 - (int)destroyMediaPlayer:(id<AgoraRtcMediaPlayerProtocol>_Nullable)mediaPlayer NS_SWIFT_NAME(destroyMediaPlayer(_:));
 
+/**
+ * Destroy a media recorder source instance.
+ *
+ * @param mediaRecorder AgoraMediaRecorder pointer
+ *
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)destroyMediaRecorder:(AgoraMediaRecorder * _Nullable)mediaRecorder;
 /**
  * getMediaPlayer
  * @param mediaPlayerId of the mediaPlayer.
@@ -6556,6 +6989,8 @@ description:(NSString * _Nullable)description NS_SWIFT_NAME(rate(_:rating:descri
  * "IDirectCdnStreamingEventHandler".
  * @param publishUrl The url of the cdn used to publish the stream.
  * @param options The direct cdn streaming media options: AgoraDirectCdnStreamingMediaOptions.
+ * This API must pass an audio-related option, and temporarily cannot pass more than one. 
+ * Video-related options may not be passed, or one, but not multiple.
  *
  * @return
  * - 0: Success.
@@ -6588,6 +7023,13 @@ description:(NSString * _Nullable)description NS_SWIFT_NAME(rate(_:rating:descri
 - (int)updateDirectCdnStreamingMediaOptions:(AgoraDirectCdnStreamingMediaOptions * _Nonnull)options NS_SWIFT_NAME(updateDirectCdnStreamingMediaOptions(_:));
 
 
+#pragma mark Channel Transcoder
+
+/** Get the H265Transcoder instance
+ * @return id<AgoraH265TranscoderProtocol>
+ * 
+*/
+- (id<AgoraH265TranscoderProtocol>_Nullable)getH265Transcoder NS_SWIFT_NAME(getH265Transcoder());
 
 #pragma mark Deprecated Methods
 
@@ -6882,7 +7324,7 @@ description:(NSString * _Nullable)description NS_SWIFT_NAME(rate(_:rating:descri
  * - 0: Success.
  * - <0: Failure.
  */
-- (int)setAudioProfile:(AgoraAudioProfile)profile scenario:(AgoraAudioScenario)scenario NS_SWIFT_NAME(setAudioProfile(_:scenario:)) __deprecated;
+- (int)setAudioProfile:(AgoraAudioProfile)profile scenario:(AgoraAudioScenario)scenario NS_SWIFT_NAME(setAudioProfile(_:scenario:)) __deprecated_msg("use setAudioProfile: instead.");
 
 /** Gets the device type; such as a recording, playback, or video capture device.
 
@@ -6892,6 +7334,62 @@ description:(NSString * _Nullable)description NS_SWIFT_NAME(rate(_:rating:descri
  @return When called successfully, it returns the device ID of the device. Otherwise, it returns nil.
  */
 - (NSString * _Nullable)getDeviceId:(AgoraMediaDeviceType)type NS_SWIFT_NAME(getDeviceId(_:)) __deprecated_msg("use getDeviceInfo: instead.");
+
+/**
+ * Sets the external audio source.
+ *
+ * @note
+ * Ensure that you call this method before joining the channel.
+ *
+ * @deprecated This method is deprecated. Use createCustomAudioTrack:(AgoraAudioTrackType)trackType config:(AgoraAudioTrackConfig* _Nonnull)config instead.
+ *
+ * @param enabled Determines whether to enable the external audio source:
+ * - true: Enable the external audio source.
+ * - false: (default) Disable the external audio source.
+ * @param sampleRate The Sample rate (Hz) of the external audio source, which can set be as
+ * 8000, 16000, 32000, 44100, or 48000.
+ * @param channels The number of channels of the external audio source, which can be set as 1 or 2:
+ * - 1: Mono.
+ * - 2: Stereo.
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)setExternalAudioSource:(BOOL)enabled
+                   sampleRate:(NSInteger)sampleRate
+                     channels:(NSInteger)channels NS_SWIFT_NAME(setExternalAudioSource(_:sampleRate:channels:)) __deprecated_msg("use createCustomAudioTrack:config: instead.");
+
+/**
+ * Sets the external audio source.
+ *
+ * @note
+ * Ensure that you call this method before joining the channel.
+ *
+ * @deprecated This method is deprecated. Use createCustomAudioTrack:(AgoraAudioTrackType)trackType config:(AgoraAudioTrackConfig* _Nonnull)config instead.
+ *
+ * @param enabled Determines whether to enable the external audio source:
+ * - true: Enable the external audio source.
+ * - false: (default) Disable the external audio source.
+ * @param sampleRate The Sample rate (Hz) of the external audio source, which can set be as
+ * 8000, 16000, 32000, 44100, or 48000.
+ * @param channels The number of channels of the external audio source, which can be set as 1 or 2:
+ * - 1: Mono.
+ * - 2: Stereo.
+ * @param localPlayback Enable/Disables the local playback of external audio track:
+ * - true: Enable local playback
+ * - false: (Default) Do not enable local playback
+ * @param publish Determines whether to publish the external audio track:
+ * - true: (Default) Publish the external audio track.
+ * - false: Don`t publish the external audio track.
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)setExternalAudioSource:(BOOL)enabled
+                   sampleRate:(NSInteger)sampleRate
+                     channels:(NSInteger)channels
+                localPlayback:(BOOL)localPlayback
+                      publish:(BOOL)publish NS_SWIFT_NAME(setExternalAudioSource(_:sampleRate:channels:localPlayback:publish:)) __deprecated_msg("use createCustomAudioTrack:config: instead.");
 
 #if (!(TARGET_OS_IPHONE) && (TARGET_OS_MAC))
 /** Sets the speakerphone volume.
@@ -6916,12 +7414,10 @@ description:(NSString * _Nullable)description NS_SWIFT_NAME(rate(_:rating:descri
 
  @return string, Media engine version
  */
-+ (NSString * _Nonnull)getMediaEngineVersion __deprecated NS_SWIFT_NAME(getMediaEngineVersion());
++ (NSString * _Nonnull)getMediaEngineVersion NS_SWIFT_NAME(getMediaEngineVersion()) __deprecated;
 
 - (int)setAudioOptionParams:(NSString * _Nonnull)params NS_SWIFT_NAME(setAudioOptionParams(_:));
 - (NSString * _Nullable)getAudioOptionParams NS_SWIFT_NAME(getAudioOptionParams());
-- (int)setAudioSessionParams:(NSString * _Nonnull)params NS_SWIFT_NAME(setAudioSessionParams(_:));
-- (NSString * _Nullable)getAudioSessionParams NS_SWIFT_NAME(getAudioSessionParams());
 
 /** set advanced audio options. use this method before join channel / enableAudio / enableLocalAudio.
  @param options The AgoraAdvancedAudioOptions class, See the definition of AgoraAdvancedAudioOptions for details.
@@ -7085,6 +7581,18 @@ description:(NSString * _Nullable)description NS_SWIFT_NAME(rate(_:rating:descri
 - -1: UNKNOWN
 */
 - (int)getNetworkType NS_SWIFT_NAME(getNetworkType());
+
+/**
+ * Creates a media recorder object and return its pointer.
+ *
+ * @param info The AgoraRecorderStreamInfo object. It contains user ID and channel name of 
+ * user.
+ * @return
+ * - The pointer to \ref "AgoraMediaRecorder",
+ *   if the method call succeeds.
+ * - The empty pointer NULL, if the method call fails.
+ */
+- (AgoraMediaRecorder * _Nullable)createMediaRecorder:(AgoraRecorderStreamInfo * _Nonnull)info NS_SWIFT_NAME(createMediaRecorder(withInfo:));
 @end
 
 @class AgoraMediaRecorder;
@@ -7095,70 +7603,129 @@ description:(NSString * _Nullable)description NS_SWIFT_NAME(rate(_:rating:descri
  * -----------------------------------------------------------------------------
  */
 
-/**
- Occurs when media recorder state is changed.
-
- @param recorder AgoraMediaRecorder object.
- @param state    Recorder state. See AgoraMediaRecorderState.
- @param error    Error code. See AgoraMediaRecorderError.
+/** Occurs when media recorder state is changed.
+ *
+ * @since v4.0.0
+ * 
+ * When the local audio and video recording state changes, the SDK triggers this callback to report the current
+ * recording state and the reason for the change.
+ * 
+ * @param recorder AgoraMediaRecorder object.
+ * @param state    Recorder state. See AgoraMediaRecorderState.
+ * @param error    Error code. See AgoraMediaRecorderError.
+ * @param channelId The channel name.
+ * @param uid ID of the user.
  */
-- (void)mediaRecorder:(AgoraMediaRecorder* _Nonnull)recorder stateDidChanged:(AgoraMediaRecorderState)state error:(AgoraMediaRecorderErrorCode)error NS_SWIFT_NAME(mediaRecorder(_:stateDidChanged:error:));
+- (void)mediaRecorder:(AgoraMediaRecorder* _Nonnull)recorder stateDidChanged:(NSString * _Nonnull)channelId uid:(NSUInteger)uid state:(AgoraMediaRecorderState)state error:(AgoraMediaRecorderErrorCode)error;
 
-/**
- Occurs when media recorder information is updated.
-
- @param recorder AgoraMediaRecorder object.
- @param info     Recorder information. See AgoraMediaRecorderInfo.
+/** Occurs when media recorder information is updated.
+ *
+ * @since v4.0.0
+ * 
+ * After you successfully register this callback and enable the local audio and video recording, the SDK periodically triggers
+ * the `onRecorderInfoUpdated` callback based on the set value of `recorderInfoUpdateInterval`. This callback reports the
+ * filename, duration, and size of the current recording file.
+ * 
+ * @param recorder AgoraMediaRecorder object.
+ * @param info     Information about the recording file.. See AgoraMediaRecorderInfo.
+ * @param channelId The channel name.
+ * @param uid ID of the user.
  */
-- (void)mediaRecorder:(AgoraMediaRecorder* _Nonnull)recorder informationDidUpdated:(AgoraMediaRecorderInfo* _Nonnull)info NS_SWIFT_NAME(mediaRecorder(_:informationDidUpdated:));
+- (void)mediaRecorder:(AgoraMediaRecorder* _Nonnull)recorder informationDidUpdated:(NSString * _Nonnull)channelId uid:(NSUInteger)uid info:(AgoraMediaRecorderInfo* _Nonnull)info;
 
 @end
 
 __attribute__((visibility("default"))) @interface AgoraMediaRecorder : NSObject
 
 /**
- Initializes the AgoraMediaRecorder object.
-
- @param engine   AgoraRtcEngineKit object.
- @param delegate AgoraMediaRecorderDelegate.
- @return An object of AgoraMediaRecorder class.
+ * Registers the AgoraMediaRecorderDelegate delegate.
+ *
+ * @since v4.0.0
+ *
+ * @note Call this method before the startRecording method.
+ *
+ * @param delegate The callbacks for recording audio and video streams. See AgoraMediaRecorderDelegate 
+ *
+ * @return
+ * - 0(ERR_OK): Success.
+ * - < 0: Failure:
  */
-+ (instancetype _Nonnull)sharedMediaRecorderWithRtcEngine:(AgoraRtcEngineKit* _Nonnull)engine NS_SWIFT_NAME(sharedMediaRecorder(withRtcEngine:));
-
-- (int)setMediaRecorderDelegate:(AgoraRtcConnection * _Nonnull)connection
-                       delegate:(id<AgoraMediaRecorderDelegate> _Nullable)delegate NS_SWIFT_NAME(setMediaRecorderDelegate(_:delegate:));
-/**
- Destroys the RtcEngine instance and releases all resources used by the SDK.
- */
-+ (void)destroy NS_SWIFT_NAME(destroy());
+- (int)setMediaRecorderDelegate:(id<AgoraMediaRecorderDelegate> _Nullable)delegate NS_SWIFT_NAME(setMediaRecorderDelegate(_:));
 
 /** Enables/Disables dispatching delegate methods to the main queue.
 
- If disabled, the app should dispatch UI operations to the main queue.
- @param enabled Sets whether or not to dispatch delegate methods to the main queue:
+ * If disabled, the app should dispatch UI operations to the main queue.
+ * @param enabled Sets whether or not to dispatch delegate methods to the main queue:
  * YES: Dispatch delegate methods to the main queue.
  * NO: Do not dispatch delegate methods to the main queue
- @return * 0: Success.
+ * @return * 0: Success.
  * < 0: Failure.
  */
 - (int)enableMainQueueDispatch:(BOOL)enabled NS_SWIFT_NAME(enableMainQueueDispatch(_:));
 
 /**
- Start recording.
- @param config AgoraMediaRecorderConfiguration object.
- @return 0: Success.
- * < 0: Failure.
+ * Starts recording the local audio and video.
+ *
+ * @since v4.0.0
+ *
+ * After successfully calling \ref AgoraRtcEngineKit.createMediaRecorder: createMediaRecorder to get the media recorder object
+ * , you can call this method to enable the recording of the local audio and video.
+ *
+ * This method can record the following content:
+ * - The audio captured by the local microphone and encoded in AAC format.
+ * - The video captured by the local camera and encoded by the SDK.
+ * 
+ * This method can record the following content:
+ * - The audio received from remote users and encoded in AAC format.
+ * - The video received from remote users.
+ *
+ *
+ * The SDK can generate a recording file only when it detects the recordable audio and video streams; when there are
+ * no audio and video streams to be recorded or the audio and video streams are interrupted for more than five
+ * seconds, the SDK stops recording and triggers the
+ * \ref AgoraMediaRecorderDelegate.stateDidChanged "stateDidChanged" (AgoraMediaRecorderState, AgoraMediaRecorderErrorCode)
+ * callback.
+ *
+ * @note Call this method after joining the channel.
+ *
+ * @param config The recording configurations. See AgoraMediaRecorderConfiguration object.
+ *
+ * @return
+ * - 0(ERR_OK): Success.
+ * - < 0: Failure:
+ *    - `-1(ERR_FAILED)`: IRtcEngine does not support the request due to one of the following reasons:
+ *      - During remote recording, There is no subscription to the target channel or user。
+ *    - `-2(ERR_INVALID_ARGUMENT)`: The parameter is invalid. Ensure the following:
+ *      - The specified path of the recording file exists and is writable.
+ *      - The specified format of the recording file is supported.
+ *      - The maximum recording duration is correctly set.
+ *      - During remote recording, ensure the channel ID and user ID After calling \ref 
+ *        AgoraRtcEngineKit.createMediaRecorder: createMediaRecorder did join the channel.
+ *    - `-4(ERR_NOT_SUPPORTED)`: IRtcEngine does not support the request due to one of the following reasons:
+ *      - The recording is ongoing.
+ *      - The recording stops because an error occurs.
+ *      - No \ref AgoraMediaRecorderDelegate object is registered.
  */
-- (int)startRecording:(AgoraRtcConnection * _Nonnull)connection
-               config:(AgoraMediaRecorderConfiguration* _Nonnull)config NS_SWIFT_NAME(startRecording(_:config:));
-
-
+- (int)startRecording:(AgoraMediaRecorderConfiguration* _Nonnull)config NS_SWIFT_NAME(startRecording(_:));
+/**
+ * Stops recording the audio and video.
+ *
+ * @since v4.0.0
+ *
+ * @note After calling \ref AgoraMediaRecorder.startRecording: startRecording, if you want to stop the recording,
+ * you must call `stopRecording`; otherwise, the generated recording files might not be playable.
+ *
+ *
+ * @return
+ * - 0(ERR_OK): Success.
+ * - < 0: Failure:
+ */
 /**
  Stop recording.
  @return 0: Success.
  * < 0: Failure.
  */
-- (int)stopRecording:(AgoraRtcConnection * _Nonnull)connection NS_SWIFT_NAME(stopRecording(_:));
+- (int)stopRecording NS_SWIFT_NAME(stopRecording());
 
 @end
 

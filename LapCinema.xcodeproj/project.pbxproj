@@ -419,7 +419,7 @@
 		88F5730E2A246B3600788D10 /* UserActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5730C2A246B3600788D10 /* UserActivityCell.swift */; };
 		88F5730F2A246B3600788D10 /* UserActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F5730D2A246B3600788D10 /* UserActivityCell.xib */; };
 		88FB61342A2E04DF00259A49 /* VideoCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FB61332A2E04DE00259A49 /* VideoCacheManager.swift */; };
-		B9D61D85D8EA9FD13A8B8881 /* Pods_Playtube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA13521B6EFBDAA1C82FB4 /* Pods_Playtube.framework */; };
+		9D6463EF8BC3A9AE5DF27B53 /* Pods_LapCinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71380D3CD7BA39BF93C5968B /* Pods_LapCinema.framework */; };
 		EA281B3521E0DAD4004A6A1E /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA281B3421E0DAD3004A6A1E /* InternetReachability.swift */; };
 		EA281B3B21E1014A004A6A1E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA281B3A21E1014A004A6A1E /* Home.swift */; };
 		EA281B3D21E101AA004A6A1E /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA281B3C21E101AA004A6A1E /* HomeManager.swift */; };
@@ -523,9 +523,10 @@
 		00EFE0FA2502DEA20083EC40 /* CodeVerifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifyManager.swift; sourceTree = "<group>"; };
 		00EFE10A2502EE000083EC40 /* PopularChannelModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularChannelModal.swift; sourceTree = "<group>"; };
 		00EFE10D2502EF320083EC40 /* GetPopularPostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPopularPostManager.swift; sourceTree = "<group>"; };
-		13B4A15C485DB52C19062DD4 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		1AE992C71DA44AFCA39E6A28 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		30ED73BE27B3E035001530AB /* PhoneContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneContactsVC.swift; sourceTree = "<group>"; };
 		31149917851B69732C92DCA6 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E5AAD2D6BCABC022C475F5B /* Pods-LapCinema.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LapCinema.release.xcconfig"; path = "Target Support Files/Pods-LapCinema/Pods-LapCinema.release.xcconfig"; sourceTree = "<group>"; };
 		4E0E973D260C73D200700BCF /* MoviesFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFilterVC.swift; sourceTree = "<group>"; };
 		4E0E973F260C803900700BCF /* CountryPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPopUpVC.swift; sourceTree = "<group>"; };
 		4E0E9741260C86CF00700BCF /* CategoryPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPopupVC.swift; sourceTree = "<group>"; };
@@ -683,7 +684,6 @@
 		52AAE6BC22148173005CC4D5 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		52AC254321EB4757008DC449 /* LibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryVC.swift; path = "../Tabbar - LoggedIn/LibraryVC.swift"; sourceTree = "<group>"; };
 		52EE0DF322383C2400008171 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
-		5B441222A026BC9FBEEA28FA /* Pods-Playtube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Playtube.release.xcconfig"; path = "Target Support Files/Pods-Playtube/Pods-Playtube.release.xcconfig"; sourceTree = "<group>"; };
 		5B8EC06421CB982D0095A529 /* LapCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LapCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8EC06721CB982D0095A529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B8EC06921CB982D0095A529 /* IntroDuctionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroDuctionVC.swift; sourceTree = "<group>"; };
@@ -696,7 +696,7 @@
 		5B8EC08421CBC56F0095A529 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5B8EC08621CBCBE70095A529 /* CustomTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
 		5B8EC08821CBCBFC0095A529 /* CustomTextFiled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextFiled.swift; sourceTree = "<group>"; };
-		7998DD493806C4F75D5064B0 /* Pods-Playtube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Playtube.debug.xcconfig"; path = "Target Support Files/Pods-Playtube/Pods-Playtube.debug.xcconfig"; sourceTree = "<group>"; };
+		71380D3CD7BA39BF93C5968B /* Pods_LapCinema.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LapCinema.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0A945B28EAF620008AE9FE /* MoviesNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesNewVC.swift; sourceTree = "<group>"; };
 		7E60C92E28F03400004A6AFE /* ShortsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsVC.swift; sourceTree = "<group>"; };
 		7E697C14290FD84900809D93 /* PointsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsVC.swift; sourceTree = "<group>"; };
@@ -904,8 +904,8 @@
 		88F5730C2A246B3600788D10 /* UserActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActivityCell.swift; sourceTree = "<group>"; };
 		88F5730D2A246B3600788D10 /* UserActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserActivityCell.xib; sourceTree = "<group>"; };
 		88FB61332A2E04DE00259A49 /* VideoCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCacheManager.swift; sourceTree = "<group>"; };
-		D4CA13521B6EFBDAA1C82FB4 /* Pods_Playtube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Playtube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9A21E8F7C550EBD0129BDE0 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		AB5F31AD01ECDD53C361477C /* Pods-LapCinema.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LapCinema.debug.xcconfig"; path = "Target Support Files/Pods-LapCinema/Pods-LapCinema.debug.xcconfig"; sourceTree = "<group>"; };
+		CB38FF49637F38F04E2257D7 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		EA281B3421E0DAD3004A6A1E /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
 		EA281B3A21E1014A004A6A1E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		EA281B3C21E101AA004A6A1E /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
@@ -930,7 +930,7 @@
 				8877BF152A31D8B500969C4E /* DailymotionPlayerSDK in Frameworks */,
 				881FDB1F29F78A8F0075D2AF /* libPlaytubeSDK.a in Frameworks */,
 				7EFEC29428ED79A000DFE4BB /* Refreshable.framework in Frameworks */,
-				B9D61D85D8EA9FD13A8B8881 /* Pods_Playtube.framework in Frameworks */,
+				9D6463EF8BC3A9AE5DF27B53 /* Pods_LapCinema.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1161,6 +1161,17 @@
 				30ED73BE27B3E035001530AB /* PhoneContactsVC.swift */,
 			);
 			path = contacts;
+			sourceTree = "<group>";
+		};
+		36D48BBCC01488C5BD6A5AF0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB5F31AD01ECDD53C361477C /* Pods-LapCinema.debug.xcconfig */,
+				3E5AAD2D6BCABC022C475F5B /* Pods-LapCinema.release.xcconfig */,
+				1AE992C71DA44AFCA39E6A28 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				CB38FF49637F38F04E2257D7 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		4E29C26C2603561F00872FAC /* Movies */ = {
@@ -1970,8 +1981,8 @@
 				7EFEC28028ED79A000DFE4BB /* Refreshable */,
 				7EFEC28E28ED79A000DFE4BB /* RefreshableTests */,
 				5B8EC06521CB982D0095A529 /* Products */,
-				97F098B6670C82E5011D137B /* Pods */,
 				C02893F44322E05F836F3F82 /* Frameworks */,
+				36D48BBCC01488C5BD6A5AF0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2621,23 +2632,12 @@
 			path = UserActivityCell;
 			sourceTree = "<group>";
 		};
-		97F098B6670C82E5011D137B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				13B4A15C485DB52C19062DD4 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
-				E9A21E8F7C550EBD0129BDE0 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
-				7998DD493806C4F75D5064B0 /* Pods-Playtube.debug.xcconfig */,
-				5B441222A026BC9FBEEA28FA /* Pods-Playtube.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		C02893F44322E05F836F3F82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				880BE4D12A2F371200EB4D5F /* ScreenTime.framework */,
 				31149917851B69732C92DCA6 /* Pods_OneSignalNotificationServiceExtension.framework */,
-				D4CA13521B6EFBDAA1C82FB4 /* Pods_Playtube.framework */,
+				71380D3CD7BA39BF93C5968B /* Pods_LapCinema.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2946,7 +2946,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B8EC07621CB982F0095A529 /* Build configuration list for PBXNativeTarget "LapCinema" */;
 			buildPhases = (
-				0B16783F278B9243F27FA005 /* [CP] Check Pods Manifest.lock */,
+				3CE186066428A84CC07DDBAE /* [CP] Check Pods Manifest.lock */,
 				522AA9DF21E24A1100E1FBF3 /* ShellScript */,
 				5B8EC06021CB982D0095A529 /* Sources */,
 				5B8EC06121CB982D0095A529 /* Frameworks */,
@@ -2954,8 +2954,8 @@
 				5239461F2212052C006248AF /* Embed App Extensions */,
 				522A2C3E222EC4C500E3EDB5 /* Embed Frameworks */,
 				5221B2AF2249301900D8964D /* ShellScript */,
-				FAC5C0EB3E5DF8C79B8D4FE0 /* [CP] Embed Pods Frameworks */,
-				73776BA55293238BC2B20693 /* [CP] Copy Pods Resources */,
+				04104534296E4AA168C98644 /* [CP] Embed Pods Frameworks */,
+				C9D7C3B915D8ED8E42E85C08 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3188,7 +3188,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0B16783F278B9243F27FA005 /* [CP] Check Pods Manifest.lock */ = {
+		04104534296E4AA168C98644 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LapCinema/Pods-LapCinema-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LapCinema/Pods-LapCinema-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LapCinema/Pods-LapCinema-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3CE186066428A84CC07DDBAE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3203,7 +3220,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Playtube-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LapCinema-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3248,21 +3265,21 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
-		73776BA55293238BC2B20693 /* [CP] Copy Pods Resources */ = {
+		C9D7C3B915D8ED8E42E85C08 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Playtube/Pods-Playtube-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-LapCinema/Pods-LapCinema-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Playtube/Pods-Playtube-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-LapCinema/Pods-LapCinema-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Playtube/Pods-Playtube-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LapCinema/Pods-LapCinema-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D29968A0494EB5C8AFF236B0 /* [CP] Check Pods Manifest.lock */ = {
@@ -3285,23 +3302,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FAC5C0EB3E5DF8C79B8D4FE0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Playtube/Pods-Playtube-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Playtube/Pods-Playtube-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Playtube/Pods-Playtube-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3683,7 +3683,7 @@
 /* Begin XCBuildConfiguration section */
 		5239461D2212052C006248AF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13B4A15C485DB52C19062DD4 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			baseConfigurationReference = 1AE992C71DA44AFCA39E6A28 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
@@ -3707,7 +3707,7 @@
 		};
 		5239461E2212052C006248AF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9A21E8F7C550EBD0129BDE0 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			baseConfigurationReference = CB38FF49637F38F04E2257D7 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
@@ -3851,7 +3851,7 @@
 		};
 		5B8EC07721CB982F0095A529 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7998DD493806C4F75D5064B0 /* Pods-Playtube.debug.xcconfig */;
+			baseConfigurationReference = AB5F31AD01ECDD53C361477C /* Pods-LapCinema.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3895,7 +3895,7 @@
 		};
 		5B8EC07821CB982F0095A529 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B441222A026BC9FBEEA28FA /* Pods-Playtube.release.xcconfig */;
+			baseConfigurationReference = 3E5AAD2D6BCABC022C475F5B /* Pods-LapCinema.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

@@ -1,7 +1,6 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
 
 protocol ChangeVideosVCDelegate: AnyObject {
     func scrollViewDidScroll(scrollView: UIScrollView, tableView: UITableView)
@@ -16,13 +15,11 @@ class ChangeVideosVC: BaseVC {
     
     private var isLoading = true
     var channelVideos = [VideoDetail]()
-    var interstitial: GADInterstitialAd!
     var heightTableView:((_ count: Int, _ identifire: Int) -> ())?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupUI()
         NotificationCenter.default.addObserver(self, selector: #selector(self.video_Upload(notification:)), name: Notification.Name("VideoUploded"), object: nil)
         
         self.tableView.delegate = self
@@ -80,37 +77,6 @@ class ChangeVideosVC: BaseVC {
     static func changeVideosVC() -> ChangeVideosVC {
         let newVC = R.storyboard.loggedUser.changeVideosVC()
         return newVC!
-    }
-    
-    private func setupUI(){
-        if AppSettings.shouldShowAddMobBanner{
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId,
-                                   request: request,
-                                   completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            }
-            )
-        }
-//        self.tableView.separatorStyle = .none
-//        tableView.register(R.nib.videosTableItem(), forCellReuseIdentifier: R.reuseIdentifier.videosTableItem.identifier)
-    }
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId,
-                               request: GADRequest(),
-                               completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        }
-        )
-        return  self.interstitial
     }
     
     private func fetchMyChannelVideos(){

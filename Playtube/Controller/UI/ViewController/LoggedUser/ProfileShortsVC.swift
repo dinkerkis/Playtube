@@ -8,7 +8,6 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
 import Refreshable
 import UIView_Shimmer
 

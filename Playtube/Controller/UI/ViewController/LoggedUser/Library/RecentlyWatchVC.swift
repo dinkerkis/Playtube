@@ -1,7 +1,6 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
 import Refreshable
 import Toast_Swift
 
@@ -26,7 +25,6 @@ class RecentlyWatchVC: BaseVC {
         }
     }
     var recentlyWatchedArray: [VideoDetail] = []
-    var interstitial: GADInterstitialAd!
     var isStatusBarHidden: Bool = false {
         didSet {
             if oldValue != self.isStatusBarHidden {
@@ -55,7 +53,6 @@ class RecentlyWatchVC: BaseVC {
     // Initial Config
     func initialConfig() {
         self.noVideoLbl.text = NSLocalizedString("No videos found for now!", comment: "No videos found for now!")
-        self.setupUI()
         self.registerCell()
         self.isLoading = true
         self.fetchRecentlyWatched()
@@ -81,32 +78,6 @@ class RecentlyWatchVC: BaseVC {
         if #available(iOS 10.0, *) {
             tableView.prefetchDataSource = self
         }
-    }
-    
-    private func setupUI() {
-        DispatchQueue.main.async { [weak self] in
-            if AppSettings.shouldShowAddMobBanner {
-                let request = GADRequest()
-                GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: request, completionHandler: { (ad, error) in
-                    if let error = error {
-                        print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                        return
-                    }
-                    self?.interstitial = ad
-                })
-            }
-        }
-    }
-    
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: GADRequest(), completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        })
-        return  self.interstitial
     }
     
     private func fetchRecentlyWatchedLoadMore(indx : Int) {
@@ -237,12 +208,10 @@ extension RecentlyWatchVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if AppInstance.instance.addCount == AppSettings.interestialCount {
-            interstitial.present(fromRootViewController: self)
-            interstitial = CreateAd()
-            AppInstance.instance.addCount = 0
-        }
-        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
+//        if AppInstance.instance.addCount == AppSettings.interestialCount {
+//            AppInstance.instance.addCount = 0
+//        }
+//        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
         let videoObject = self.recentlyWatchedArray[indexPath.row]
         let newVC = self.tabBarController as! TabbarController
         newVC.statusBarHiddenDelegate = self

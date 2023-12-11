@@ -1,7 +1,6 @@
 import UIKit
 import PlaytubeSDK
 import SDWebImage
-import GoogleMobileAds
 import Async
 import Toast_Swift
 import DropDown
@@ -42,7 +41,6 @@ class LibraryVC: BaseVC {
     }
     var recentlyWatchedArray: [VideoDetail] = []
     var playlistsArray = [PlaylistModel.MyAllPlaylist]()
-    var interstitial: GADInterstitialAd!
     var dropDown = DropDown()
     var selectedDropDownItem = "Recently added"
     var isStatusBarHidden: Bool = false {
@@ -151,7 +149,6 @@ class LibraryVC: BaseVC {
     // Initial Config
     func initialConfig() {
         self.registerCell()
-        self.setupUI()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updatePlaylist(notification:)), name: Notification.Name("updatePlaylist"), object: nil)
         
         self.lblUsername.text = AppInstance.instance.userProfile?.data?.username ?? ""
@@ -209,30 +206,6 @@ class LibraryVC: BaseVC {
         DropDown.appearance().selectionBackgroundColor = .clear
         DropDown.appearance().cornerRadius = 10
         DropDown.appearance().cellHeight = 45.0
-    }
-        
-    private func setupUI() {
-        if AppSettings.shouldShowAddMobBanner {
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: request, completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            })
-        }
-    }
-    
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: GADRequest(), completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        })
-        return  self.interstitial
     }
     
     @objc func updatePlaylist(notification: Notification) {
@@ -483,12 +456,10 @@ extension LibraryVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if !self.isLoading {
-            if AppInstance.instance.addCount == AppSettings.interestialCount {
-                interstitial.present(fromRootViewController: self)
-                interstitial = CreateAd()
-                AppInstance.instance.addCount = 0
-            }
-            AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
+//            if AppInstance.instance.addCount == AppSettings.interestialCount {
+//                AppInstance.instance.addCount = 0
+//            }
+//            AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
             let videoObject = self.recentlyWatchedArray[indexPath.row]
             let newVC = self.tabBarController as! TabbarController
             newVC.statusBarHiddenDelegate = self

@@ -1,7 +1,6 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
 import Toast_Swift
 
 protocol UserChannelPlaylistVCDelegate: AnyObject {
@@ -24,7 +23,6 @@ class UserChannelPlaylistVC: BaseVC {
         }
     }
     var channelID: Int? = 0
-    var interstitial: GADInterstitialAd!
     var playlistsArray: [PlaylistModel.MyAllPlaylist] = []
     var parentContorller: NewUserChannelVC!
     
@@ -46,7 +44,6 @@ class UserChannelPlaylistVC: BaseVC {
     // Initial Config
     func initialConfig() {
         self.registerCell()
-        self.setupUI()
         isLoading = true
         self.getChannelPlaylist()
     }
@@ -61,30 +58,6 @@ class UserChannelPlaylistVC: BaseVC {
             self?.isLoading = true
             self?.getChannelPlaylist()
         }
-    }
-    
-    private func setupUI() {
-        if AppSettings.shouldShowAddMobBanner {
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: request, completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            })
-        }
-    }
-    
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: GADRequest(), completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        })
-        return  self.interstitial
     }
     
     private func getChannelPlaylist() {

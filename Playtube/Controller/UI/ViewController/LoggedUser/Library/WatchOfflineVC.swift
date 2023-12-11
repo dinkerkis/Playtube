@@ -1,7 +1,6 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
 
 class WatchOfflineVC: BaseVC {
     
@@ -14,7 +13,6 @@ class WatchOfflineVC: BaseVC {
     // MARK: - Properties
     
     var offlineDownloadVideos: [VideoDetail] = []
-    var interstitial: GADInterstitialAd!
     var isStatusBarHidden: Bool = false {
         didSet {
             if oldValue != self.isStatusBarHidden {
@@ -50,7 +48,6 @@ class WatchOfflineVC: BaseVC {
     // Initial Config
     func initialConfig() {
         self.noVideoLbl.text = NSLocalizedString("No videos found for now!", comment: "No videos found for now!")
-        self.setupUI()
         self.registerCell()
         self.isLoading = true
         self.getOfflineVideos()
@@ -65,32 +62,6 @@ class WatchOfflineVC: BaseVC {
             self?.isLoading = true
             self?.getOfflineVideos()
         }
-    }
-    
-    private func setupUI() {
-        if AppSettings.shouldShowAddMobBanner {
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId,
-                                   request: request,
-                                   completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            })
-        }
-    }
-    
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: GADRequest(), completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        })
-        return  self.interstitial
     }
     
     func getOfflineVideos() {
@@ -137,12 +108,10 @@ extension WatchOfflineVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if AppInstance.instance.addCount == AppSettings.interestialCount {
-            interstitial.present(fromRootViewController: self)
-            interstitial = CreateAd()
-            AppInstance.instance.addCount = 0
-        }
-        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
+//        if AppInstance.instance.addCount == AppSettings.interestialCount {
+//            AppInstance.instance.addCount = 0
+//        }
+//        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
         var videoObject = self.offlineDownloadVideos[indexPath.row]
         let newVC = self.tabBarController as! TabbarController
          newVC.statusBarHiddenDelegate = self

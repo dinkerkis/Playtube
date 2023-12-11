@@ -1,7 +1,7 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
+
 import UIView_Shimmer
 
 class WatchLaterVC: BaseVC {
@@ -22,7 +22,7 @@ class WatchLaterVC: BaseVC {
         }
     }
     var watchLaterVideos: [VideoDetail] = []
-    var interstitial: GADInterstitialAd!
+    
     var isStatusBarHidden: Bool = false {
         didSet {
             if oldValue != self.isStatusBarHidden {
@@ -52,7 +52,6 @@ class WatchLaterVC: BaseVC {
     // Initial Config
     func initialConfig() {
         self.noVideoLbl.text = NSLocalizedString("No videos found for now!", comment: "No videos found for now!")
-        self.setupUI()
         self.registerCell()
         self.isLoading = true
         self.getWatchLaterVideos()
@@ -93,32 +92,6 @@ class WatchLaterVC: BaseVC {
             self.tableView.stopPullRefreshEver()
         }
     }
-    
-    private func setupUI() {
-        self.title = NSLocalizedString("Watch Later", comment: "Watch Later")
-        if AppSettings.shouldShowAddMobBanner{
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: request, completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            })
-        }
-    }
-    
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: GADRequest(), completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        })
-        return  self.interstitial
-    }
-    
 }
 
 // MARK: -  Extensions
@@ -151,12 +124,10 @@ extension WatchLaterVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if AppInstance.instance.addCount == AppSettings.interestialCount {
-            interstitial.present(fromRootViewController: self)
-            interstitial = CreateAd()
-            AppInstance.instance.addCount = 0
-        }
-        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
+//        if AppInstance.instance.addCount == AppSettings.interestialCount {
+//            AppInstance.instance.addCount = 0
+//        }
+//        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
         let videoObject = self.watchLaterVideos[indexPath.row]
         let newVC = self.tabBarController as! TabbarController
         newVC.statusBarHiddenDelegate = self

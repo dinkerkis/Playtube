@@ -1,7 +1,6 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
 import UIView_Shimmer
 
 class GetPlaylistVideosVC: BaseVC {
@@ -17,7 +16,7 @@ class GetPlaylistVideosVC: BaseVC {
     var listID:String? = ""
     var playlistName:String? = ""
     var playlistVideosArray = [PlaylistVideosModel.Datum]()
-    var interstitial: GADInterstitialAd!
+    
     private var isLoading = true {
         didSet {
             tableView.reloadData()
@@ -44,7 +43,6 @@ class GetPlaylistVideosVC: BaseVC {
     // Initial Config
     func initialConfig() {
         self.registerCell()
-        self.setupUI()
         self.noPlaylist.text = NSLocalizedString("No PlayList found", comment: "No PlayList found")
         isLoading = true
         self.fetchPlaylistVideos()
@@ -64,30 +62,6 @@ class GetPlaylistVideosVC: BaseVC {
 
     @IBAction func btnBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    private func setupUI() {
-        if AppSettings.shouldShowAddMobBanner {
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: request, completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            })
-        }
-    }
-    
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId, request: GADRequest(), completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        })
-        return  self.interstitial
     }
     
     private func fetchPlaylistVideos() {
@@ -158,12 +132,10 @@ extension GetPlaylistVideosVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if AppInstance.instance.addCount == AppSettings.interestialCount {
-            interstitial.present(fromRootViewController: self)
-            interstitial = CreateAd()
-            AppInstance.instance.addCount = 0
-        }
-        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
+//        if AppInstance.instance.addCount == AppSettings.interestialCount {
+//            AppInstance.instance.addCount = 0
+//        }
+//        AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
         guard let videoObject = self.playlistVideosArray[indexPath.row].video else { return }
         let newVC = self.tabBarController as! TabbarController
         // newVC.statusBarHiddenDelegate = self

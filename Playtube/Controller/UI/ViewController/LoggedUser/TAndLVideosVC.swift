@@ -1,7 +1,6 @@
 import UIKit
 import PlaytubeSDK
 import Async
-import GoogleMobileAds
 import Toast_Swift
 
 class TAndLVideosVC: BaseVC {
@@ -17,7 +16,6 @@ class TAndLVideosVC: BaseVC {
     var topVideosArray: [VideoDetail] = []
     var latestVideosArray: [VideoDetail] = []
     var getStringStatus: String? =  ""
-    var interstitial: GADInterstitialAd!
     private var isLoading = true {
         didSet {
             DispatchQueue.main.async {
@@ -53,7 +51,6 @@ class TAndLVideosVC: BaseVC {
     // Initial Config
     func initialConfig() {
         self.registerCell()
-        self.setupUI()
         self.isLoading = true
         if self.getStringStatus == "topvideos" || self.getStringStatus == "latestvideos" {
             self.titleLabel.text = self.getStringStatus == "topvideos" ? "Top Videos" : "Latest Videos"
@@ -77,34 +74,6 @@ class TAndLVideosVC: BaseVC {
                 self?.getStockVideos()
             }
         }
-    }
-    
-    private func setupUI() {
-        if AppSettings.shouldShowAddMobBanner {
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId,
-                                   request: request,
-                                   completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            })
-        }
-    }
-    
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId,
-                               request: GADRequest(),
-                               completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        })
-        return self.interstitial
     }
     
     func getStockVideos() {

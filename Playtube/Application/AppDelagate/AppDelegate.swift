@@ -8,7 +8,7 @@ import OneSignal
 import FBSDKLoginKit
 import GoogleSignIn
 import PlaytubeSDK
-import GoogleMobileAds
+
 import AVFoundation
 
 let log = SwiftyBeaver.self
@@ -82,7 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,OSSubscriptionObserver {
 //        }
         // BTAppSwitch.setReturnURLScheme(AppSettings.BrainTreeURLScheme)
         //BTAppContextSwitcher.setReturnURLScheme(AppSettings.BrainTreeURLScheme)
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         GIDSignIn.sharedInstance().clientID = AppSettings.googleClientKey
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)

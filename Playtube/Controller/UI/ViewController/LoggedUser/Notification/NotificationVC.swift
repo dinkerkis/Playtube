@@ -1,14 +1,14 @@
 
 import UIKit
 import PlaytubeSDK
-import GoogleMobileAds
 import Async
+
 class NotificationVC: BaseVC {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var showStack: UIStackView!
     //@IBOutlet weak var noNotification: UILabel!
-    var interstitial: GADInterstitialAd!
+    
     private var notificationsArray = [NotificationsModel.Notification]()
     
     override func viewDidLoad() {
@@ -24,36 +24,10 @@ class NotificationVC: BaseVC {
     private func setupUI(){
         //self.title = NSLocalizedString("Notification", comment: "Notification")
         //self.noNotification.text = NSLocalizedString("No Notification!", comment: "No Notification!")
-        if AppSettings.shouldShowAddMobBanner{
-            let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId,
-                                   request: request,
-                                   completionHandler: { (ad, error) in
-                if let error = error {
-                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                    return
-                }
-                self.interstitial = ad
-            }
-            )
-        }
-        
         self.tableView.separatorStyle = .none
         tableView.register(UINib(resource: R.nib.notificationTableItem), forCellReuseIdentifier: R.reuseIdentifier.notificationTableItem.identifier)
     }
-    func CreateAd() -> GADInterstitialAd {
-        GADInterstitialAd.load(withAdUnitID: AppSettings.interestialAddUnitId,
-                               request: GADRequest(),
-                               completionHandler: { (ad, error) in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            self.interstitial = ad
-        }
-        )
-        return  self.interstitial
-    }
+    
     private func getNotification(){
         if Connectivity.isConnectedToNetwork(){
             //self.showProgressDialog(text: NSLocalizedString("Loading...", comment: "Loading..."))
@@ -116,12 +90,10 @@ extension NotificationVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let notificationObject = self.notificationsArray[indexPath.row]
         if (notificationObject.title?.contains("added"))! || (notificationObject.title?.contains("disliked"))! || (notificationObject.title?.contains("liked"))! || (notificationObject.title?.contains("commented"))! || (notificationObject.title?.contains("commented"))! {
-            if AppInstance.instance.addCount == AppSettings.interestialCount {
-                interstitial.present(fromRootViewController: self)
-                interstitial = CreateAd()
-                AppInstance.instance.addCount = 0
-            }
-            AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
+//            if AppInstance.instance.addCount == AppSettings.interestialCount {
+//                AppInstance.instance.addCount = 0
+//            }
+//            AppInstance.instance.addCount = AppInstance.instance.addCount! + 1
             if let videoObject = self.notificationsArray[indexPath.row].video?.videoClass {
                 let newVC = self.tabBarController as! TabbarController
                 // newVC.statusBarHiddenDelegate = self

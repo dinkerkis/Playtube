@@ -12,5 +12,7 @@ framework module AgoraRtcKit {
   header "AgoraRtcMediaPlayerProtocol.h"
   header "AgoraSpatialAudioKit.h"
   header "AgoraMusicContentCenter.h"
+  header "AgoraH265TranscoderProtocol.h"
+  header "AgoraH265TranscoderDelegate.h"
   export *
 }

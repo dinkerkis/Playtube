@@ -9,7 +9,6 @@
 import UIKit
 import Async
 import PlaytubeSDK
-import GoogleMobileAds
 import Toast_Swift
 
 class NewArticleVC: BaseVC {
@@ -24,8 +23,7 @@ class NewArticleVC: BaseVC {
     
     var categories: [CategoryStruct] = []
     var selectedIndex = 0
-    var bannerView: GADBannerView!
-    var interstitial: GADInterstitialAd!
+
     private var articlesArray: [Article] = []
     private var popularArticlesArray: [Article] = []
     private var filterArticleArray: [Article] = []
