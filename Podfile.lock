@@ -56,6 +56,7 @@ PODS:
   - FBSDKLoginKit (16.2.1):
     - FBSDKCoreKit (= 16.2.1)
   - FittedSheets (2.6.1)
+  - FlowplayerSDK (4.0.1)
   - GoogleSignIn (5.0.0):
     - AppAuth (~> 1.1)
     - GTMAppAuth (~> 1.0)
@@ -89,6 +90,7 @@ DEPENDENCIES:
   - DropDown
   - FBSDKLoginKit
   - FittedSheets
+  - FlowplayerSDK (~> 4.0.0)
   - GoogleSignIn (= 5.0.0)
   - HCVimeoVideoExtractor
   - IQKeyboardManagerSwift
@@ -122,6 +124,7 @@ SPEC REPOS:
     - FBSDKCoreKit_Basics
     - FBSDKLoginKit
     - FittedSheets
+    - FlowplayerSDK
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
@@ -165,6 +168,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit_Basics: 1257d71d2d692661290bf2af4bea5f9a101387af
   FBSDKLoginKit: bf4f96d0ce475de2da4b1800ce150bd8a6f120f3
   FittedSheets: 37e35f105c531f3845075f1788dd8517a35315c4
+  FlowplayerSDK: 77ca49f997cc9ac760859b0a5aa3f5bdaa801aba
   GoogleSignIn: a62edd0516721d2a3db1259a5681b91f9b41c06a
   GTMAppAuth: 0ff230db599948a9ad7470ca667337803b3fc4dd
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
@@ -182,6 +186,6 @@ SPEC CHECKSUMS:
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 8f140d6600adf983813d5a0449d330a4b733cb0d
+PODFILE CHECKSUM: 468525285a29f962f3b3157ccd4854b3bf3ba753
 
 COCOAPODS: 1.12.1

@@ -1,0 +1,17 @@
+//
+//  ReleaseConfig.xcconfig
+//  FlowplayerSDK
+//
+//  Created by @rashadatjou on 27/06/2023.
+//  Copyright © 2023 Wowza. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BUILD_LIBRARY_FOR_DISTRIBUTION = YES
+SKIP_INSTALL = NO
+DEFINES_MODULE = YES
+FLOWPLAYER_COMMIT_HASH = $(CIRCLE_SHA1)
+CLANG_CXX_LIBRARY = libc++
+CLANG_CXX_LANGUAGE_STANDARD = c++11
