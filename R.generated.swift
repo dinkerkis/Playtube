@@ -6643,7 +6643,7 @@ struct _R {
     var x86_64AppleIosSimulatorSwiftsourceinfo: RswiftResources.FileResource { .init(name: "x86_64-apple-ios-simulator", pathExtension: "swiftsourceinfo", bundle: bundle, locale: LocaleReference.none) }
   }
 
-  /// This `_R.nib` struct is generated, and contains static references to 63 nibs.
+  /// This `_R.nib` struct is generated, and contains static references to 64 nibs.
   struct nib {
     let bundle: Foundation.Bundle
 
@@ -6715,6 +6715,9 @@ struct _R {
 
     /// Nib `FeaturedCell`.
     var featuredCell: RswiftResources.NibReferenceReuseIdentifier<FeaturedCell, FeaturedCell> { .init(name: "FeaturedCell", bundle: bundle, identifier: "FeaturedCell") }
+
+    /// Nib `FlowPlayerView`.
+    var flowPlayerView: RswiftResources.NibReference<UIKit.UIView> { .init(name: "FlowPlayerView", bundle: bundle) }
 
     /// Nib `HomeCollectionViewCell`.
     var homeCollectionViewCell: RswiftResources.NibReferenceReuseIdentifier<HomeCollectionViewCell, HomeCollectionViewCell> { .init(name: "HomeCollectionViewCell", bundle: bundle, identifier: "HomeCollectionViewCell") }

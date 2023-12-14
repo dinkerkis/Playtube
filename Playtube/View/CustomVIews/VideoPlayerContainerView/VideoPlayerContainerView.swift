@@ -49,6 +49,11 @@ class VideoPlayerContainerView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    var flowPlayerView: FlowPlayerView = {
+        let view = FlowPlayerView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     var dmPlayerView: DMPlayerView!
     var paidVideoView: PaidVideoView = {
         let view = PaidVideoView()
@@ -145,6 +150,9 @@ class VideoPlayerContainerView: UIView {
         if self.videoPlayerView.isDescendant(of: self.containerView) {
             self.videoPlayerView.removeFromSuperview()
         }
+        if self.flowPlayerView.isDescendant(of: self.containerView) {
+            self.flowPlayerView.removeFromSuperview()
+        }
         if self.adPlayerView.isDescendant(of: self.containerView) {
             self.adPlayerView.removeFromSuperview()
         }
@@ -204,6 +212,15 @@ class VideoPlayerContainerView: UIView {
         self.youtubePlayerView.parentView = self
         self.youtubePlayerView.initializeYoutubePlayer(for: video_id)
         self.thumbnailImageView.image = nil
+    }
+    
+    func initializeFlowPlayer(for url: URL, video_id: VideoDetail) {
+        self.containerView.addSubview(self.flowPlayerView)
+        self.setFlowPlayerConstraintToSubView(view: self.flowPlayerView)
+        self.flowPlayerView.parentView = self
+        self.flowPlayerView.initializeFlowPlayer(for: url,video_id: video_id)
+        self.thumbnailImageView.image = nil
+        self.activityIndicator.stopAnimating()
     }
     
     func initializeVimeoPlayer(for vimeo_id: String) {
@@ -273,6 +290,18 @@ class VideoPlayerContainerView: UIView {
     }
     
     func setConstraintToSubView(view: UIView) {
+        let constraints = [
+            view.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 0),
+            view.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: 0),
+            view.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 0),
+            view.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: 0)
+        ]
+        NSLayoutConstraint.activate(constraints)
+        view.setNeedsDisplay()
+        view.layoutIfNeeded()
+    }
+    
+    func setFlowPlayerConstraintToSubView(view: UIView) {
         let constraints = [
             view.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 0),
             view.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: 0),

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -25,7 +25,7 @@
         <!--HomeVC-->
         <scene sceneID="5u9-cd-6db">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="9Zb-HQ-9QG" customClass="HomeVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="9Zb-HQ-9QG" customClass="HomeVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qep-tk-CVJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,7 @@
         <!--TrendingVC-->
         <scene sceneID="iLj-cn-eOq">
             <objects>
-                <viewController storyboardIdentifier="TrendingVC" id="D4d-T6-qY6" customClass="TrendingVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrendingVC" id="D4d-T6-qY6" customClass="TrendingVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eyq-bg-WVe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,6 +146,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="qa8-It-UEE" secondAttribute="height" multiplier="1:1" id="ODa-3Y-Dd7"/>
                                                             <constraint firstAttribute="height" constant="32" id="hMu-67-PU4"/>
+                                                            <constraint firstAttribute="width" secondItem="qa8-It-UEE" secondAttribute="height" multiplier="1:1" id="pIn-h3-BzB"/>
                                                         </constraints>
                                                         <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -173,9 +174,6 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="qa8-It-UEE" firstAttribute="width" secondItem="qa8-It-UEE" secondAttribute="height" multiplier="1:1" id="pIn-h3-BzB"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -450,7 +448,7 @@
         <!--MoviesVC-->
         <scene sceneID="tLi-ri-Sjs">
             <objects>
-                <viewController storyboardIdentifier="MoviesVC" id="9qs-Fr-AOb" customClass="MoviesVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoviesVC" id="9qs-Fr-AOb" customClass="MoviesVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wCn-bP-RJX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -499,7 +497,7 @@
         <!--ShortsVC-->
         <scene sceneID="c4x-lj-ayg">
             <objects>
-                <viewController storyboardIdentifier="ShortsVC" id="uLq-VD-3iS" customClass="ShortsVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShortsVC" id="uLq-VD-3iS" customClass="ShortsVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tNr-jr-PVx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -514,7 +512,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShortsVideoCell" id="dRv-4f-OfY" customClass="ShortsVideoCell" customModule="Playtube" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShortsVideoCell" id="dRv-4f-OfY" customClass="ShortsVideoCell" customModule="LapCinema" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="N3b-gm-s5N">
@@ -524,7 +522,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YMt-iz-ld4">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="3kl-Nc-eA0" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="3kl-Nc-eA0" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                     <rect key="frame" x="12" y="697" width="36" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="XrF-GH-KOs"/>
@@ -784,7 +782,7 @@
         <!--Library-->
         <scene sceneID="EyZ-fx-e3h">
             <objects>
-                <viewController storyboardIdentifier="LibraryVC" id="1TF-F5-sWX" customClass="LibraryVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LibraryVC" id="1TF-F5-sWX" customClass="LibraryVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Yv-eo-Ohn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -792,7 +790,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aea-4g-GrP">
                                 <rect key="frame" x="12" y="62" width="390" height="68"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="zWF-jB-Bji" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="zWF-jB-Bji" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                         <rect key="frame" x="12" y="12" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="QW8-2O-tOQ"/>
@@ -978,7 +976,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbk-vK-p9P">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sub_new" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-ds-k6h" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sub_new" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-ds-k6h" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="12" y="18" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="24" id="cMI-kG-pfC"/>
@@ -1008,7 +1006,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="Kdz-Wf-JSV" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="Kdz-Wf-JSV" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="378" y="18" width="24" height="24"/>
                                                                 <color key="tintColor" red="0.63137254901960782" green="0.65098039215686276" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -1049,7 +1047,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIw-9t-Iwx">
                                                         <rect key="frame" x="0.0" y="60" width="414" height="60"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watch_new" translatesAutoresizingMaskIntoConstraints="NO" id="dVq-0R-aqf" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watch_new" translatesAutoresizingMaskIntoConstraints="NO" id="dVq-0R-aqf" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="12" y="18" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="24" id="adS-1y-MoL"/>
@@ -1079,7 +1077,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="9uS-jy-oQz" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="9uS-jy-oQz" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="378" y="18" width="24" height="24"/>
                                                                 <color key="tintColor" red="0.63137254899999995" green="0.65098039220000004" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -1121,7 +1119,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fpd-sJ-Fvh">
                                                         <rect key="frame" x="0.0" y="120" width="414" height="60"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="9wn-31-c5v" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="9wn-31-c5v" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="12" y="18" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="24" id="Drn-fa-p6N"/>
@@ -1152,7 +1150,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="jU8-cj-HEg" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="jU8-cj-HEg" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="378" y="18" width="24" height="24"/>
                                                                 <color key="tintColor" red="0.63137254899999995" green="0.65098039220000004" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -1193,7 +1191,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSD-AV-5ch">
                                                         <rect key="frame" x="0.0" y="180" width="414" height="60"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like_new" translatesAutoresizingMaskIntoConstraints="NO" id="HYd-Nq-B08" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like_new" translatesAutoresizingMaskIntoConstraints="NO" id="HYd-Nq-B08" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="12" y="18" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="HYd-Nq-B08" secondAttribute="height" multiplier="1:1" id="Ec6-g7-Ui7"/>
@@ -1223,7 +1221,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="5vR-qt-q0y" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="5vR-qt-q0y" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="378" y="18" width="24" height="24"/>
                                                                 <color key="tintColor" red="0.63137254899999995" green="0.65098039220000004" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -1264,7 +1262,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZj-DP-Oao">
                                                         <rect key="frame" x="0.0" y="240" width="414" height="60"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paid_new" translatesAutoresizingMaskIntoConstraints="NO" id="xQV-44-cTS" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paid_new" translatesAutoresizingMaskIntoConstraints="NO" id="xQV-44-cTS" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="12" y="19" width="22" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="22" id="ehC-FU-Os7"/>
@@ -1294,7 +1292,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="vl3-9s-A8t" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="vl3-9s-A8t" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="378" y="18" width="24" height="24"/>
                                                                 <color key="tintColor" red="0.63137254899999995" green="0.65098039220000004" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -1335,7 +1333,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xza-hG-cp5">
                                                         <rect key="frame" x="0.0" y="300" width="414" height="60"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_new" translatesAutoresizingMaskIntoConstraints="NO" id="efZ-tw-Jqp" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_new" translatesAutoresizingMaskIntoConstraints="NO" id="efZ-tw-Jqp" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="12" y="18" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="efZ-tw-Jqp" secondAttribute="height" multiplier="1:1" id="2hN-XX-6id"/>
@@ -1365,7 +1363,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="K8r-kE-hYB" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="K8r-kE-hYB" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="378" y="18" width="24" height="24"/>
                                                                 <color key="tintColor" red="0.63137254899999995" green="0.65098039220000004" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -1472,7 +1470,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdd-kK-Xh4">
                                                         <rect key="frame" x="0.0" y="409" width="414" height="40"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_plus-1" translatesAutoresizingMaskIntoConstraints="NO" id="J5S-SS-UF0" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_plus-1" translatesAutoresizingMaskIntoConstraints="NO" id="J5S-SS-UF0" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                 <rect key="frame" x="12" y="8" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="24" id="OIE-K4-ud5"/>
@@ -1576,7 +1574,7 @@
         <!--Movies NewVC-->
         <scene sceneID="YdQ-Ks-dj7">
             <objects>
-                <viewController storyboardIdentifier="MoviesNewVC" id="8Ee-uf-3IO" customClass="MoviesNewVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoviesNewVC" id="8Ee-uf-3IO" customClass="MoviesNewVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x0h-9X-s72">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1636,7 +1634,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moviesNewCell" id="BgQ-q8-DbE" customClass="moviesNewCell" customModule="Playtube" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moviesNewCell" id="BgQ-q8-DbE" customClass="moviesNewCell" customModule="LapCinema" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="270"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cYu-g7-e84">
@@ -1757,9 +1755,9 @@
         <!--Tabbar Controller-->
         <scene sceneID="tA4-hz-MGL">
             <objects>
-                <tabBarController storyboardIdentifier="TabbarController" id="1M2-7F-bTL" customClass="TabbarController" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarController" id="1M2-7F-bTL" customClass="TabbarController" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="5RM-Ht-7GX"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Vi-lx-nSE" customClass="TabBar" customModule="Playtube" customModuleProvider="target">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Vi-lx-nSE" customClass="TabBar" customModule="LapCinema" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1796,7 +1794,7 @@
         <!--New ProfileVC-->
         <scene sceneID="O9j-HC-7b3">
             <objects>
-                <viewController storyboardIdentifier="NewProfileVC" id="cvd-yf-frN" customClass="NewProfileVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewProfileVC" id="cvd-yf-frN" customClass="NewProfileVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YFF-5s-MuI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1853,6 +1851,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOW-yX-3dx">
                                                 <rect key="frame" x="34" y="0.0" width="24" height="24"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" secondItem="lOW-yX-3dx" secondAttribute="height" id="6ca-sX-IoH"/>
                                                     <constraint firstAttribute="height" constant="24" id="Eqa-Ol-e7h"/>
                                                     <constraint firstAttribute="width" secondItem="lOW-yX-3dx" secondAttribute="height" id="ZfZ-Yd-xJS"/>
                                                 </constraints>
@@ -1866,6 +1865,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxv-Yy-VAh">
                                                 <rect key="frame" x="68" y="0.0" width="24" height="24"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" secondItem="vxv-Yy-VAh" secondAttribute="height" id="dxx-0s-UU3"/>
                                                     <constraint firstAttribute="height" constant="24" id="thi-nr-faX"/>
                                                     <constraint firstAttribute="width" secondItem="vxv-Yy-VAh" secondAttribute="height" id="xKN-lu-dkZ"/>
                                                 </constraints>
@@ -1877,10 +1877,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="lOW-yX-3dx" firstAttribute="width" secondItem="lOW-yX-3dx" secondAttribute="height" id="6ca-sX-IoH"/>
-                                            <constraint firstItem="vxv-Yy-VAh" firstAttribute="width" secondItem="vxv-Yy-VAh" secondAttribute="height" id="dxx-0s-UU3"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1922,7 +1918,7 @@
         <!--Change VideosVC-->
         <scene sceneID="3cv-nx-4CX">
             <objects>
-                <viewController storyboardIdentifier="ChangeVideosVC" id="aRi-y7-Kl9" customClass="ChangeVideosVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeVideosVC" id="aRi-y7-Kl9" customClass="ChangeVideosVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QsE-Bm-msg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2072,7 +2068,7 @@
         <!--Search FilterVC-->
         <scene sceneID="hA4-oT-zhI">
             <objects>
-                <viewController storyboardIdentifier="SearchFilterVC" id="es5-Ow-FOa" customClass="SearchFilterVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchFilterVC" id="es5-Ow-FOa" customClass="SearchFilterVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dly-8t-1aW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2143,7 +2139,7 @@
         <!--SearchVC-->
         <scene sceneID="qrQ-wJ-YKd">
             <objects>
-                <viewController storyboardIdentifier="SearchVC" id="cgK-DF-FeC" customClass="SearchVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" id="cgK-DF-FeC" customClass="SearchVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QJV-qn-9kX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2313,7 +2309,7 @@
         <!--AboutVC-->
         <scene sceneID="jNB-LC-LeR">
             <objects>
-                <viewController storyboardIdentifier="AboutVC" id="e2A-KM-BhT" customClass="AboutVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutVC" id="e2A-KM-BhT" customClass="AboutVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LFc-N7-Y8Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2383,7 +2379,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ng7-bB-0O7">
                                                                         <rect key="frame" x="0.0" y="45" width="384" height="28"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gender-1" translatesAutoresizingMaskIntoConstraints="NO" id="7Z1-ff-qBE" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gender-1" translatesAutoresizingMaskIntoConstraints="NO" id="7Z1-ff-qBE" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="28" id="Ebi-1h-ssN"/>
@@ -2404,7 +2400,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="enl-LN-ezT">
                                                                         <rect key="frame" x="0.0" y="88" width="384" height="28"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_new" translatesAutoresizingMaskIntoConstraints="NO" id="5Qh-c1-ORD" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_new" translatesAutoresizingMaskIntoConstraints="NO" id="5Qh-c1-ORD" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="28" id="JPI-hf-rtY"/>
@@ -2462,7 +2458,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FGA-e7-2Fp">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="28"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook-1" translatesAutoresizingMaskIntoConstraints="NO" id="qX7-eG-0Tc" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook-1" translatesAutoresizingMaskIntoConstraints="NO" id="qX7-eG-0Tc" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="28" id="Dy0-15-hR9"/>
@@ -2506,7 +2502,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5E1-Mb-rSs">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="28"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram" translatesAutoresizingMaskIntoConstraints="NO" id="Vrv-rv-lap" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram" translatesAutoresizingMaskIntoConstraints="NO" id="Vrv-rv-lap" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="28" id="AsG-ns-K0M"/>
@@ -2550,7 +2546,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Bve-eD-yWw">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="28"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter-1" translatesAutoresizingMaskIntoConstraints="NO" id="ik2-zQ-Fr1" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter-1" translatesAutoresizingMaskIntoConstraints="NO" id="ik2-zQ-Fr1" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="28" id="Nxe-Cc-Zf9"/>
@@ -2628,7 +2624,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wyP-tb-E1H">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="28"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="block_user" translatesAutoresizingMaskIntoConstraints="NO" id="Msh-EH-pPR" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="block_user" translatesAutoresizingMaskIntoConstraints="NO" id="Msh-EH-pPR" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="28" id="GDg-Z3-S9F"/>
@@ -2740,7 +2736,7 @@
         <!--Activites Controller-->
         <scene sceneID="RUg-Jd-h4N">
             <objects>
-                <viewController storyboardIdentifier="ActivityVC" id="GG6-U3-cdh" customClass="ActivitesController" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityVC" id="GG6-U3-cdh" customClass="ActivitesController" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjk-Z7-EPz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2781,7 +2777,7 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="806"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChangeActivityCell" rowHeight="375" id="CN4-jz-heL" customClass="ChangeActivityCell" customModule="Playtube" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChangeActivityCell" rowHeight="375" id="CN4-jz-heL" customClass="ChangeActivityCell" customModule="LapCinema" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CN4-jz-heL" id="krq-r7-I4I">
@@ -2953,7 +2949,7 @@
         <!--Channel PlaylistVC-->
         <scene sceneID="S7C-dx-nmD">
             <objects>
-                <viewController storyboardIdentifier="ChannelPlaylistVC" id="Jt7-eK-2A2" customClass="ChannelPlaylistVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChannelPlaylistVC" id="Jt7-eK-2A2" customClass="ChannelPlaylistVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bgf-Qq-Ybr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2962,7 +2958,7 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="806"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profilePlaylistCell" rowHeight="120" id="Ufk-kN-aqG" customClass="profilePlaylistCell" customModule="Playtube" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profilePlaylistCell" rowHeight="120" id="Ufk-kN-aqG" customClass="profilePlaylistCell" customModule="LapCinema" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ufk-kN-aqG" id="EAd-Gj-uc1">
@@ -3030,7 +3026,7 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YM-bm-U3s">
                                                     <rect key="frame" x="120" y="8" width="65" height="104"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play_inside" translatesAutoresizingMaskIntoConstraints="NO" id="lE5-CG-yTY" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play_inside" translatesAutoresizingMaskIntoConstraints="NO" id="lE5-CG-yTY" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="57" width="25" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
@@ -3142,7 +3138,7 @@
         <!--Web ViewVC-->
         <scene sceneID="XSS-Wx-kyT">
             <objects>
-                <viewController storyboardIdentifier="WebViewVC" id="Ukq-i1-Sgj" customClass="WebViewVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewVC" id="Ukq-i1-Sgj" customClass="WebViewVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qda-T4-eq3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3215,7 +3211,7 @@
         <!--Profile ShortsVC-->
         <scene sceneID="SQD-nu-yWD">
             <objects>
-                <viewController storyboardIdentifier="ProfileShortsVC" id="8D4-dN-0LK" customClass="ProfileShortsVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileShortsVC" id="8D4-dN-0LK" customClass="ProfileShortsVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H2Q-ar-HjI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3224,7 +3220,7 @@
                                 <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shortsProfileCell" rowHeight="135" id="AFv-mi-0o1" customClass="shortsProfileCell" customModule="Playtube" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shortsProfileCell" rowHeight="135" id="AFv-mi-0o1" customClass="shortsProfileCell" customModule="LapCinema" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AFv-mi-0o1" id="IYC-N8-lQ7">
@@ -3283,7 +3279,7 @@
                                                         <action selector="optionButtonAction:" destination="AFv-mi-0o1" eventType="touchUpInside" id="12b-S6-3Tn"/>
                                                     </connections>
                                                 </button>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shorts" translatesAutoresizingMaskIntoConstraints="NO" id="QwN-pI-dHp" customClass="RoundImage" customModule="Playtube" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shorts" translatesAutoresizingMaskIntoConstraints="NO" id="QwN-pI-dHp" customClass="RoundImage" customModule="LapCinema" customModuleProvider="target">
                                                     <rect key="frame" x="79" y="101" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="YUy-X8-2Z2"/>
@@ -3386,12 +3382,12 @@
         <!--Details ArticlesVC-->
         <scene sceneID="SGe-fC-HsS">
             <objects>
-                <viewController storyboardIdentifier="DetailsArticlesVC" id="hDH-Oa-J4B" customClass="DetailsArticlesVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsArticlesVC" id="hDH-Oa-J4B" customClass="DetailsArticlesVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R4L-RN-Kbz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CW6-f9-f3s" customClass="RoundView" customModule="Playtube" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CW6-f9-f3s" customClass="RoundView" customModule="LapCinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sc-7q-mKE">
@@ -3501,7 +3497,7 @@
         <!--Popular Channel Controller-->
         <scene sceneID="ve3-IN-Tso">
             <objects>
-                <viewController storyboardIdentifier="PopularChannelVC" id="aa7-5Z-ajg" customClass="PopularChannelController" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopularChannelVC" id="aa7-5Z-ajg" customClass="PopularChannelController" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QcN-cT-65G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3592,7 +3588,7 @@
         <!--AndL VideosVC-->
         <scene sceneID="sXf-YB-ZII">
             <objects>
-                <viewController storyboardIdentifier="TAndLVideosVC" id="QiG-11-2nu" customClass="TAndLVideosVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TAndLVideosVC" id="QiG-11-2nu" customClass="TAndLVideosVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cns-Ob-qcc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3657,12 +3653,12 @@
         <!--Popular Channel Filter Controller-->
         <scene sceneID="wFf-WV-a9F">
             <objects>
-                <viewController storyboardIdentifier="ChannelFilterVC" id="yd0-Ek-dNZ" customClass="PopularChannelFilterController" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChannelFilterVC" id="yd0-Ek-dNZ" customClass="PopularChannelFilterController" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16q-ra-338">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKI-GC-xhT" customClass="RoundView" customModule="Playtube" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKI-GC-xhT" customClass="RoundView" customModule="LapCinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="48" width="414" height="378"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHG-tb-o1t">
@@ -3818,7 +3814,7 @@
                                             <constraint firstItem="uCX-yJ-nPL" firstAttribute="leading" secondItem="Thj-Hb-i85" secondAttribute="trailing" constant="21" id="vVN-VU-MCU"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhE-Ci-mEi" customClass="RoundButton" customModule="Playtube" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhE-Ci-mEi" customClass="RoundButton" customModule="LapCinema" customModuleProvider="target">
                                         <rect key="frame" x="20" y="313" width="374" height="45"/>
                                         <color key="backgroundColor" red="0.058823529409999999" green="0.3921568627" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -4061,7 +4057,7 @@
         <!--Sort By Controller-->
         <scene sceneID="hFI-ux-ViS">
             <objects>
-                <viewController storyboardIdentifier="SortByVC" id="7Mg-lV-dvU" customClass="SortByController" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SortByVC" id="7Mg-lV-dvU" customClass="SortByController" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZuM-uw-Qhk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4168,7 +4164,7 @@
         <!--Time By Controller-->
         <scene sceneID="RbY-K2-NMn">
             <objects>
-                <viewController storyboardIdentifier="TimeByVC" id="jeZ-KY-uwy" customClass="TimeByController" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimeByVC" id="jeZ-KY-uwy" customClass="TimeByController" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5pN-XC-TZx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4307,7 +4303,7 @@
         <!--Article Filter Controller-->
         <scene sceneID="P4i-ab-EYV">
             <objects>
-                <viewController storyboardIdentifier="ArticleFilterVC" id="WOw-Au-dzm" customClass="ArticleFilterController" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleFilterVC" id="WOw-Au-dzm" customClass="ArticleFilterController" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MCc-re-SOA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4391,12 +4387,12 @@
         <!--Movies FilterVC-->
         <scene sceneID="kRH-lO-Gw9">
             <objects>
-                <viewController storyboardIdentifier="MoviesFilterVC" id="IE6-5N-Tq7" customClass="MoviesFilterVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoviesFilterVC" id="IE6-5N-Tq7" customClass="MoviesFilterVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XOm-cB-niq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DR2-gb-2oL" customClass="RoundView" customModule="Playtube" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DR2-gb-2oL" customClass="RoundView" customModule="LapCinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="48" width="414" height="420"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agj-AG-3Zb">
@@ -4508,7 +4504,7 @@
                                             <constraint firstAttribute="width" constant="15" id="fYR-i8-CgB"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02d-WA-qTv" customClass="RoundButton" customModule="Playtube" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02d-WA-qTv" customClass="RoundButton" customModule="LapCinema" customModuleProvider="target">
                                         <rect key="frame" x="15" y="360" width="384" height="45"/>
                                         <color key="backgroundColor" red="0.058823529409999999" green="0.3921568627" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="TTCommons-DemiBold" family="TT Commons" pointSize="18"/>
@@ -4589,7 +4585,7 @@
         <!--New ArticleVC-->
         <scene sceneID="1wc-eS-yDB">
             <objects>
-                <viewController storyboardIdentifier="NewArticleVC" id="eLH-DM-Dck" customClass="NewArticleVC" customModule="Playtube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewArticleVC" id="eLH-DM-Dck" customClass="NewArticleVC" customModule="LapCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sKP-dH-vgp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4619,7 +4615,7 @@
                                         <fontDescription key="fontDescription" name="TTCommons-DemiBold" family="TT Commons" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgk-X0-5bO" customClass="RoundButton" customModule="Playtube" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgk-X0-5bO" customClass="RoundButton" customModule="LapCinema" customModuleProvider="target">
                                         <rect key="frame" x="269" y="2" width="130" height="40"/>
                                         <color key="backgroundColor" red="0.058823529409999999" green="0.3921568627" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -4657,7 +4653,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oW1-OA-hjK">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXu-4e-woX" customClass="RoundView" customModule="Playtube" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXu-4e-woX" customClass="RoundView" customModule="LapCinema" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="5" width="384" height="40"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fi_search_new" translatesAutoresizingMaskIntoConstraints="NO" id="m0X-CI-QMl">
@@ -4776,7 +4772,7 @@
     </scenes>
     <designables>
         <designable name="02d-WA-qTv">
-            <size key="intrinsicContentSize" width="85" height="30"/>
+            <size key="intrinsicContentSize" width="91" height="33"/>
         </designable>
         <designable name="3kl-Nc-eA0">
             <size key="intrinsicContentSize" width="25" height="25"/>
@@ -4818,7 +4814,7 @@
             <size key="intrinsicContentSize" width="96" height="96"/>
         </designable>
         <designable name="UhE-Ci-mEi">
-            <size key="intrinsicContentSize" width="85" height="30"/>
+            <size key="intrinsicContentSize" width="91" height="33"/>
         </designable>
         <designable name="Vrv-rv-lap">
             <size key="intrinsicContentSize" width="72" height="72"/>
@@ -4839,7 +4835,7 @@
             <size key="intrinsicContentSize" width="96" height="96"/>
         </designable>
         <designable name="mgk-X0-5bO">
-            <size key="intrinsicContentSize" width="84" height="27"/>
+            <size key="intrinsicContentSize" width="91" height="30"/>
         </designable>
         <designable name="qX7-eG-0Tc">
             <size key="intrinsicContentSize" width="72" height="72"/>
@@ -4968,7 +4964,7 @@
             <color red="0.14900000393390656" green="0.14900000393390656" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

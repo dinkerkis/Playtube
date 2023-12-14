@@ -8,7 +8,7 @@ import OneSignal
 import FBSDKLoginKit
 import GoogleSignIn
 import PlaytubeSDK
-
+import FlowplayerSDK
 import AVFoundation
 
 let log = SwiftyBeaver.self
@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,OSSubscriptionObserver {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         initFramework(application: application, launchOptions: launchOptions)
+        Flowplayer.current.accessToken = "eyJraWQiOiI3R0VUcmo0R2Q5ZVQiLCJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjIjoie1wiYWNsXCI6MjIsXCJpZFwiOlwiN0dFVHJqNEdkOWVUXCJ9IiwiaXNzIjoiRmxvd3BsYXllciJ9.bm-PArwvMV1LaiZI-Ih-OG1JF54-SVmSEiQ31mT4fFRuFGL-rPYFWoAb_XGAPSEH2sgLt3cDr7_kK6Gqiiipjg"
+        Flowplayer.current.configure()
         return true
     }
     

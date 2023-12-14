@@ -15,6 +15,7 @@ import AVKit
 import Async
 import Toast_Swift
 import PlaytubeSDK
+import FlowplayerSDK
 
 let MINI_PLAYER_HEIGHT: CGFloat = 80
 let MINI_PLAYER_WIDTH: CGFloat = UIScreen.main.bounds.width / 3 + 10
@@ -168,6 +169,7 @@ class TabbarController: UITabBarController {
         videoPlayerContainerView.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: view.frame.height))
         videoPlayerContainerView.delegate = self
         videoPlayerContainerView.videoPlayerView.delegate = self
+        videoPlayerContainerView.flowPlayerView.delegate = self
         videoPlayerContainerView.miniPlayerView.delegate = self
         videoPlayerContainerView.paidVideoView.delegate = self
         videoPlayerContainerView.adPlayerView.delegate = self
@@ -284,7 +286,8 @@ class TabbarController: UITabBarController {
                 self.videoPlayerContainerView.initializeFaceBookPlayer(for: content.facebook ?? "")
             } else {
                 if let url = URL(string: (content.video_location ?? "")) {
-                    self.videoPlayerContainerView.initializePlayer(for: url)
+//                    self.videoPlayerContainerView.initializePlayer(for: url)
+                    self.videoPlayerContainerView.initializeFlowPlayer(for: url, video_id: content)
                 }
             }
         }
@@ -402,7 +405,7 @@ class TabbarController: UITabBarController {
             videoPlayerContainerView.adPlayerView.isHidden(true)
         }
         isTabBarHidden = false
-        videoPlayerContainerViewTopAnchor.constant = collapsedModePadding
+        videoPlayerContainerViewTopAnchor.constant = collapsedModePadding - 34
         videoPlayerContainerView.containerViewHeightAnchor.constant = MINI_PLAYER_HEIGHT
         minimizeVideoPlayerViewWidth()
         isStatusBarHidden = false
@@ -465,6 +468,14 @@ extension TabbarController: VideoPlayerContainerViewDelegate {
         }
     }
     
+}
+
+// MARK: FlowVideoPlayerViewDelegate
+extension TabbarController: FlowVideoPlayerViewDelegate {
+    func flowPlayerVideoPlayStatusChanged(isPlaying: Bool) {
+        let imageName = isPlaying ? "icn_pause.fill" : "icn_play.fill"
+        videoPlayerContainerView.miniPlayerView.updatePlayButton(with: imageName, isPlaying: isPlaying)
+    }
 }
 
 // MARK: VideoPlayerViewDelegate
@@ -560,12 +571,12 @@ extension TabbarController: MiniPlayerViewDelegate {
     }
     
     func handleChangePlayStatus(play: Bool) {
-        videoPlayerContainerView.videoPlayerView.playPauseButtonAction(videoPlayerContainerView.videoPlayerView.pausePlayButton)
+        videoPlayerContainerView.flowPlayerView.playPauseButtonAction()
     }
     
     func handleDismissVideoPlayer() {
         self.videoPlayerContainerView.previousVideosArray = []
-        videoPlayerContainerView.videoPlayerView.cleanUpPlayerForReuse()
+        videoPlayerContainerView.flowPlayerView.cleanUpPlayerForReuse()
         videoPlayerContainerViewTopAnchor.constant = view.frame.height
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn) {[ weak self] in
             self?.view.layoutIfNeeded()

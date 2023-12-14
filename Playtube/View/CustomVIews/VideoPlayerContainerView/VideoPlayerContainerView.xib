@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoPlayerContainerView" customModule="Playtube" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoPlayerContainerView" customModule="LapCinema" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="A4u-QB-fix" id="Sfy-WD-L1c"/>
                 <outlet property="containerView" destination="hjy-zg-3Zh" id="MkS-Rs-zDJ"/>
@@ -27,13 +27,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjy-zg-3Zh">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="221"/>
+                    <rect key="frame" x="0.0" y="34" width="393" height="221"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vTh-ls-9bv">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="221"/>
                         </imageView>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="A4u-QB-fix">
-                            <rect key="frame" x="186.66666666666666" y="100.66666666666667" width="20" height="20"/>
+                            <rect key="frame" x="186.66666666666666" y="100.66666666666666" width="20" height="20"/>
                             <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </activityIndicatorView>
                     </subviews>
@@ -49,15 +49,15 @@
                         <constraint firstItem="vTh-ls-9bv" firstAttribute="top" secondItem="hjy-zg-3Zh" secondAttribute="top" id="tUj-RF-8b4"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbX-WL-RPJ" customClass="MiniPlayerView" customModule="Playtube" customModuleProvider="target">
-                    <rect key="frame" x="393" y="0.0" width="0.0" height="221"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbX-WL-RPJ" customClass="MiniPlayerView" customModule="LapCinema" customModuleProvider="target">
+                    <rect key="frame" x="393" y="34" width="0.0" height="221"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMh-Vc-hnc">
-                    <rect key="frame" x="0.0" y="221" width="393" height="631"/>
+                    <rect key="frame" x="0.0" y="255" width="393" height="597"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="E7L-SH-CNe">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="631"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="597"/>
                             <color key="backgroundColor" name="bgcolor1"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="w0j-Qx-Vtg"/>
@@ -74,14 +74,14 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="TbX-WL-RPJ" firstAttribute="top" secondItem="hjy-zg-3Zh" secondAttribute="top" id="Dsi-82-MyC"/>
                 <constraint firstAttribute="trailing" secondItem="NMh-Vc-hnc" secondAttribute="trailing" id="ETt-Qa-oXE"/>
+                <constraint firstItem="hjy-zg-3Zh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="GlV-6Q-qq5"/>
                 <constraint firstAttribute="bottom" secondItem="NMh-Vc-hnc" secondAttribute="bottom" id="Hi4-yg-7Zk"/>
                 <constraint firstItem="TbX-WL-RPJ" firstAttribute="bottom" secondItem="hjy-zg-3Zh" secondAttribute="bottom" id="JfN-Th-ea7"/>
                 <constraint firstItem="NMh-Vc-hnc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LZM-q0-PJI"/>
-                <constraint firstItem="hjy-zg-3Zh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZQb-kd-cTS"/>
                 <constraint firstItem="NMh-Vc-hnc" firstAttribute="top" secondItem="hjy-zg-3Zh" secondAttribute="bottom" id="sGn-ux-Kct"/>
                 <constraint firstItem="hjy-zg-3Zh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sm5-0T-jF2"/>
                 <constraint firstItem="TbX-WL-RPJ" firstAttribute="leading" secondItem="hjy-zg-3Zh" secondAttribute="trailing" id="tsW-Dl-vG0"/>
