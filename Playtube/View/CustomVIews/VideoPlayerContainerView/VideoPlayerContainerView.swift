@@ -38,11 +38,6 @@ class VideoPlayerContainerView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    var adPlayerView: AdPlayerView = {
-        let view = AdPlayerView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
     var flowPlayerView: FlowPlayerView = {
         let view = FlowPlayerView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -132,9 +127,6 @@ class VideoPlayerContainerView: UIView {
         if self.flowPlayerView.isDescendant(of: self.containerView) {
             self.flowPlayerView.removeFromSuperview()
         }
-        if self.adPlayerView.isDescendant(of: self.containerView) {
-            self.adPlayerView.removeFromSuperview()
-        }
         if self.paidVideoView.isDescendant(of: self.containerView) {
             self.paidVideoView.removeFromSuperview()
         }
@@ -166,13 +158,7 @@ class VideoPlayerContainerView: UIView {
         self.videoPlayerView.initializePlayer(for: url)
         self.thumbnailImageView.image = nil
     }
-    
-    func initializeAdPlayer(for url: URL, video_ad: Video_ad) {
-        self.containerView.addSubview(self.adPlayerView)
-        self.setConstraintToSubView(view: self.adPlayerView)
-        self.adPlayerView.initializePlayer(for: url, video_ad: video_ad)
-    }
-    
+
     func initializeFlowPlayer(for url: URL, video_id: VideoDetail) {
         self.containerView.addSubview(self.flowPlayerView)
         self.setFlowPlayerConstraintToSubView(view: self.flowPlayerView)

@@ -6643,12 +6643,9 @@ struct _R {
     var x86_64AppleIosSimulatorSwiftsourceinfo: RswiftResources.FileResource { .init(name: "x86_64-apple-ios-simulator", pathExtension: "swiftsourceinfo", bundle: bundle, locale: LocaleReference.none) }
   }
 
-  /// This `_R.nib` struct is generated, and contains static references to 60 nibs.
+  /// This `_R.nib` struct is generated, and contains static references to 59 nibs.
   struct nib {
     let bundle: Foundation.Bundle
-
-    /// Nib `AdPlayerView`.
-    var adPlayerView: RswiftResources.NibReference<UIKit.UIView> { .init(name: "AdPlayerView", bundle: bundle) }
 
     /// Nib `ArticleFooterView`.
     var articleFooterView: RswiftResources.NibReference<ArticleFooterView> { .init(name: "ArticleFooterView", bundle: bundle) }
@@ -6828,8 +6825,6 @@ struct _R {
     var videoSize3Cell: RswiftResources.NibReferenceReuseIdentifier<VideoSize3Cell, VideoSize3Cell> { .init(name: "VideoSize3Cell", bundle: bundle, identifier: "VideoSize3Cell") }
 
     func validate() throws {
-      if UIKit.UIImage(named: "icn.square.dashed", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'icn.square.dashed' is used in nib 'AdPlayerView', but couldn't be loaded.") }
-      if UIKit.UIColor(named: "Primary_UI_Tertiary", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Color named 'Primary_UI_Tertiary' is used in nib 'AdPlayerView', but couldn't be loaded.") }
       if UIKit.UIImage(named: "arcticle_send", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'arcticle_send' is used in nib 'ArticleFooterView', but couldn't be loaded.") }
       if UIKit.UIImage(named: "profile_def", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'profile_def' is used in nib 'ArticleFooterView', but couldn't be loaded.") }
       if UIKit.UIImage(named: "smile", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'smile' is used in nib 'ArticleFooterView', but couldn't be loaded.") }

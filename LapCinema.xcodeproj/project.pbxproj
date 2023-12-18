@@ -326,8 +326,6 @@
 		8857BE332A0122E80038B304 /* VideoOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8857BE312A0122E80038B304 /* VideoOptionCell.swift */; };
 		8857BE342A0122E80038B304 /* VideoOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8857BE322A0122E80038B304 /* VideoOptionCell.xib */; };
 		8858253E29E42D2900A21D58 /* WarningPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858253D29E42D2800A21D58 /* WarningPopupVC.swift */; };
-		8859B5752A33047B00651D12 /* AdPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859B5732A33047B00651D12 /* AdPlayerView.swift */; };
-		8859B5762A33047B00651D12 /* AdPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8859B5742A33047B00651D12 /* AdPlayerView.xib */; };
 		885A79362A124A9C00E6FE84 /* CreatePopupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885A79342A124A9C00E6FE84 /* CreatePopupCell.swift */; };
 		885A79372A124A9C00E6FE84 /* CreatePopupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885A79352A124A9C00E6FE84 /* CreatePopupCell.xib */; };
 		885A793B2A125B9200E6FE84 /* SearchCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885A79392A125B9200E6FE84 /* SearchCategoryCell.swift */; };
@@ -805,8 +803,6 @@
 		8857BE312A0122E80038B304 /* VideoOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoOptionCell.swift; sourceTree = "<group>"; };
 		8857BE322A0122E80038B304 /* VideoOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoOptionCell.xib; sourceTree = "<group>"; };
 		8858253D29E42D2800A21D58 /* WarningPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningPopupVC.swift; sourceTree = "<group>"; };
-		8859B5732A33047B00651D12 /* AdPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdPlayerView.swift; sourceTree = "<group>"; };
-		8859B5742A33047B00651D12 /* AdPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdPlayerView.xib; sourceTree = "<group>"; };
 		885A79342A124A9C00E6FE84 /* CreatePopupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePopupCell.swift; sourceTree = "<group>"; };
 		885A79352A124A9C00E6FE84 /* CreatePopupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatePopupCell.xib; sourceTree = "<group>"; };
 		885A79392A125B9200E6FE84 /* SearchCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryCell.swift; sourceTree = "<group>"; };
@@ -2043,7 +2039,6 @@
 				34C828D82B285C70002C0FFC /* FlowPlayerView */,
 				888A29892A36E8EF00235430 /* VideoPlayerErrorView */,
 				8854025A2A333431009DD71F /* PaidVideoView */,
-				8859B5722A33046800651D12 /* AdPlayerView */,
 				88661A9F2A1F7785001C6787 /* UserChannelHeaderView */,
 				887327042A0F5B8200D1973F /* HomeHeaderView */,
 				8820BE7B2A08D7BE00D41FFB /* BottomSheetView */,
@@ -2349,15 +2344,6 @@
 				8857BE322A0122E80038B304 /* VideoOptionCell.xib */,
 			);
 			path = Popup;
-			sourceTree = "<group>";
-		};
-		8859B5722A33046800651D12 /* AdPlayerView */ = {
-			isa = PBXGroup;
-			children = (
-				8859B5732A33047B00651D12 /* AdPlayerView.swift */,
-				8859B5742A33047B00651D12 /* AdPlayerView.xib */,
-			);
-			path = AdPlayerView;
 			sourceTree = "<group>";
 		};
 		885A79332A124A6A00E6FE84 /* CreatePopupCell */ = {
@@ -3081,7 +3067,6 @@
 				51FF29E223CE273200C2B13E /* Player.storyboard in Resources */,
 				88C776672A164598008324AA /* ProfileTabOptionCell.xib in Resources */,
 				51B7C70923C4F68300EA0818 /* ArticleSectionOneTableItem.xib in Resources */,
-				8859B5762A33047B00651D12 /* AdPlayerView.xib in Resources */,
 				881FDB2429F78A8F0075D2AF /* x86_64-apple-ios-simulator.private.swiftinterface in Resources */,
 				7E95E5AB28DB517200AFC655 /* TTCommons-Thin.ttf in Resources */,
 				51CFFB5723CA4D01009B52B1 /* ChatRightTableItem.xib in Resources */,
@@ -3536,7 +3521,6 @@
 				524A147B2257EA8D00C3D3DF /* VerificationManager.swift in Sources */,
 				88661A9E2A1F2EDB001C6787 /* Channels.swift in Sources */,
 				881CC7A22A25B2F40099664D /* CreatePopupVC.swift in Sources */,
-				8859B5752A33047B00651D12 /* AdPlayerView.swift in Sources */,
 				523758922236E80C00C84B70 /* AppSettings.swift in Sources */,
 				51C6A3952AA05423009D572B /* API.swift in Sources */,
 				887327072A0F5BA500D1973F /* HomeHeaderView.swift in Sources */,

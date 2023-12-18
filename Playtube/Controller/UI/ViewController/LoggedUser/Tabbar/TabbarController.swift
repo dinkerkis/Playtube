@@ -47,9 +47,6 @@ class TabbarController: UITabBarController {
             if videoPlayerContainerView.videoPlayerView.isDescendant(of: videoPlayerContainerView.containerView) {
                 videoPlayerContainerView.videoPlayerView.videoPlayerMode = videoPlayerMode
             }
-            if videoPlayerContainerView.adPlayerView.isDescendant(of: videoPlayerContainerView.containerView) {
-                videoPlayerContainerView.adPlayerView.videoPlayerMode = videoPlayerMode
-            }
         }
     }
     fileprivate var isStatusBarHidden: Bool = false {
@@ -127,9 +124,6 @@ class TabbarController: UITabBarController {
         if videoPlayerContainerView.videoPlayerView.isDescendant(of: videoPlayerContainerView.containerView) {
             self.videoPlayerContainerView.videoPlayerView.playerLayer?.frame = CGRect(x: 0, y: 0, width: self.videoPlayerContainerView.containerViewMaxWidth, height: self.videoPlayerContainerView.containerViewMaxHeight)
         }
-        if videoPlayerContainerView.adPlayerView.isDescendant(of: videoPlayerContainerView.containerView) {
-            self.videoPlayerContainerView.adPlayerView.playerLayer?.frame = CGRect(x: 0, y: 0, width: self.videoPlayerContainerView.containerViewMaxWidth, height: self.videoPlayerContainerView.containerViewMaxHeight)
-        }
     }
     
     // MARK: - Helper Functions
@@ -172,7 +166,6 @@ class TabbarController: UITabBarController {
         videoPlayerContainerView.flowPlayerView.delegate = self
         videoPlayerContainerView.miniPlayerView.delegate = self
         videoPlayerContainerView.paidVideoView.delegate = self
-        videoPlayerContainerView.adPlayerView.delegate = self
         setUpGestureRecognizers()
     }
     
@@ -280,9 +273,6 @@ class TabbarController: UITabBarController {
         if self.videoPlayerContainerView.videoPlayerView.isDescendant(of: self.videoPlayerContainerView.containerView) {
             videoPlayerContainerView.videoPlayerView.isHidden(false)
         }
-        if self.videoPlayerContainerView.adPlayerView.isDescendant(of: self.videoPlayerContainerView.containerView) {
-            videoPlayerContainerView.adPlayerView.isHidden(false)
-        }
         isTabBarHidden = true
         videoPlayerContainerViewTopAnchor.constant = 0
         videoPlayerContainerView.containerViewHeightAnchor.constant = videoPlayerContainerView.containerViewMaxHeight
@@ -305,12 +295,6 @@ class TabbarController: UITabBarController {
                 videoPlayerContainerView.videoPlayerView.playerLayer?.frame.size.width = UIScreen.main.bounds.width
                 videoPlayerContainerView.videoPlayerView.playerLayer?.frame.size.height = videoPlayerContainerView.containerViewMaxHeight
             }
-            if self.videoPlayerContainerView.adPlayerView.isDescendant(of: self.videoPlayerContainerView.containerView) {
-                videoPlayerContainerView.adPlayerView.playerLayer?.frame.origin.x = 0
-                videoPlayerContainerView.adPlayerView.playerLayer?.frame.origin.y = 0
-                videoPlayerContainerView.adPlayerView.playerLayer?.frame.size.width = UIScreen.main.bounds.width
-                videoPlayerContainerView.adPlayerView.playerLayer?.frame.size.height = videoPlayerContainerView.containerViewMaxHeight
-            }
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn) {[ weak view] in
                 view?.layoutIfNeeded()
             }
@@ -324,9 +308,6 @@ class TabbarController: UITabBarController {
             dragVideoPlayerContainerView(to: translation.y)
             if self.videoPlayerContainerView.videoPlayerView.isDescendant(of: self.videoPlayerContainerView.containerView) {
                 videoPlayerContainerView.videoPlayerView.isHidden(true)
-            }
-            if self.videoPlayerContainerView.adPlayerView.isDescendant(of: self.videoPlayerContainerView.containerView) {
-                videoPlayerContainerView.adPlayerView.isHidden(true)
             }
             switch gesture.direction(in: view) {
             case .up:
@@ -384,9 +365,6 @@ class TabbarController: UITabBarController {
         if self.videoPlayerContainerView.videoPlayerView.isDescendant(of: self.videoPlayerContainerView.containerView) {
             videoPlayerContainerView.videoPlayerView.isHidden(true)
         }
-        if self.videoPlayerContainerView.adPlayerView.isDescendant(of: self.videoPlayerContainerView.containerView) {
-            videoPlayerContainerView.adPlayerView.isHidden(true)
-        }
         isTabBarHidden = false
         videoPlayerContainerViewTopAnchor.constant = collapsedModePadding - 34
         videoPlayerContainerView.containerViewHeightAnchor.constant = MINI_PLAYER_HEIGHT
@@ -408,12 +386,6 @@ class TabbarController: UITabBarController {
                 videoPlayerContainerView.videoPlayerView.playerLayer?.frame.origin.y = 0
                 videoPlayerContainerView.videoPlayerView.playerLayer?.frame.size.width = MINI_PLAYER_WIDTH
                 videoPlayerContainerView.videoPlayerView.playerLayer?.frame.size.height = 80.0
-            }
-            if self.videoPlayerContainerView.adPlayerView.isDescendant(of: self.videoPlayerContainerView.containerView) {
-                videoPlayerContainerView.adPlayerView.playerLayer?.frame.origin.x = 0
-                videoPlayerContainerView.adPlayerView.playerLayer?.frame.origin.y = 0
-                videoPlayerContainerView.adPlayerView.playerLayer?.frame.size.width = MINI_PLAYER_WIDTH
-                videoPlayerContainerView.adPlayerView.playerLayer?.frame.size.height = 80.0
             }
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseOut) { [weak self] in
                 self?.view.layoutIfNeeded()
@@ -447,7 +419,6 @@ extension TabbarController: VideoPlayerContainerViewDelegate {
             }
             self.videoPlayerContainerView.videoPlayerView.pausePlayButton.setImage(player.icon, for: .normal)
             self.videoPlayerContainerView.videoPlayerView.isHidden(true)
-            self.videoPlayerContainerView.initializeAdPlayer(for: url, video_ad: video_ad)
         }
     }
     
@@ -565,23 +536,6 @@ extension TabbarController: MiniPlayerViewDelegate {
             self?.view.layoutIfNeeded()
         }
     }
-    
-}
-
-// MARK: AdPlayerViewDelegate
-extension TabbarController: AdPlayerViewDelegate {
-    
-    func handlePlayerDidPlayToEndTime() {
-        self.videoPlayerContainerView.adPlayerView.player?.seek(to: CMTime.zero)
-        self.videoPlayerContainerView.adPlayerView.player?.pause()
-        self.videoPlayerContainerView.adPlayerView.removeFromSuperview()
-        guard let player = self.videoPlayerContainerView.videoPlayerView.player else { return }
-        if !player.isPlaying {
-            player.play()
-        }
-        self.videoPlayerContainerView.videoPlayerView.pausePlayButton.setImage(player.icon, for: .normal)
-        self.videoPlayerContainerView.videoPlayerView.isHidden(false)
-    }    
     
 }
 
