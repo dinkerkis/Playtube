@@ -13,7 +13,6 @@ import PlaytubeSDK
 import JGProgressHUD
 import DropDown
 import DailymotionPlayerSDK
-import HCVimeoVideoExtractor
 
 protocol VideoPlayerContainerViewDelegate {
     func handleLoadVideoAd(video_ad: Video_ad)
@@ -205,20 +204,6 @@ class VideoPlayerContainerView: UIView {
         self.flowPlayerView.initializeFlowPlayer(for: url,video_id: video_id)
         self.thumbnailImageView.image = nil
         self.activityIndicator.stopAnimating()
-    }
-    
-    func initializeVimeoPlayer(for vimeo_id: String) {
-        HCVimeoVideoExtractor.fetchVideoURLFrom(id: vimeo_id) { video, error in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                guard let video = video else { return }
-                let url = video.videoURL[video.videoURL.count - 1].value                
-                DispatchQueue.main.async {
-                    self.initializePlayer(for: url)
-                }
-            }
-        }
     }
     
     func setupDailyMotionPlayer(videoId: String, controller: TabbarController) {

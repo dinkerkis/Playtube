@@ -25,7 +25,6 @@ target 'LapCinema' do
   pod 'FittedSheets'
   pod 'ActiveLabel'
   pod 'AgoraRtcEngine_iOS'
-  pod 'HCVimeoVideoExtractor'
   pod 'CashfreePG'
   pod 'SwiftSoup'
   pod 'FlowplayerSDK', '~> 4.0.0'
