@@ -6643,7 +6643,7 @@ struct _R {
     var x86_64AppleIosSimulatorSwiftsourceinfo: RswiftResources.FileResource { .init(name: "x86_64-apple-ios-simulator", pathExtension: "swiftsourceinfo", bundle: bundle, locale: LocaleReference.none) }
   }
 
-  /// This `_R.nib` struct is generated, and contains static references to 63 nibs.
+  /// This `_R.nib` struct is generated, and contains static references to 60 nibs.
   struct nib {
     let bundle: Foundation.Bundle
 
@@ -6706,9 +6706,6 @@ struct _R {
 
     /// Nib `EmptyVideoCell`.
     var emptyVideoCell: RswiftResources.NibReferenceReuseIdentifier<EmptyVideoCell, EmptyVideoCell> { .init(name: "EmptyVideoCell", bundle: bundle, identifier: "EmptyCell") }
-
-    /// Nib `FacebookPlayerView`.
-    var facebookPlayerView: RswiftResources.NibReference<UIKit.UIView> { .init(name: "FacebookPlayerView", bundle: bundle) }
 
     /// Nib `FavouriteCatCell`.
     var favouriteCatCell: RswiftResources.NibReferenceReuseIdentifier<FavouriteCatCell, FavouriteCatCell> { .init(name: "FavouriteCatCell", bundle: bundle, identifier: "FavCatCell") }
@@ -6805,12 +6802,6 @@ struct _R {
 
     /// Nib `TrendingCell`.
     var trendingCell: RswiftResources.NibReferenceReuseIdentifier<TrendingCell, TrendingCell> { .init(name: "TrendingCell", bundle: bundle, identifier: "TrendingCell") }
-
-    /// Nib `TwitchClipPlayerView`.
-    var twitchClipPlayerView: RswiftResources.NibReference<UIKit.UIView> { .init(name: "TwitchClipPlayerView", bundle: bundle) }
-
-    /// Nib `TwitchPlayerView`.
-    var twitchPlayerView: RswiftResources.NibReference<UIKit.UIView> { .init(name: "TwitchPlayerView", bundle: bundle) }
 
     /// Nib `UserActivityCell`.
     var userActivityCell: RswiftResources.NibReferenceReuseIdentifier<UserActivityCell, UserActivityCell> { .init(name: "UserActivityCell", bundle: bundle, identifier: "UserActivityCell") }

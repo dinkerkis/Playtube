@@ -296,10 +296,6 @@
 		88304FFC2A52D941009C5ABE /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88304FFA2A52D941009C5ABE /* ContactCell.xib */; };
 		883050002A52E76F009C5ABE /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88304FFE2A52E76F009C5ABE /* ArticleHeaderView.swift */; };
 		883050012A52E76F009C5ABE /* ArticleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88304FFF2A52E76F009C5ABE /* ArticleHeaderView.xib */; };
-		883347A32A39876700865951 /* TwitchClipPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883347A12A39876700865951 /* TwitchClipPlayerView.swift */; };
-		883347A42A39876700865951 /* TwitchClipPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883347A22A39876700865951 /* TwitchClipPlayerView.xib */; };
-		883347A82A399E7A00865951 /* TwitchPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883347A62A399E7A00865951 /* TwitchPlayerView.swift */; };
-		883347A92A399E7A00865951 /* TwitchPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883347A72A399E7A00865951 /* TwitchPlayerView.xib */; };
 		8838537829FFCBF300EC2553 /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8838537629FFCBF300EC2553 /* Privacy.swift */; };
 		8838537929FFCBF300EC2553 /* Video_ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8838537729FFCBF300EC2553 /* Video_ad.swift */; };
 		883A172C29ECFDD200746549 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A172A29ECFDD200746549 /* CategoryCell.swift */; };
@@ -350,8 +346,6 @@
 		88638B482A3AE6D800F3A046 /* TwitchPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88638B472A3AE6D800F3A046 /* TwitchPlayer.swift */; };
 		88638B4A2A3AE6DE00F3A046 /* WebPlayerKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88638B492A3AE6DE00F3A046 /* WebPlayerKeys.swift */; };
 		88638B4D2A3AE6FA00F3A046 /* URLQueryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88638B4C2A3AE6FA00F3A046 /* URLQueryExtensions.swift */; };
-		88638B512A3AF3CD00F3A046 /* FacebookPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88638B4F2A3AF3CD00F3A046 /* FacebookPlayerView.swift */; };
-		88638B522A3AF3CD00F3A046 /* FacebookPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88638B502A3AF3CD00F3A046 /* FacebookPlayerView.xib */; };
 		88661A9B2A1F1A7B001C6787 /* PopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88661A992A1F1A7B001C6787 /* PopularCell.swift */; };
 		88661A9C2A1F1A7B001C6787 /* PopularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88661A9A2A1F1A7B001C6787 /* PopularCell.xib */; };
 		88661A9E2A1F2EDB001C6787 /* Channels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88661A9D2A1F2EDB001C6787 /* Channels.swift */; };
@@ -781,10 +775,6 @@
 		88304FFA2A52D941009C5ABE /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		88304FFE2A52E76F009C5ABE /* ArticleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderView.swift; sourceTree = "<group>"; };
 		88304FFF2A52E76F009C5ABE /* ArticleHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleHeaderView.xib; sourceTree = "<group>"; };
-		883347A12A39876700865951 /* TwitchClipPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchClipPlayerView.swift; sourceTree = "<group>"; };
-		883347A22A39876700865951 /* TwitchClipPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwitchClipPlayerView.xib; sourceTree = "<group>"; };
-		883347A62A399E7A00865951 /* TwitchPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchPlayerView.swift; sourceTree = "<group>"; };
-		883347A72A399E7A00865951 /* TwitchPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwitchPlayerView.xib; sourceTree = "<group>"; };
 		8838537629FFCBF300EC2553 /* Privacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Privacy.swift; sourceTree = "<group>"; };
 		8838537729FFCBF300EC2553 /* Video_ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video_ad.swift; sourceTree = "<group>"; };
 		883A172A29ECFDD200746549 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -835,8 +825,6 @@
 		88638B472A3AE6D800F3A046 /* TwitchPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitchPlayer.swift; sourceTree = "<group>"; };
 		88638B492A3AE6DE00F3A046 /* WebPlayerKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPlayerKeys.swift; sourceTree = "<group>"; };
 		88638B4C2A3AE6FA00F3A046 /* URLQueryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLQueryExtensions.swift; sourceTree = "<group>"; };
-		88638B4F2A3AF3CD00F3A046 /* FacebookPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookPlayerView.swift; sourceTree = "<group>"; };
-		88638B502A3AF3CD00F3A046 /* FacebookPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FacebookPlayerView.xib; sourceTree = "<group>"; };
 		88661A992A1F1A7B001C6787 /* PopularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCell.swift; sourceTree = "<group>"; };
 		88661A9A2A1F1A7B001C6787 /* PopularCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCell.xib; sourceTree = "<group>"; };
 		88661A9D2A1F2EDB001C6787 /* Channels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channels.swift; sourceTree = "<group>"; };
@@ -2053,9 +2041,6 @@
 			isa = PBXGroup;
 			children = (
 				34C828D82B285C70002C0FFC /* FlowPlayerView */,
-				88638B4E2A3AF3B500F3A046 /* FacebookPlayerView */,
-				883347A52A399E6300865951 /* TwitchPlayerView */,
-				883347A02A39867C00865951 /* TwitchClipPlayerView */,
 				888A29892A36E8EF00235430 /* VideoPlayerErrorView */,
 				8854025A2A333431009DD71F /* PaidVideoView */,
 				8859B5722A33046800651D12 /* AdPlayerView */,
@@ -2272,24 +2257,6 @@
 			path = ShortsVideoCell;
 			sourceTree = "<group>";
 		};
-		883347A02A39867C00865951 /* TwitchClipPlayerView */ = {
-			isa = PBXGroup;
-			children = (
-				883347A12A39876700865951 /* TwitchClipPlayerView.swift */,
-				883347A22A39876700865951 /* TwitchClipPlayerView.xib */,
-			);
-			path = TwitchClipPlayerView;
-			sourceTree = "<group>";
-		};
-		883347A52A399E6300865951 /* TwitchPlayerView */ = {
-			isa = PBXGroup;
-			children = (
-				883347A62A399E7A00865951 /* TwitchPlayerView.swift */,
-				883347A72A399E7A00865951 /* TwitchPlayerView.xib */,
-			);
-			path = TwitchPlayerView;
-			sourceTree = "<group>";
-		};
 		884A47512A06269400EA22F1 /* FeaturedCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2457,15 +2424,6 @@
 				88638B4C2A3AE6FA00F3A046 /* URLQueryExtensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		88638B4E2A3AF3B500F3A046 /* FacebookPlayerView */ = {
-			isa = PBXGroup;
-			children = (
-				88638B4F2A3AF3CD00F3A046 /* FacebookPlayerView.swift */,
-				88638B502A3AF3CD00F3A046 /* FacebookPlayerView.xib */,
-			);
-			path = FacebookPlayerView;
 			sourceTree = "<group>";
 		};
 		88661A9F2A1F7785001C6787 /* UserChannelHeaderView */ = {
@@ -3096,7 +3054,6 @@
 				8899A85629FBD419003805B7 /* VideoPlayerContainerView.xib in Resources */,
 				7E95E5A728DB517200AFC655 /* TTCommons-DemiBoldItalic.ttf in Resources */,
 				51E09E4823CCE45E00971A88 /* NotificationTableItem.xib in Resources */,
-				88638B522A3AF3CD00F3A046 /* FacebookPlayerView.xib in Resources */,
 				8857BE342A0122E80038B304 /* VideoOptionCell.xib in Resources */,
 				88304FFC2A52D941009C5ABE /* ContactCell.xib in Resources */,
 				512747C223BFA402003BAAB2 /* library.storyboard in Resources */,
@@ -3139,7 +3096,6 @@
 				5B8EC06F21CB982F0095A529 /* Assets.xcassets in Resources */,
 				5130706423B6455B003C49C2 /* Popups.storyboard in Resources */,
 				7E95E59328DB517200AFC655 /* TTCommons-ExtraBold.ttf in Resources */,
-				883347A92A399E7A00865951 /* TwitchPlayerView.xib in Resources */,
 				881FE69C2A14F6DE002F5665 /* VideoSize3Cell.xib in Resources */,
 				88BC68B02A21BE0400550AE7 /* ProfileShortsCell.xib in Resources */,
 				7E95E5AD28DB517200AFC655 /* TTCommons-Italic.ttf in Resources */,
@@ -3163,7 +3119,6 @@
 				51E09E4B23CCE5DA00971A88 /* Notification.storyboard in Resources */,
 				514D12C423C76FA20092EF39 /* ArticlesSectionSixTableItem.xib in Resources */,
 				88661AA32A1F77AA001C6787 /* UserChannelHeaderView.xib in Resources */,
-				883347A42A39876700865951 /* TwitchClipPlayerView.xib in Resources */,
 				88F5730F2A246B3600788D10 /* UserActivityCell.xib in Resources */,
 				88D012FA2A2773790028C7CA /* ArticlesCollectionViewCell.xib in Resources */,
 				7E95E59128DB517200AFC655 /* TTCommons-BoldItalic.ttf in Resources */,
@@ -3319,7 +3274,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				883347A82A399E7A00865951 /* TwitchPlayerView.swift in Sources */,
 				8809FE582A1F8511009356E4 /* GenerateTVCodeModel.swift in Sources */,
 				0017D38D25052E06009ABB5C /* RoundButton.swift in Sources */,
 				0042D10D250CEF66001B206A /* UpgradeUserCell.swift in Sources */,
@@ -3446,7 +3400,6 @@
 				8857B0BE2A53FD6900B28F18 /* ArticleListCell.swift in Sources */,
 				885A793B2A125B9200E6FE84 /* SearchCategoryCell.swift in Sources */,
 				888688DB2A28C3C50066FF08 /* ClearCachesPopupVC.swift in Sources */,
-				883347A32A39876700865951 /* TwitchClipPlayerView.swift in Sources */,
 				51B1ED2E23D08FE50029CB7D /* PlayerCommentVC.swift in Sources */,
 				001B6D122512BCA800787484 /* PaidVideosModal.swift in Sources */,
 				00DD19A82508322D00C0A884 /* EnabledTwoFactorManager.swift in Sources */,
@@ -3479,7 +3432,6 @@
 				5206EF1F21F881E700953070 /* UnderlineTextField.swift in Sources */,
 				88661AA52A1F7CA9001C6787 /* NewUserChannelVC.swift in Sources */,
 				8899A85829FBEFE9003805B7 /* UIView + Extensions.swift in Sources */,
-				88638B512A3AF3CD00F3A046 /* FacebookPlayerView.swift in Sources */,
 				512FE6C223BE0B9400259126 /* DeleteAccountPopupVC.swift in Sources */,
 				885BC4332A0E690F002C2D29 /* HomeCollectionViewCell.swift in Sources */,
 				5133F4AA23CB449F0068322D /* PlaylistsPopupVC.swift in Sources */,

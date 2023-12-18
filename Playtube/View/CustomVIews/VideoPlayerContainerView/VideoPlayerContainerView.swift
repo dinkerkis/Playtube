@@ -59,21 +59,6 @@ class VideoPlayerContainerView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    var twitchPlayerView: TwitchPlayerView = {
-        let view = TwitchPlayerView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    var twitchClipPlayerView: TwitchClipPlayerView = {
-        let view = TwitchClipPlayerView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    var facebookPlayerView: FacebookPlayerView = {
-        let view = FacebookPlayerView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
     var containerViewMaxHeight: CGFloat = UIScreen.main.bounds.width * 9 / 16
     var containerViewMaxWidth: CGFloat = UIScreen.main.bounds.width
     var videoDataObject: VideoDetail?
@@ -159,15 +144,6 @@ class VideoPlayerContainerView: UIView {
         if self.videoPlayerErrorView.isDescendant(of: self.containerView) {
             self.videoPlayerErrorView.removeFromSuperview()
         }
-        if self.twitchPlayerView.isDescendant(of: self.containerView) {
-            self.twitchPlayerView.removeFromSuperview()
-        }
-        if self.twitchClipPlayerView.isDescendant(of: self.containerView) {
-            self.twitchClipPlayerView.removeFromSuperview()
-        }
-        if self.facebookPlayerView.isDescendant(of: self.containerView) {
-            self.facebookPlayerView.removeFromSuperview()
-        }
     }
     
     private  func customizeDropDownFunc() {
@@ -221,27 +197,6 @@ class VideoPlayerContainerView: UIView {
                 }
             }
         }
-    }
-    
-    func initializeTwitchPlayer(for twitch: String) {
-        self.containerView.addSubview(self.twitchPlayerView)
-        self.setConstraintToSubView(view: self.twitchPlayerView)
-        self.twitchPlayerView.parentView = self
-        self.twitchPlayerView.initializeTwitchPlayer(for: twitch)
-    }
-    
-    func initializeTwitchClipPlayer(for twitch: String) {
-        self.containerView.addSubview(self.twitchClipPlayerView)
-        self.setConstraintToSubView(view: self.twitchClipPlayerView)
-        self.twitchClipPlayerView.parentView = self
-        self.twitchClipPlayerView.initializeTwitchClipPlayer(for: twitch)
-    }
-    
-    func initializeFaceBookPlayer(for facebook: String) {
-        self.containerView.addSubview(self.facebookPlayerView)
-        self.setConstraintToSubView(view: self.facebookPlayerView)
-        self.facebookPlayerView.parentView = self
-        self.facebookPlayerView.initializeFaceBookPlayer(for: facebook)
     }
     
     func initializePaidVideoView(for content: VideoDetail) {
