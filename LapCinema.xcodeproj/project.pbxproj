@@ -320,8 +320,6 @@
 		8853C3872A261AE400A42940 /* SendCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8853C3852A261AE400A42940 /* SendCommentCell.xib */; };
 		8854025D2A333445009DD71F /* PaidVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8854025B2A333445009DD71F /* PaidVideoView.swift */; };
 		8854025E2A333445009DD71F /* PaidVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8854025C2A333445009DD71F /* PaidVideoView.xib */; };
-		885402642A3352FE009DD71F /* YoutubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885402622A3352FE009DD71F /* YoutubePlayerView.swift */; };
-		885402652A3352FE009DD71F /* YoutubePlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885402632A3352FE009DD71F /* YoutubePlayerView.xib */; };
 		88542E502A0A6A0D00927100 /* UIDevice + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88542E4F2A0A6A0D00927100 /* UIDevice + Extensions.swift */; };
 		8855F4252A1DC85F0003D0A0 /* TabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855F4232A1DC85F0003D0A0 /* TabCell.swift */; };
 		8855F4262A1DC85F0003D0A0 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855F4242A1DC85F0003D0A0 /* TabsView.swift */; };
@@ -807,8 +805,6 @@
 		8853C3852A261AE400A42940 /* SendCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendCommentCell.xib; sourceTree = "<group>"; };
 		8854025B2A333445009DD71F /* PaidVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidVideoView.swift; sourceTree = "<group>"; };
 		8854025C2A333445009DD71F /* PaidVideoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaidVideoView.xib; sourceTree = "<group>"; };
-		885402622A3352FE009DD71F /* YoutubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayerView.swift; sourceTree = "<group>"; };
-		885402632A3352FE009DD71F /* YoutubePlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubePlayerView.xib; sourceTree = "<group>"; };
 		88542E4F2A0A6A0D00927100 /* UIDevice + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice + Extensions.swift"; sourceTree = "<group>"; };
 		8855F4232A1DC85F0003D0A0 /* TabCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabCell.swift; sourceTree = "<group>"; };
 		8855F4242A1DC85F0003D0A0 /* TabsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
@@ -2061,7 +2057,6 @@
 				883347A52A399E6300865951 /* TwitchPlayerView */,
 				883347A02A39867C00865951 /* TwitchClipPlayerView */,
 				888A29892A36E8EF00235430 /* VideoPlayerErrorView */,
-				885402612A3352F2009DD71F /* YoutubePlayerView */,
 				8854025A2A333431009DD71F /* PaidVideoView */,
 				8859B5722A33046800651D12 /* AdPlayerView */,
 				88661A9F2A1F7785001C6787 /* UserChannelHeaderView */,
@@ -2341,15 +2336,6 @@
 				8854025C2A333445009DD71F /* PaidVideoView.xib */,
 			);
 			path = PaidVideoView;
-			sourceTree = "<group>";
-		};
-		885402612A3352F2009DD71F /* YoutubePlayerView */ = {
-			isa = PBXGroup;
-			children = (
-				885402622A3352FE009DD71F /* YoutubePlayerView.swift */,
-				885402632A3352FE009DD71F /* YoutubePlayerView.xib */,
-			);
-			path = YoutubePlayerView;
 			sourceTree = "<group>";
 		};
 		8855939429E3C55D00FD3B79 /* CategoryCell */ = {
@@ -3150,7 +3136,6 @@
 				5B8EC07221CB982F0095A529 /* LaunchScreen.storyboard in Resources */,
 				7E848B6B28E562400092DE63 /* pulltorefresharrow.png in Resources */,
 				887E37AE2A1880DC0002CD20 /* MainVideo.mp4 in Resources */,
-				885402652A3352FE009DD71F /* YoutubePlayerView.xib in Resources */,
 				5B8EC06F21CB982F0095A529 /* Assets.xcassets in Resources */,
 				5130706423B6455B003C49C2 /* Popups.storyboard in Resources */,
 				7E95E59328DB517200AFC655 /* TTCommons-ExtraBold.ttf in Resources */,
@@ -3572,7 +3557,6 @@
 				5228B5262208C19000FFB52D /* libraryManager.swift in Sources */,
 				883050002A52E76F009C5ABE /* ArticleHeaderView.swift in Sources */,
 				5131AEAE260CB7B00051D610 /* BankTransferVC.swift in Sources */,
-				885402642A3352FE009DD71F /* YoutubePlayerView.swift in Sources */,
 				8857BE2F2A011D6C0038B304 /* VideoOptionPopupVC.swift in Sources */,
 				00E976C92485268700412AF1 /* CategoryVideoModal.swift in Sources */,
 				514F6F3023BF6BC700821A20 /* ChannelPlaylistVC.swift in Sources */,

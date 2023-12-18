@@ -6643,7 +6643,7 @@ struct _R {
     var x86_64AppleIosSimulatorSwiftsourceinfo: RswiftResources.FileResource { .init(name: "x86_64-apple-ios-simulator", pathExtension: "swiftsourceinfo", bundle: bundle, locale: LocaleReference.none) }
   }
 
-  /// This `_R.nib` struct is generated, and contains static references to 64 nibs.
+  /// This `_R.nib` struct is generated, and contains static references to 63 nibs.
   struct nib {
     let bundle: Foundation.Bundle
 
@@ -6835,9 +6835,6 @@ struct _R {
 
     /// Nib `VideoSize3Cell`.
     var videoSize3Cell: RswiftResources.NibReferenceReuseIdentifier<VideoSize3Cell, VideoSize3Cell> { .init(name: "VideoSize3Cell", bundle: bundle, identifier: "VideoSize3Cell") }
-
-    /// Nib `YoutubePlayerView`.
-    var youtubePlayerView: RswiftResources.NibReference<UIKit.UIView> { .init(name: "YoutubePlayerView", bundle: bundle) }
 
     func validate() throws {
       if UIKit.UIImage(named: "icn.square.dashed", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'icn.square.dashed' is used in nib 'AdPlayerView', but couldn't be loaded.") }

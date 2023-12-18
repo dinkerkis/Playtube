@@ -270,25 +270,8 @@ class TabbarController: UITabBarController {
         if (content.owner?.am_i_subscribed == 0 && content.owner?.subscriber_price != "0") || sell_video > 0 {
             self.videoPlayerContainerView.initializePaidVideoView(for: content)
         } else {
-            if content.source == "YouTube" || content.source == "youtu" || content.video_type == "VideoObject/youtube" {
-                self.videoPlayerContainerView.initializeYoutubePlayer(for: content.youtube ?? "")
-            } else if content.source == "Vimeo" {
-                self.videoPlayerContainerView.initializeVimeoPlayer(for: content.vimeo ?? "")
-            } else if content.source == "Dailymotion" {
-                self.videoPlayerContainerView.setupDailyMotionPlayer(videoId: content.daily ?? "", controller: self)
-            } else if content.source == "Twitch" {
-                if content.twitch_type == "clip" {
-                    self.videoPlayerContainerView.initializeTwitchClipPlayer(for: content.twitch ?? "")
-                } else {
-                    self.videoPlayerContainerView.initializeTwitchPlayer(for: content.twitch ?? "")
-                }
-            } else if content.source == "Facebook" {
-                self.videoPlayerContainerView.initializeFaceBookPlayer(for: content.facebook ?? "")
-            } else {
-                if let url = URL(string: (content.video_location ?? "")) {
-//                    self.videoPlayerContainerView.initializePlayer(for: url)
-                    self.videoPlayerContainerView.initializeFlowPlayer(for: url, video_id: content)
-                }
+            if let url = URL(string: (content.video_location ?? "")) {
+                self.videoPlayerContainerView.initializeFlowPlayer(for: url, video_id: content)
             }
         }
     }

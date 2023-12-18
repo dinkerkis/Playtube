@@ -79,7 +79,6 @@ PODS:
   - SwiftyBeaver (2.0.0)
   - Toast-Swift (4.0.1)
   - UIView-Shimmer (1.0.4)
-  - youtube-ios-player-helper (1.0.4)
 
 DEPENDENCIES:
   - ActiveLabel
@@ -104,7 +103,6 @@ DEPENDENCIES:
   - SwiftyBeaver
   - Toast-Swift (~> 4.0.0)
   - UIView-Shimmer (~> 1.0)
-  - youtube-ios-player-helper
 
 SPEC REPOS:
   trunk:
@@ -139,7 +137,6 @@ SPEC REPOS:
     - SwiftyBeaver
     - Toast-Swift
     - UIView-Shimmer
-    - youtube-ios-player-helper
 
 EXTERNAL SOURCES:
   SwiftEventBus:
@@ -184,8 +181,7 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 014b0c12065026b731bac80305294f27d63e27f6
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
-  youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 468525285a29f962f3b3157ccd4854b3bf3ba753
+PODFILE CHECKSUM: 1ecd0ae1dec9c129808bff6fbea1cd18d76d39eb
 
 COCOAPODS: 1.12.1

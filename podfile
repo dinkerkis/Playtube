@@ -26,7 +26,6 @@ target 'LapCinema' do
   pod 'ActiveLabel'
   pod 'AgoraRtcEngine_iOS'
   pod 'HCVimeoVideoExtractor'
-  pod "youtube-ios-player-helper"
   pod 'CashfreePG'
   pod 'SwiftSoup'
   pod 'FlowplayerSDK', '~> 4.0.0'
