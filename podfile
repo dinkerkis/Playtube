@@ -27,7 +27,7 @@ target 'LapCinema' do
   pod 'AgoraRtcEngine_iOS'
   pod 'CashfreePG'
   pod 'SwiftSoup'
-  pod 'FlowplayerSDK', '~> 4.0.0'
+  pod 'FlowplayerSDK', '~> 4.0.1'
 end
 
 target 'OneSignalNotificationServiceExtension' do

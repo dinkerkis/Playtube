@@ -12,7 +12,6 @@ import Toast_Swift
 import PlaytubeSDK
 import JGProgressHUD
 import DropDown
-import DailymotionPlayerSDK
 
 protocol VideoPlayerContainerViewDelegate {
     func handleLoadVideoAd(video_ad: Video_ad)
@@ -43,7 +42,6 @@ class VideoPlayerContainerView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    var dmPlayerView: DMPlayerView!
     var paidVideoView: PaidVideoView = {
         let view = PaidVideoView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -130,9 +128,6 @@ class VideoPlayerContainerView: UIView {
         if self.paidVideoView.isDescendant(of: self.containerView) {
             self.paidVideoView.removeFromSuperview()
         }
-        if self.dmPlayerView != nil {
-            self.dmPlayerView.removeFromSuperview()
-        }
         if self.videoPlayerErrorView.isDescendant(of: self.containerView) {
             self.videoPlayerErrorView.removeFromSuperview()
         }
@@ -166,23 +161,6 @@ class VideoPlayerContainerView: UIView {
         self.flowPlayerView.initializeFlowPlayer(for: url,video_id: video_id)
         self.thumbnailImageView.image = nil
         self.activityIndicator.stopAnimating()
-    }
-    
-    func setupDailyMotionPlayer(videoId: String, controller: TabbarController) {
-        let playerParams = DMPlayerParameters(mute: false)
-        Dailymotion.createPlayer(playerId: "xfh51", videoId: videoId, playerParameters: playerParams, playerDelegate: self) { playerView, error in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                self.activityIndicator.stopAnimating()
-                if let playerView = playerView {
-                    self.dmPlayerView = playerView
-                    self.containerView.addSubview(self.dmPlayerView)
-                    self.setConstraintToSubView(view: self.dmPlayerView)
-                    self.thumbnailImageView.image = nil
-                }
-            }
-        }
     }
     
     func initializePaidVideoView(for content: VideoDetail) {
@@ -430,23 +408,6 @@ extension VideoPlayerContainerView: VideoDetailCellDelegate {
     func showDescriptionButtonTapped() {
         self.isShowDescription = !self.isShowDescription
         self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
-    }
-    
-}
-
-// MARK: DMPlayerDelegate
-extension VideoPlayerContainerView: DMPlayerDelegate {
-    
-    func player(_ player: DailymotionPlayerSDK.DMPlayerView, openUrl url: URL) {
-        
-    }
-    
-    func playerWillPresentFullscreenViewController(_ player: DailymotionPlayerSDK.DMPlayerView) -> UIViewController {
-        return self.tabBarController
-    }
-    
-    func playerWillPresentAdInParentViewController(_ player: DailymotionPlayerSDK.DMPlayerView) -> UIViewController {
-        return self.tabBarController
     }
     
 }

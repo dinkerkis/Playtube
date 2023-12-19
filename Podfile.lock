@@ -88,7 +88,7 @@ DEPENDENCIES:
   - DropDown
   - FBSDKLoginKit
   - FittedSheets
-  - FlowplayerSDK (~> 4.0.0)
+  - FlowplayerSDK (~> 4.0.1)
   - GoogleSignIn (= 5.0.0)
   - IQKeyboardManagerSwift
   - JGProgressHUD
@@ -178,6 +178,6 @@ SPEC CHECKSUMS:
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: f162df551f3eb8efc6475144d8d8a6c44a5643a6
+PODFILE CHECKSUM: 22f4989d52eba05699c8a641f4e4d868be4f3aae
 
 COCOAPODS: 1.12.1

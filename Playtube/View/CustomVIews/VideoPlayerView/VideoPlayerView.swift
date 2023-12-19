@@ -9,7 +9,6 @@
 
 import UIKit
 import AVKit
-import DailymotionPlayerSDK
 import PlaytubeSDK
 
 //MARK: - VideoPlayerView Delegate

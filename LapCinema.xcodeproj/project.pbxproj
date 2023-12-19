@@ -51,6 +51,7 @@
 		00EFE10E2502EF320083EC40 /* GetPopularPostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EFE10D2502EF320083EC40 /* GetPopularPostManager.swift */; };
 		07DB6F82C1CFBF753B938177 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31149917851B69732C92DCA6 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		30ED73BF27B3E035001530AB /* PhoneContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED73BE27B3E035001530AB /* PhoneContactsVC.swift */; };
+		343E9D732B315403002D066D /* GoogleInteractiveMediaAds in Frameworks */ = {isa = PBXBuildFile; productRef = 343E9D722B315403002D066D /* GoogleInteractiveMediaAds */; };
 		34C828ED2B28668D002C0FFC /* FlowPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C828EB2B28668D002C0FFC /* FlowPlayerView.swift */; };
 		34C828EE2B28668D002C0FFC /* FlowPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C828EC2B28668D002C0FFC /* FlowPlayerView.xib */; };
 		4E0E973E260C73D200700BCF /* MoviesFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E973D260C73D200700BCF /* MoviesFilterVC.swift */; };
@@ -359,7 +360,6 @@
 		887327072A0F5BA500D1973F /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887327052A0F5BA500D1973F /* HomeHeaderView.swift */; };
 		887327082A0F5BA500D1973F /* HomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887327062A0F5BA500D1973F /* HomeHeaderView.xib */; };
 		8876D95A2A3D81F900050243 /* WalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8876D9592A3D81F900050243 /* WalletModel.swift */; };
-		8877BF152A31D8B500969C4E /* DailymotionPlayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8877BF142A31D8B500969C4E /* DailymotionPlayerSDK */; };
 		8879228E2A4D69AB00CEF8A5 /* AddToPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879228D2A4D69AB00CEF8A5 /* AddToPopupVC.swift */; };
 		887E37AE2A1880DC0002CD20 /* MainVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 887E37AD2A1880DC0002CD20 /* MainVideo.mp4 */; };
 		887F3D552A400DD1008DC23D /* PayseraPaymentGatewayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887F3D542A400DD1008DC23D /* PayseraPaymentGatewayManager.swift */; };
@@ -911,7 +911,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8877BF152A31D8B500969C4E /* DailymotionPlayerSDK in Frameworks */,
+				343E9D732B315403002D066D /* GoogleInteractiveMediaAds in Frameworks */,
 				881FDB1F29F78A8F0075D2AF /* libPlaytubeSDK.a in Frameworks */,
 				7EFEC29428ED79A000DFE4BB /* Refreshable.framework in Frameworks */,
 				9D6463EF8BC3A9AE5DF27B53 /* Pods_LapCinema.framework in Frameworks */,
@@ -2909,7 +2909,7 @@
 			);
 			name = LapCinema;
 			packageProductDependencies = (
-				8877BF142A31D8B500969C4E /* DailymotionPlayerSDK */,
+				343E9D722B315403002D066D /* GoogleInteractiveMediaAds */,
 			);
 			productName = Playtube;
 			productReference = 5B8EC06421CB982D0095A529 /* LapCinema.app */;
@@ -2974,7 +2974,7 @@
 			);
 			mainGroup = 5B8EC05B21CB982D0095A529;
 			packageReferences = (
-				8877BF132A31D8B500969C4E /* XCRemoteSwiftPackageReference "player-sdk-ios" */,
+				344DCF4E2B315338003BF685 /* XCRemoteSwiftPackageReference "swift-google-ima-spm" */,
 			);
 			productRefGroup = 5B8EC06521CB982D0095A529 /* Products */;
 			projectDirPath = "";
@@ -3984,21 +3984,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8877BF132A31D8B500969C4E /* XCRemoteSwiftPackageReference "player-sdk-ios" */ = {
+		344DCF4E2B315338003BF685 /* XCRemoteSwiftPackageReference "swift-google-ima-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dailymotion/player-sdk-ios";
+			repositoryURL = "https://github.com/rashadatjou/swift-google-ima-spm.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8877BF142A31D8B500969C4E /* DailymotionPlayerSDK */ = {
+		343E9D722B315403002D066D /* GoogleInteractiveMediaAds */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8877BF132A31D8B500969C4E /* XCRemoteSwiftPackageReference "player-sdk-ios" */;
-			productName = DailymotionPlayerSDK;
+			package = 344DCF4E2B315338003BF685 /* XCRemoteSwiftPackageReference "swift-google-ima-spm" */;
+			productName = GoogleInteractiveMediaAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 
