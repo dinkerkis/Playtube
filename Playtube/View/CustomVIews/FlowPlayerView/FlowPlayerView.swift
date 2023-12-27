@@ -58,10 +58,13 @@ class FlowPlayerView: UIView {
         self.flowPlayerView.controlsConfig = configBuilder.build()
         
         let video_Id = video_id.video_id ?? ""
-        print("videoId", video_Id)
+        print("videoId:-", video_Id)
         
-        let media_url = MediaExternal(url: url)
-        self.flowPlayerView.load(external: media_url)
+        let adScheduleURL = AdScheduleRemote(url: URL(string: "https://dev.lapcinema.com/api.php?v=1.0&type=ad_vmap&i=131&j=2a113c58715637a94437389326a49&video_id=\(video_Id)&t=1613988214")!)
+
+        let externalMedia = MediaExternal(url: url,  adSchedule: adScheduleURL)
+        
+        self.flowPlayerView.load(external: externalMedia)
     }
     
     // Play Pause Button Action
